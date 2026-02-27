@@ -129,13 +129,13 @@
   {#if flights.length}
     <Control position="top-left">
       <ControlGroup>
-        <ControlButton onclick={fitFlights} title="Show all flights">
+        <ControlButton onclick={fitFlights} title="Mostrar todos los vuelos">
           <Fullscreen size={20} />
         </ControlButton>
         {#if filters}
           <Popover.Root>
             <Popover.Trigger>
-              <ControlButton title="Filter flights">
+              <ControlButton title="Filtrar vuelos">
                 <Funnel size={18} />
               </ControlButton>
             </Popover.Trigger>
@@ -159,7 +159,7 @@
             onclick={() => {
               filters = defaultFilters;
             }}
-            title="Clear filters"
+            title="Limpiar filtros"
           >
             <Undo2 size={20} />
           </ControlButton>

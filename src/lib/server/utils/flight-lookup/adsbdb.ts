@@ -23,20 +23,20 @@ export async function getFlightRoute(flightNumber: string) {
     `https://api.adsbdb.com/v0/callsign/${flightNumber}`,
   );
   if (!resp.ok) {
-    throw new Error('Flight not found');
+    throw new Error('Vuelo no encontrado');
   }
 
   const data = await resp.json();
   const parseResult = flightRouteSchema.safeParse(data);
   if (!parseResult.success) {
-    throw new Error('Flight not found');
+    throw new Error('Vuelo no encontrado');
   }
 
   const result = parseResult.data.response.flightroute;
   const from = await getAirportByIcao(result.origin.icao_code);
   const to = await getAirportByIcao(result.destination.icao_code);
   if (!from || !to) {
-    throw new Error('Flight not found');
+    throw new Error('Vuelo no encontrado');
   }
 
   const airline = await getAirlineByIcao(result.airline.icao);

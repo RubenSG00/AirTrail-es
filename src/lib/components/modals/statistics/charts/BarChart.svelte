@@ -43,7 +43,7 @@
 
     {#if noData}
       <div class="flex items-center justify-center h-[200px]">
-        <p class="text-zinc-400 dark:text-zinc-600">No data</p>
+        <p class="text-zinc-400 dark:text-zinc-600">Sin datos</p>
       </div>
     {:else}
       <div class="space-y-3">

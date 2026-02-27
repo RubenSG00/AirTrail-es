@@ -40,14 +40,14 @@ export async function getFlightRoute(
   const config = await appConfig.get();
   const apiKey = config?.integrations?.aeroDataBoxKey ?? null;
   if (!apiKey) {
-    throw new Error('AeroDataBox API key not configured');
+    throw new Error('Clave API de AeroDataBox no configurada');
   }
 
   const cleaned = sanitizeFlightNumber(flightNumber);
 
   const date = opts?.date;
   if (date && !isValidDateWithin365(date)) {
-    throw new Error('Date must be within 365 days of today');
+    throw new Error('La fecha debe estar dentro de los 365 días desde hoy');
   }
 
   let url: string;
@@ -71,11 +71,11 @@ export async function getFlightRoute(
   });
 
   if (resp.status === 204) {
-    throw new Error('No matching flights found');
+    throw new Error('No se encontraron vuelos coincidentes');
   }
   if (!resp.ok) {
     console.error('Failed to fetch flight data:', resp.statusText);
-    throw new Error('Failed to fetch flight data');
+    throw new Error('Error al obtener datos del vuelo');
   }
 
   type AedbxFlight = {
@@ -101,7 +101,7 @@ export async function getFlightRoute(
 
   const data = (await resp.json()) as AedbxFlight[];
   if (!Array.isArray(data) || data.length === 0) {
-    throw new Error('No matching flights found');
+    throw new Error('No se encontraron vuelos coincidentes');
   }
 
   const result: FlightLookupResult = [];
@@ -186,7 +186,7 @@ async function getAircraftFromReg(reg: string): Promise<Aircraft | null> {
   const config = await appConfig.get();
   const apiKey = config?.integrations?.aeroDataBoxKey ?? null;
   if (!apiKey) {
-    throw new Error('AeroDataBox API key not configured');
+    throw new Error('Clave API de AeroDataBox no configurada');
   }
 
   const url = `${BASE_URL}/aircrafts/reg/${encodeURIComponent(reg)}`;

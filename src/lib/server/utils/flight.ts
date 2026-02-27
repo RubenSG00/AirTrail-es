@@ -65,7 +65,7 @@ export const validateAndSaveFlight = async (
     try {
       return { value: mergeTimeWithDate(date, time, tzId) };
     } catch {
-      return { error: pathError(path, 'Invalid time format') };
+      return { error: pathError(path, 'Formato de hora inválido') };
     }
   };
 
@@ -74,7 +74,7 @@ export const validateAndSaveFlight = async (
 
   // Either departure or departureScheduled must be set
   if (!data.departure && !data.departureScheduled) {
-    return pathError('departure', 'Select a departure date');
+    return pathError('departure', 'Selecciona una fecha de salida');
   }
 
   // Use departure if available, otherwise fall back to departureScheduled for the date field
@@ -84,7 +84,7 @@ export const validateAndSaveFlight = async (
     // Y2K38
     return pathError(
       data.departure ? 'departure' : 'departureScheduled',
-      'Too far in the past',
+      'Fecha demasiado antigua',
     );
   }
 
@@ -95,7 +95,7 @@ export const validateAndSaveFlight = async (
         ? mergeTimeWithDate(data.departure, data.departureTime, from.tz)
         : undefined;
     } catch {
-      return pathError('departureTime', 'Invalid time format');
+      return pathError('departureTime', 'Formato de hora inválido');
     }
   }
 
@@ -130,10 +130,10 @@ export const validateAndSaveFlight = async (
     ? parseLocalISO(data.arrival, to.tz)
     : undefined;
   if (arrivalDate && isBeforeEpoch(arrivalDate)) {
-    return pathError('arrival', 'Too far in the past');
+    return pathError('arrival', 'Fecha demasiado antigua');
   }
   if (arrivalDate && !data.arrivalTime) {
-    return pathError('arrival', 'Cannot have arrival date without time');
+    return pathError('arrival', 'No se puede tener fecha de llegada sin hora');
   }
 
   if (data.arrivalTime && !data.arrival) {
@@ -147,7 +147,7 @@ export const validateAndSaveFlight = async (
         ? mergeTimeWithDate(data.arrival, data.arrivalTime, to.tz)
         : undefined;
   } catch {
-    return pathError('arrivalTime', 'Invalid time format');
+    return pathError('arrivalTime', 'Formato de hora inválido');
   }
 
   const arrivalScheduledResult = parseDateTimeField(
@@ -178,7 +178,7 @@ export const validateAndSaveFlight = async (
   const landingActual = landingActualResult.value;
 
   if (arrival && departure && isBefore(arrival, departure)) {
-    return pathError('arrival', 'Arrival must be after departure');
+    return pathError('arrival', 'La llegada debe ser posterior a la salida');
   }
 
   let duration: number | null = null;
@@ -249,7 +249,7 @@ export const validateAndSaveFlight = async (
         success: false,
         type: 'httpError',
         status: 403,
-        message: 'Flight not found or you do not have a seat on this flight',
+        message: 'Vuelo no encontrado o no tienes un asiento en este vuelo',
       };
     }
 
@@ -273,11 +273,11 @@ export const validateAndSaveFlight = async (
       return {
         success: false,
         type: 'error',
-        message: 'Failed to update flight',
+        message: 'Error al actualizar el vuelo',
       };
     }
 
-    return { success: true, message: 'Flight updated successfully' };
+    return { success: true, message: 'Vuelo actualizado correctamente' };
   }
 
   let flightId: number;
@@ -305,13 +305,13 @@ export const validateAndSaveFlight = async (
     return {
       success: false,
       type: 'error',
-      message: 'Failed to add flight',
+      message: 'Error al añadir el vuelo',
     };
   }
 
   return {
     success: true,
-    message: 'Flight added',
+    message: 'Vuelo añadido',
     id: flightId,
   };
 };

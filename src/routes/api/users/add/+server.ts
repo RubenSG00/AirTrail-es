@@ -14,17 +14,17 @@ export const POST: RequestHandler = async ({ locals, request }) => {
 
   const user = locals.user;
   if (!user) {
-    return actionResult('error', 'You must be logged in to create users.', 401);
+    return actionResult('error', 'Debes iniciar sesión para crear usuarios.', 401);
   }
   if (user.role === 'user') {
-    return actionResult('error', 'You must be an admin to create users.', 403);
+    return actionResult('error', 'Debes ser administrador para crear usuarios.', 403);
   }
 
   const { username, password, displayName, unit, role } = form.data;
 
   const exists = await usernameExists(username);
   if (exists) {
-    setError(form, 'username', 'Username already exists');
+    setError(form, 'username', 'El nombre de usuario ya existe');
     return actionResult('failure', { form });
   }
 
@@ -40,10 +40,10 @@ export const POST: RequestHandler = async ({ locals, request }) => {
     role,
   );
   if (!success) {
-    form.message = { type: 'error', text: 'Failed to create user' };
+    form.message = { type: 'error', text: 'Error al crear usuario' };
     return actionResult('failure', { form });
   }
 
-  form.message = { type: 'success', text: 'User created' };
+  form.message = { type: 'success', text: 'Usuario creado' };
   return actionResult('success', { form });
 };

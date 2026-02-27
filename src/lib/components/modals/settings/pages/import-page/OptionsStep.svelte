@@ -29,7 +29,7 @@
 </script>
 
 <div class="space-y-2">
-  <h3 class="text-sm font-medium">Options</h3>
+  <h3 class="text-sm font-medium">Opciones</h3>
   <Card class="p-3 space-y-2">
     {#if showAirlineFromFlightNumber}
       <div class="flex items-center gap-2">
@@ -42,7 +42,7 @@
           id="match-airline-from-flight-number-label"
           for="match-airline-from-flight-number"
         >
-          Match airline from flight number
+          Asociar aerolínea por número de vuelo
         </Label>
       </div>
     {/if}
@@ -54,7 +54,7 @@
           aria-labelledby="owner-only-label"
         />
         <Label id="owner-only-label" for="owner-only"
-          >Only import your flights</Label
+          >Solo importar tus vuelos</Label
         >
       </div>
     {/if}
@@ -65,12 +65,12 @@
         aria-labelledby="dedupe-imported-flights-label"
       />
       <Label id="dedupe-imported-flights-label" for="dedupe-imported-flights">
-        Deduplicate imported flights
+        Deduplicar vuelos importados
       </Label>
     </div>
   </Card>
   <div class="mt-4 flex justify-between">
-    <Button variant="secondary" onclick={() => onback?.()}>Back</Button>
+    <Button variant="secondary" onclick={() => onback?.()}>Atrás</Button>
     <Button onclick={() => onimport?.()} disabled={!canImport || importing}>
       {#if importing}
         <LoaderCircle class="animate-spin mr-1" size={16} />

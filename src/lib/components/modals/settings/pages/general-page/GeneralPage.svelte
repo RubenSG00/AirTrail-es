@@ -12,7 +12,7 @@
 
 <PageHeader
   title="General"
-  subtitle="Set up your account and manage your settings."
+  subtitle="Configura tu cuenta y gestiona tus ajustes."
 >
   {#if user}
     <div class="flex justify-between">
@@ -23,7 +23,7 @@
         >
       </div>
       <form method="POST" action="/log-out">
-        <Button variant="destructiveOutline">Log out</Button>
+        <Button variant="destructiveOutline">Cerrar sesión</Button>
       </form>
     </div>
     <EditUserForm />

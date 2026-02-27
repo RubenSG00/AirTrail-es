@@ -17,17 +17,17 @@
   const { form: formData } = form;
 
   const durationOptions = [
-    { value: 'never', label: 'Never expires' },
-    { value: '1day', label: '1 day' },
-    { value: '1week', label: '1 week' },
-    { value: '1month', label: '1 month' },
-    { value: '3months', label: '3 months' },
-    { value: 'custom', label: 'Custom date' },
+    { value: 'never', label: 'No expira nunca' },
+    { value: '1day', label: '1 día' },
+    { value: '1week', label: '1 semana' },
+    { value: '1month', label: '1 mes' },
+    { value: '3months', label: '3 meses' },
+    { value: 'custom', label: 'Fecha personalizada' },
   ];
 
   const getCurrentDurationLabel = (value: string) => {
     const option = durationOptions.find((opt) => opt.value === value);
-    return option?.label || 'Select duration';
+    return option?.label || 'Seleccionar duración';
   };
 
   function generateNewSlug() {
@@ -39,7 +39,7 @@
 <Form.Field {form} name="slug" class="flex flex-col">
   <Form.Control>
     {#snippet children({ props })}
-      <Form.Label>Share URL *</Form.Label>
+      <Form.Label>URL del compartido *</Form.Label>
       <div class="flex gap-2">
         <div class="flex-1 flex min-w-0">
           <span
@@ -72,7 +72,7 @@
 <Form.Field {form} name="expiryOption" class="flex flex-col">
   <Form.Control>
     {#snippet children({ props })}
-      <Form.Label>Share Duration</Form.Label>
+      <Form.Label>Duración del compartido</Form.Label>
       <Select.Root type="single" bind:value={$formData.expiryOption}>
         <Select.Trigger {...props}>
           {getCurrentDurationLabel($formData.expiryOption)}
@@ -90,18 +90,18 @@
 </Form.Field>
 
 {#if $formData.expiryOption === 'custom'}
-  <DateField {form} name="expiresAt" label="Expires At" />
+  <DateField {form} name="expiresAt" label="Expira el" />
 {/if}
 
 <!-- Content Visibility -->
 <div class="flex flex-col gap-2">
-  <Label class="text-sm font-medium">Content Visibility</Label>
+  <Label class="text-sm font-medium">Visibilidad del Contenido</Label>
   <div class="flex flex-col gap-2">
     <Form.Field {form} name="showMap" class="flex flex-row items-center">
       <Form.Control>
         {#snippet children({ props })}
           <Checkbox bind:checked={$formData.showMap} {...props} />
-          <Form.Label class="text-sm font-normal">Show Map</Form.Label>
+          <Form.Label class="text-sm font-normal">Mostrar Mapa</Form.Label>
         {/snippet}
       </Form.Control>
     </Form.Field>
@@ -110,7 +110,7 @@
       <Form.Control>
         {#snippet children({ props })}
           <Checkbox bind:checked={$formData.showStats} {...props} />
-          <Form.Label class="text-sm font-normal">Show Statistics</Form.Label>
+          <Form.Label class="text-sm font-normal">Mostrar Estadísticas</Form.Label>
         {/snippet}
       </Form.Control>
     </Form.Field>
@@ -119,7 +119,7 @@
       <Form.Control>
         {#snippet children({ props })}
           <Checkbox bind:checked={$formData.showFlightList} {...props} />
-          <Form.Label class="text-sm font-normal">Show Flight List</Form.Label>
+          <Form.Label class="text-sm font-normal">Mostrar Lista de Vuelos</Form.Label>
         {/snippet}
       </Form.Control>
     </Form.Field>
@@ -131,12 +131,12 @@
   {form}
   startName="dateFrom"
   endName="dateTo"
-  label="Date Range (Optional)"
+  label="Rango de Fechas (Opcional)"
 />
 
 <!-- Data Privacy -->
 <div class="flex flex-col gap-2">
-  <Label class="text-sm font-medium">Data Privacy</Label>
+  <Label class="text-sm font-medium">Privacidad de Datos</Label>
   <div class="flex flex-col gap-2">
     <Form.Field
       {form}
@@ -147,7 +147,7 @@
         {#snippet children({ props })}
           <Checkbox bind:checked={$formData.showFlightNumbers} {...props} />
           <Form.Label class="text-sm font-normal"
-            >Show Flight Numbers</Form.Label
+            >Mostrar Números de Vuelo</Form.Label
           >
         {/snippet}
       </Form.Control>
@@ -157,7 +157,7 @@
       <Form.Control>
         {#snippet children({ props })}
           <Checkbox bind:checked={$formData.showAirlines} {...props} />
-          <Form.Label class="text-sm font-normal">Show Airlines</Form.Label>
+          <Form.Label class="text-sm font-normal">Mostrar Aerolíneas</Form.Label>
         {/snippet}
       </Form.Control>
     </Form.Field>
@@ -167,7 +167,7 @@
         {#snippet children({ props })}
           <Checkbox bind:checked={$formData.showAircraft} {...props} />
           <Form.Label class="text-sm font-normal"
-            >Show Aircraft Types</Form.Label
+            >Mostrar Tipos de Aeronave</Form.Label
           >
         {/snippet}
       </Form.Control>
@@ -177,7 +177,7 @@
       <Form.Control>
         {#snippet children({ props })}
           <Checkbox bind:checked={$formData.showTimes} {...props} />
-          <Form.Label class="text-sm font-normal">Show Flight Times</Form.Label>
+          <Form.Label class="text-sm font-normal">Mostrar Horarios de Vuelo</Form.Label>
         {/snippet}
       </Form.Control>
     </Form.Field>
@@ -186,7 +186,7 @@
       <Form.Control>
         {#snippet children({ props })}
           <Checkbox bind:checked={$formData.showDates} {...props} />
-          <Form.Label class="text-sm font-normal">Show Flight Dates</Form.Label>
+          <Form.Label class="text-sm font-normal">Mostrar Fechas de Vuelo</Form.Label>
         {/snippet}
       </Form.Control>
     </Form.Field>
@@ -195,7 +195,7 @@
       <Form.Control>
         {#snippet children({ props })}
           <Checkbox bind:checked={$formData.showSeat} {...props} />
-          <Form.Label class="text-sm font-normal">Show Seat</Form.Label>
+          <Form.Label class="text-sm font-normal">Mostrar Asiento</Form.Label>
         {/snippet}
       </Form.Control>
     </Form.Field>

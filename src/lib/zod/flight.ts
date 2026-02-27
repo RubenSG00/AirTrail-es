@@ -16,13 +16,13 @@ const timePrimitive = z
     if (value === '') return true;
 
     return regex24h.test(value);
-  }, 'Invalid 24-hour format')
+  }, 'Formato de 24 horas inválido')
   .refine((value) => {
     // Skip 12-hour check if empty or not possibly 12-hour format (caught by the previous refine)
     if (value === '' || !regex12hLike.test(value)) return true;
 
     return regex12h.test(value);
-  }, 'Invalid 12-hour format')
+  }, 'Formato de 12 horas inválido')
   .nullable();
 
 const dateTimePrimitive = z.string().datetime({ offset: true });
@@ -31,24 +31,24 @@ export const flightAirportsSchema = z.object({
   from: flightAirportSchema
     .nullable()
     .default(null)
-    .refine((value) => value !== null, 'Select a departure airport'),
+    .refine((value) => value !== null, 'Selecciona un aeropuerto de salida'),
   to: flightAirportSchema
     .nullable()
     .default(null)
-    .refine((value) => value !== null, 'Select an arrival airport'),
+    .refine((value) => value !== null, 'Selecciona un aeropuerto de llegada'),
 });
 
 export const flightDateTimeSchema = z.object({
   departure: z
     .string()
-    .datetime({ offset: true, message: 'Select a departure date' })
+    .datetime({ offset: true, message: 'Selecciona una fecha de salida' })
     .nullable(),
   departureTime: timePrimitive,
   departureScheduled: dateTimePrimitive.nullable(),
   departureScheduledTime: timePrimitive,
   arrival: z
     .string()
-    .datetime({ offset: true, message: 'Select an arrival date' })
+    .datetime({ offset: true, message: 'Selecciona una fecha de llegada' })
     .nullable(),
   arrivalTime: timePrimitive,
   arrivalScheduled: dateTimePrimitive.nullable(),
@@ -67,19 +67,19 @@ export const flightSeatInformationSchema = z.object({
   seats: z
     .object({
       userId: z.string().nullable(),
-      guestName: z.string().max(50, 'Guest name is too long').nullable(),
+      guestName: z.string().max(50, 'El nombre del invitado es demasiado largo').nullable(),
       seat: z.enum(SeatTypes).nullable(),
-      seatNumber: z.string().max(5, 'Seat number is too long').nullable(), // 12A-1 for example
+      seatNumber: z.string().max(5, 'El número de asiento es demasiado largo').nullable(), // 12A-1 for example
       seatClass: z.enum(SeatClasses).nullable(),
     })
     .refine((data) => data.userId ?? data.guestName, {
-      message: 'Select a user or add a guest name',
+      message: 'Selecciona un usuario o añade un nombre de invitado',
       path: ['userId'],
     })
     .array()
-    .min(1, 'Add at least one seat')
+    .min(1, 'Añade al menos un asiento')
     .refine((data) => data.some((seat) => seat.userId), {
-      message: 'At least one seat must be assigned to a user',
+      message: 'Al menos un asiento debe estar asignado a un usuario',
     })
     .default([
       {

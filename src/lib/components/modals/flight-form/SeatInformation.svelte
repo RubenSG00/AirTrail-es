@@ -28,13 +28,13 @@
   const { form: formData, errors } = form;
 
   const seatTypeLabels: Record<string, string> = {
-    window: 'Window',
-    middle: 'Middle',
-    aisle: 'Aisle',
-    pilot: 'Pilot',
-    copilot: 'Co-pilot',
-    jumpseat: 'Jumpseat',
-    other: 'Other',
+    window: 'Ventanilla',
+    middle: 'Centro',
+    aisle: 'Pasillo',
+    pilot: 'Piloto',
+    copilot: 'Copiloto',
+    jumpseat: 'Asiento plegable',
+    other: 'Otro',
   };
 
   const getExcludedUserIds = (currentIndex: number): string[] => {
@@ -46,7 +46,7 @@
 </script>
 
 <section>
-  <h3 class="font-medium">Seat Information</h3>
+  <h3 class="font-medium">Información de Asiento</h3>
   <Separator class="my-2" />
   <Form.Fieldset {form} name="seats">
     <div class="space-y-2" use:autoAnimate>
@@ -63,7 +63,7 @@
                 />
               </div>
               <TextTooltip
-                content="Remove seat"
+                content="Eliminar asiento"
                 rootProps={{ delayDuration: 0 }}
               >
                 <Button
@@ -90,7 +90,7 @@
                 <Form.ElementField {form} name="seats[{index}].seatClass">
                   <Form.Control>
                     {#snippet children({ props })}
-                      <Form.Label class="text-xs">Class</Form.Label>
+                      <Form.Label class="text-xs">Clase</Form.Label>
                       <Select.Root
                         type="single"
                         value={$formData.seats[index]?.seatClass ?? undefined}
@@ -109,14 +109,14 @@
                         <Select.Trigger {...props} size="sm">
                           {$formData.seats[index]?.seatClass
                             ? toTitleCase($formData.seats[index].seatClass)
-                            : 'Select class'}
+                            : 'Seleccionar clase'}
                         </Select.Trigger>
                         <Select.Content>
-                          <Select.Item value="economy" label="Economy" />
-                          <Select.Item value="economy+" label="Economy+" />
-                          <Select.Item value="business" label="Business" />
-                          <Select.Item value="first" label="First" />
-                          <Select.Item value="private" label="Private" />
+                          <Select.Item value="economy" label="Turista" />
+                          <Select.Item value="economy+" label="Turista+" />
+                          <Select.Item value="business" label="Negocios" />
+                          <Select.Item value="first" label="Primera" />
+                          <Select.Item value="private" label="Privado" />
                         </Select.Content>
                       </Select.Root>
                       <input
@@ -132,7 +132,7 @@
                 <Form.ElementField {form} name="seats[{index}].seatNumber">
                   <Form.Control>
                     {#snippet children({ props })}
-                      <Form.Label class="text-xs">Seat #</Form.Label>
+                      <Form.Label class="text-xs">Asiento #</Form.Label>
                       <Input
                         value={$formData.seats[index]?.seatNumber ?? ''}
                         oninput={(e) => {
@@ -154,7 +154,7 @@
               <Form.ElementField {form} name="seats[{index}].seat">
                 <Form.Control>
                   {#snippet children({ props })}
-                    <Form.Label class="sr-only">Seat Type</Form.Label>
+                    <Form.Label class="sr-only">Tipo de Asiento</Form.Label>
                     <div class="flex flex-wrap gap-1.5">
                       {#each SeatTypes as type}
                         <button

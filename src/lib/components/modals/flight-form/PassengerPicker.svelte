@@ -159,7 +159,7 @@
   <div class="relative">
     <input
       use:melt={$input}
-      placeholder="Passenger Name"
+      placeholder="Nombre del Pasajero"
       class={cn(
         'w-full min-w-0 bg-transparent text-sm font-medium outline-none transition-all',
         'placeholder:text-muted-foreground/60',
@@ -212,7 +212,7 @@
           </div>
         {:else if !showGuestOption}
           <div class="px-3 py-3 text-sm text-muted-foreground">
-            Start typing to search...
+            Escribe para buscar...
           </div>
         {/if}
 
@@ -250,7 +250,7 @@
                   <UserRoundPlus size={14} class="text-muted-foreground" />
                 </div>
                 <span class="text-sm text-muted-foreground">
-                  Create new user "<span class="font-medium text-foreground"
+                  Crear nuevo usuario "<span class="font-medium text-foreground"
                     >{trimmedInput}</span
                   >"
                 </span>

@@ -32,7 +32,7 @@
       type="button"
       tabindex="-1"
       class="absolute inset-y-0 end-0 px-4"
-      title="Toggle password visibility"
+      title="Alternar visibilidad de contraseña"
     >
       {#if showPassword}
         <EyeOff size="20" />

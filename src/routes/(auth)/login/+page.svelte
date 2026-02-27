@@ -116,12 +116,12 @@
     <div class="flex items-center justify-center">
       <div class="mx-auto grid w-[350px] gap-6">
         <div class="grid gap-2 text-center">
-          <h1 class="text-3xl font-bold">Login</h1>
+          <h1 class="text-3xl font-bold">Iniciar Sesión</h1>
           <p class="text-muted-foreground text-balance">
             {#if !appConfig.oauth.enabled}
-              Welcome back! Enter your username and password to login
+              Bienvenido de nuevo. Introduce tu nombre de usuario y contraseña para iniciar sesión
             {:else}
-              Welcome back! Login below
+              Bienvenido de nuevo. Inicia sesión a continuación
             {/if}
           </p>
         </div>
@@ -135,7 +135,7 @@
             <Form.Field {form} name="username">
               <Form.Control>
                 {#snippet children({ props })}
-                  <Form.Label>Username</Form.Label>
+                  <Form.Label>Nombre de usuario</Form.Label>
                   <Input {...props} bind:value={$formData.username} />
                 {/snippet}
               </Form.Control>
@@ -144,7 +144,7 @@
             <Form.Field {form} name="password">
               <Form.Control>
                 {#snippet children({ props })}
-                  <Form.Label>Password</Form.Label>
+                  <Form.Label>Contraseña</Form.Label>
                   <PasswordInput {...props} bind:value={$formData.password} />
                 {/snippet}
               </Form.Control>

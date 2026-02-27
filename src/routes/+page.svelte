@@ -147,13 +147,13 @@
   const deleteFlightMutation = trpc.flight.delete.mutation(invalidator);
 
   const deleteFlight = async (id: number) => {
-    const toastId = toast.loading('Deleting flight...');
+    const toastId = toast.loading('Eliminando vuelo...');
     try {
       await $deleteFlightMutation.mutateAsync(id);
-      toast.success('Flight deleted', { id: toastId });
+      toast.success('Vuelo eliminado', { id: toastId });
     } catch (error) {
       console.error(error);
-      toast.error('Failed to delete flight', { id: toastId });
+      toast.error('Error al eliminar vuelo', { id: toastId });
     }
   };
 </script>

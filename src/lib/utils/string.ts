@@ -1,10 +1,53 @@
+const spanishLabels: Record<string, string> = {
+  // Roles
+  admin: 'Administrador',
+  user: 'Usuario',
+  // Units
+  metric: 'Métrico',
+  imperial: 'Imperial',
+  // Seat types
+  window: 'Ventanilla',
+  aisle: 'Pasillo',
+  middle: 'Centro',
+  pilot: 'Piloto',
+  copilot: 'Copiloto',
+  jumpseat: 'Asiento plegable',
+  other: 'Otro',
+  // Seat classes
+  economy: 'Turista',
+  'economy+': 'Turista+',
+  business: 'Negocios',
+  first: 'Primera',
+  private: 'Privado',
+  // Flight reasons
+  leisure: 'Ocio',
+  crew: 'Tripulación',
+  // Country statuses
+  visited: 'Visitado',
+  lived: 'Vivido',
+  wishlist: 'Deseo',
+  layover: 'Escala',
+  // Airport types
+  small_airport: 'Aeropuerto pequeño',
+  medium_airport: 'Aeropuerto mediano',
+  large_airport: 'Aeropuerto grande',
+  heliport: 'Helipuerto',
+  balloonport: 'Puerto de globos',
+  seaplane_base: 'Base de hidroaviones',
+  closed: 'Cerrado',
+};
+
 export const toTitleCase = (str: string) => {
+  const lower = str.toLowerCase();
+  if (spanishLabels[lower]) return spanishLabels[lower];
   return str.replace(/\w\S*/g, (txt) => {
     return txt.charAt(0).toUpperCase() + txt.substring(1).toLowerCase();
   });
 };
 
 export const snakeToTitleCase = (str: string) => {
+  const lower = str.toLowerCase();
+  if (spanishLabels[lower]) return spanishLabels[lower];
   return toTitleCase(str.replace(/_/g, ' '));
 };
 

@@ -96,7 +96,7 @@
     try {
       payload = buildPayload(editing);
     } catch (e) {
-      toast.error(e instanceof Error ? e.message : 'Invalid default value');
+      toast.error(e instanceof Error ? e.message : 'Valor predeterminado no válido');
       return;
     }
 
@@ -112,15 +112,15 @@
           id: editing.id,
           ...payload,
         });
-        toast.success('Custom field updated');
+        toast.success('Campo personalizado actualizado');
       } else {
         await api.customField.createDefinition.mutate(payload);
-        toast.success('Custom field created');
+        toast.success('Campo personalizado creado');
       }
       invalidate();
       close();
     } catch (e) {
-      toast.error('Failed to save custom field');
+      toast.error('Error al guardar campo personalizado');
       console.error(e);
     }
   };
@@ -135,15 +135,15 @@
 <Modal bind:open class="max-w-lg" closeOnOutsideClick={false}>
   {#if editing}
     <ModalBreadcrumbHeader
-      section="Custom fields"
-      title={editing.id ? 'Edit field' : 'Add field'}
+      section="Campos personalizados"
+      title={editing.id ? 'Editar campo' : 'Añadir campo'}
       icon={SlidersHorizontal}
     />
     <ModalBody>
       <div class="grid gap-4">
         <div class="grid gap-1">
           <label class="text-sm font-medium" for="custom-field-label"
-            >Label</label
+            >Etiqueta</label
           >
           <Input
             id="custom-field-label"
@@ -154,7 +154,7 @@
         </div>
 
         <div class="grid gap-1">
-          <label class="text-sm font-medium" for="custom-field-key">Key</label>
+          <label class="text-sm font-medium" for="custom-field-key">Clave</label>
           <Input
             id="custom-field-key"
             value={editing.key}
@@ -165,7 +165,7 @@
 
         <div class="grid gap-1">
           <label class="text-sm font-medium" for="custom-field-type-trigger"
-            >Type</label
+            >Tipo</label
           >
           <Select.Root
             type="single"
@@ -185,15 +185,15 @@
               >{FIELD_TYPE_LABELS[editing.fieldType]}</Select.Trigger
             >
             <Select.Content>
-              <Select.Item value="text" label="Short text" />
-              <Select.Item value="textarea" label="Long text" />
-              <Select.Item value="number" label="Number" />
-              <Select.Item value="boolean" label="Boolean" />
-              <Select.Item value="date" label="Date" />
-              <Select.Item value="select" label="Select" />
-              <Select.Item value="airport" label="Airport" />
-              <Select.Item value="airline" label="Airline" />
-              <Select.Item value="aircraft" label="Aircraft" />
+              <Select.Item value="text" label="Texto corto" />
+              <Select.Item value="textarea" label="Texto largo" />
+              <Select.Item value="number" label="Número" />
+              <Select.Item value="boolean" label="Booleano" />
+              <Select.Item value="date" label="Fecha" />
+              <Select.Item value="select" label="Selección" />
+              <Select.Item value="airport" label="Aeropuerto" />
+              <Select.Item value="airline" label="Aerolínea" />
+              <Select.Item value="aircraft" label="Aeronave" />
             </Select.Content>
           </Select.Root>
         </div>
@@ -206,7 +206,7 @@
             >
               Regex
               <HelpTooltip
-                text="Optional JavaScript-style regex pattern used to validate text values."
+                text="Patrón regex opcional de estilo JavaScript utilizado para validar valores de texto."
               />
             </label>
             <Input
@@ -219,7 +219,7 @@
           <div class="grid grid-cols-2 gap-3">
             <div class="grid gap-1">
               <label class="text-sm font-medium" for="custom-field-min-length"
-                >Min length</label
+                >Longitud mín.</label
               >
               <Input
                 id="custom-field-min-length"
@@ -229,7 +229,7 @@
             </div>
             <div class="grid gap-1">
               <label class="text-sm font-medium" for="custom-field-max-length"
-                >Max length</label
+                >Longitud máx.</label
               >
               <Input
                 id="custom-field-max-length"
@@ -242,7 +242,7 @@
           <div class="grid grid-cols-2 gap-3">
             <div class="grid gap-1">
               <label class="text-sm font-medium" for="custom-field-min-value"
-                >Min value</label
+                >Valor mín.</label
               >
               <Input
                 id="custom-field-min-value"
@@ -252,7 +252,7 @@
             </div>
             <div class="grid gap-1">
               <label class="text-sm font-medium" for="custom-field-max-value"
-                >Max value</label
+                >Valor máx.</label
               >
               <Input
                 id="custom-field-max-value"
@@ -266,7 +266,7 @@
         {#if editing.fieldType === 'select'}
           <div class="grid gap-1">
             <label class="text-sm font-medium" for="custom-field-options"
-              >Options (one per line)</label
+              >Opciones (una por línea)</label
             >
             <textarea
               id="custom-field-options"
@@ -284,31 +284,31 @@
               bind:checked={editing.required}
             />
             <label class="text-sm font-normal" for="custom-field-required"
-              >Required</label
+              >Obligatorio</label
             >
           </div>
           <div class="flex items-center gap-2">
             <Switch id="custom-field-active" bind:checked={editing.active} />
             <label class="text-sm font-normal" for="custom-field-active"
-              >Active</label
+              >Activo</label
             >
           </div>
         </div>
 
         <div class="grid gap-1">
           <label class="text-sm font-medium" for="custom-field-description"
-            >Description</label
+            >Descripción</label
           >
           <Input
             id="custom-field-description"
             bind:value={editing.description}
-            placeholder="Optional helper text"
+            placeholder="Texto de ayuda opcional"
           />
         </div>
 
         <!-- Preview / default value -->
         <div class="grid gap-2">
-          <p class="text-sm font-medium">Preview</p>
+          <p class="text-sm font-medium">Vista previa</p>
           <p class="text-muted-foreground text-xs">
             This is how the field will appear. The value you enter here becomes
             the default.
@@ -316,7 +316,7 @@
           <div class="rounded-md border border-dashed bg-muted/30 p-4">
             <CustomFieldInput
               id="custom-field-preview"
-              label={editing.label || 'Untitled field'}
+              label={editing.label || 'Campo sin título'}
               fieldType={editing.fieldType}
               required={editing.required}
               options={editing.fieldType === 'select'
@@ -333,8 +333,8 @@
         </div>
 
         <div class="flex justify-end gap-2 pt-2">
-          <Button variant="outline" onclick={close}>Cancel</Button>
-          <Button onclick={save}>Save</Button>
+          <Button variant="outline" onclick={close}>Cancelar</Button>
+          <Button onclick={save}>Guardar</Button>
         </div>
       </div>
     </ModalBody>

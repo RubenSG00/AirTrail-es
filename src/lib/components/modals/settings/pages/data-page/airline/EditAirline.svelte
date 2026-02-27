@@ -75,8 +75,8 @@
 
 <Modal bind:open closeOnOutsideClick={false} class="max-w-lg">
   <ModalBreadcrumbHeader
-    section="Airlines"
-    title="Edit airline"
+    section="Aerolíneas"
+    title="Editar aerolínea"
     icon={SquarePen}
   />
   <ModalBody>
@@ -88,7 +88,7 @@
     >
       <AirlineFormFields {form} />
       <div class="space-y-2">
-        <Label>Icon</Label>
+        <Label>Icono</Label>
         <IconUploadField
           {currentIconPath}
           airlineId={airline?.id ?? null}
@@ -96,7 +96,7 @@
           onRemove={handleIconRemove}
         />
       </div>
-      <Form.Button>Save</Form.Button>
+      <Form.Button>Guardar</Form.Button>
     </form>
   </ModalBody>
 </Modal>

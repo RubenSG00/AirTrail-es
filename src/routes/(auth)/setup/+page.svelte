@@ -18,7 +18,7 @@
 
   onMount(async () => {
     if (isSetup) {
-      toast.info('AirTrail is already setup');
+      toast.info('AirTrail ya está configurado');
       await goto('/');
     }
   });
@@ -38,9 +38,9 @@
   <div class="flex items-center justify-center">
     <div class="mx-auto grid w-[350px] gap-6">
       <div class="grid gap-2 text-center">
-        <h1 class="text-3xl font-bold">Welcome</h1>
+        <h1 class="text-3xl font-bold">Bienvenido</h1>
         <p class="text-muted-foreground text-balance">
-          Welcome to AirTrail! Please set up your owner account to get started.
+          Bienvenido a AirTrail. Por favor, configura tu cuenta de propietario para comenzar.
         </p>
       </div>
       <form
@@ -52,7 +52,7 @@
         <Form.Field {form} name="username">
           <Form.Control>
             {#snippet children({ props })}
-              <Form.Label>Username</Form.Label>
+              <Form.Label>Nombre de usuario</Form.Label>
               <Input {...props} bind:value={$formData.username} />
             {/snippet}
           </Form.Control>
@@ -61,7 +61,7 @@
         <Form.Field {form} name="password">
           <Form.Control>
             {#snippet children({ props })}
-              <Form.Label>Password</Form.Label>
+              <Form.Label>Contraseña</Form.Label>
               <PasswordInput {...props} bind:value={$formData.password} />
             {/snippet}
           </Form.Control>
@@ -70,7 +70,7 @@
         <Form.Field {form} name="displayName">
           <Form.Control>
             {#snippet children({ props })}
-              <Form.Label>Display Name</Form.Label>
+              <Form.Label>Nombre para mostrar</Form.Label>
               <Input {...props} bind:value={$formData.displayName} />
             {/snippet}
           </Form.Control>
@@ -79,15 +79,15 @@
         <Form.Field {form} name="unit">
           <Form.Control>
             {#snippet children({ props })}
-              <Form.Label>Unit of measurement</Form.Label>
+              <Form.Label>Unidad de medida</Form.Label>
               <Select.Root type="single" bind:value={$formData.unit}>
                 <Select.Trigger {...props}>
                   {$formData.unit
                     ? toTitleCase($formData.unit)
-                    : 'Select a unit'}
+                    : 'Seleccionar unidad'}
                 </Select.Trigger>
                 <Select.Content>
-                  <Select.Item value="metric" label="Metric" />
+                  <Select.Item value="metric" label="Métrico" />
                   <Select.Item value="imperial" label="Imperial" />
                 </Select.Content>
               </Select.Root>

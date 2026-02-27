@@ -61,7 +61,7 @@
 {/if}
 
 <Modal bind:open>
-  <ModalBreadcrumbHeader section="Airports" title="Add airport" icon={Plus} />
+  <ModalBreadcrumbHeader section="Aeropuertos" title="Añadir aeropuerto" icon={Plus} />
   <form method="POST" action="/api/airport/save/form" use:enhance>
     <ModalBody>
       <div class="grid gap-4">
@@ -69,7 +69,7 @@
       </div>
     </ModalBody>
     <ModalFooter>
-      <Form.Button>Create</Form.Button>
+      <Form.Button>Crear</Form.Button>
     </ModalFooter>
   </form>
 </Modal>

@@ -12,7 +12,7 @@
 
   let {
     value = $bindable(null),
-    placeholder = 'Search aircraft by name or code',
+    placeholder = 'Buscar aeronave por nombre o código',
     disabled = false,
     compact = false,
     onchange,
@@ -183,7 +183,7 @@
                   <span>ICAO</span>
                   <b>{entry.icao}</b>
                 {:else}
-                  No ICAO
+                  Sin ICAO
                 {/if}
               </p>
             </div>
@@ -194,16 +194,16 @@
               class="relative cursor-default scroll-my-2 rounded-md p-2 bg-popover dark:bg-dark-1 border text-sm text-muted-foreground"
             >
               {#if loading}
-                {compact ? 'Searching...' : 'Searching aircraft...'}
+                {compact ? 'Buscando...' : 'Buscando aeronaves...'}
               {:else}
-                {compact ? 'Type to search' : 'Start typing to search...'}
+                {compact ? 'Escribe para buscar' : 'Escribe para buscar...'}
               {/if}
             </li>
           {:else}
             <li
               class="relative cursor-default scroll-my-2 rounded-md p-2 bg-popover dark:bg-dark-1 border text-sm text-muted-foreground"
             >
-              No {compact ? 'results' : 'aircraft found'}
+              No se encontraron {compact ? 'resultados' : 'aeronaves'}
             </li>
           {/if}
         {/each}

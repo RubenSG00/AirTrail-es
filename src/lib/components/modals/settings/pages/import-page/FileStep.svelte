@@ -22,7 +22,7 @@
 </script>
 
 <div class="space-y-2">
-  <h3 class="text-sm font-medium">Upload file</h3>
+  <h3 class="text-sm font-medium">Subir archivo</h3>
   <label for="file" class="block">
     <Card
       class={cn(
@@ -34,12 +34,12 @@
       {#if fileError}
         {fileError}
       {:else}
-        {files?.[0]?.name ?? 'Upload file'}
+        {files?.[0]?.name ?? 'Subir archivo'}
       {/if}
     </Card>
   </label>
   <p class="text-xs text-muted-foreground">
-    Supported: CSV, TXT, JSON, ICS. Max 5MB.
+    Soportado: CSV, TXT, JSON, ICS. Máx. 5MB.
   </p>
 </div>
 <input
@@ -52,6 +52,6 @@
   class="hidden"
 />
 <div class="mt-4 flex justify-between">
-  <Button variant="secondary" onclick={() => onback?.()}>Back</Button>
-  <Button onclick={() => onnext?.()} disabled={!canNext}>Next</Button>
+  <Button variant="secondary" onclick={() => onback?.()}>Atrás</Button>
+  <Button onclick={() => onnext?.()} disabled={!canNext}>Siguiente</Button>
 </div>

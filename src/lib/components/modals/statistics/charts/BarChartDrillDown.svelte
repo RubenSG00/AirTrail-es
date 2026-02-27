@@ -29,13 +29,13 @@
         onclick={onBack}
         class="text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200 px-0 h-auto w-fit text-left font-normal underline-offset-2"
       >
-        ← Back to Overview
+        ← Volver al resumen
       </Button>
       <h1 class="text-4xl font-bold text-zinc-900 dark:text-zinc-100">
         {continent}
       </h1>
       <p class="text-lg text-zinc-600 dark:text-zinc-400 mt-1">
-        {visitedCount} of {totalCount} countries visited
+        {visitedCount} de {totalCount} países visitados
       </p>
     </div>
   </div>

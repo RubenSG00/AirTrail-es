@@ -187,8 +187,8 @@
 
 <Modal bind:open closeOnOutsideClick={false} class="max-w-screen-lg">
   <ModalBreadcrumbHeader
-    section="Flights"
-    title="Edit flight"
+    section="Vuelos"
+    title="Editar vuelo"
     icon={SquarePen}
   />
   <form method="POST" action="/api/flight/save/form" use:enhance>
@@ -220,7 +220,7 @@
               : undefined}
           />
         </div>
-        <Form.Button size="sm" loading={$submitting}>Save</Form.Button>
+        <Form.Button size="sm" loading={$submitting}>Guardar</Form.Button>
       </div>
     </ModalFooter>
   </form>

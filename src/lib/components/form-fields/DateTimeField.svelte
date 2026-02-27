@@ -159,7 +159,7 @@
       {#snippet children({ props })}
         <Form.Label class="flex items-center gap-2">
           Time
-          <HelpTooltip text="Local airport time." />
+          <HelpTooltip text="Hora local del aeropuerto." />
         </Form.Label>
         <TimeField.Root
           value={timeValue}

@@ -38,5 +38,5 @@ export const apiError = (message: string, status = 500) => {
 };
 
 export const unauthorized = () => {
-  return apiError('Unauthorized', 401);
+  return apiError('No autorizado', 401);
 };

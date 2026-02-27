@@ -210,14 +210,14 @@
       <div
         class="flex flex-col sm:flex-row items-start sm:items-center justify-between pr-2 sm:pr-4 md:pr-8"
       >
-        <h2 class="text-3xl font-bold tracking-tight">Statistics</h2>
+        <h2 class="text-3xl font-bold tracking-tight">Estadísticas</h2>
         <div class="mt-3 sm:mt-0">
           <Select.Root type="single" bind:value={selectedYear}>
             <Select.Trigger class="w-[180px]">
-              {selectedYear === 'all' ? 'All Time' : selectedYear}
+              {selectedYear === 'all' ? 'Todo el Tiempo' : selectedYear}
             </Select.Trigger>
             <Select.Content>
-              <Select.Item value="all" label="All Time" />
+              <Select.Item value="all" label="Todo el Tiempo" />
               {#each years as year}
                 <Select.Item value={year} label={year} />
               {/each}
@@ -227,13 +227,13 @@
       </div>
       <div class="grid gap-4 pb-2 md:grid-cols-2 lg:grid-cols-5">
         <StatsCard class="py-4 px-8">
-          <h3 class="text-sm font-medium">Flights</h3>
+          <h3 class="text-sm font-medium">Vuelos</h3>
           <span class="text-2xl font-bold">
             <NumberFlow value={flightCount} />
           </span>
         </StatsCard>
         <StatsCard class="py-4 px-8">
-          <h3 class="text-sm font-medium">Distance</h3>
+          <h3 class="text-sm font-medium">Distancia</h3>
           <span class="text-2xl font-bold">
             <NumberFlow
               value={isMetric ? totalDistance : kmToMiles(totalDistance)}
@@ -248,7 +248,7 @@
           </span>
         </StatsCard>
         <StatsCard class="py-4 px-8">
-          <h3 class="text-sm font-medium">Duration</h3>
+          <h3 class="text-sm font-medium">Duración</h3>
           <span class="text-2xl font-bold">
             {#if totalDuration.days}
               <NumberFlow value={totalDurationParts.days} />d
@@ -264,7 +264,7 @@
           </span>
         </StatsCard>
         <StatsCard class="py-4 px-8">
-          <h3 class="text-sm font-medium">Airports</h3>
+          <h3 class="text-sm font-medium">Aeropuertos</h3>
           <span class="text-2xl font-bold">
             <NumberFlow value={airports} />
           </span>
@@ -272,7 +272,7 @@
         <StatsCard class="py-4 px-8">
           <div class="flex items-center justify-between gap-4">
             <div class="flex flex-col">
-              <h3 class="text-sm font-medium">Countries</h3>
+              <h3 class="text-sm font-medium">Países</h3>
               <span class="text-2xl font-bold">
                 <NumberFlow value={countriesCount} />
               </span>
@@ -290,7 +290,7 @@
           </div>
         </StatsCard>
       </div>
-      <h3 class="text-2xl font-bold tracking-tight pt-4">Flight Statistics</h3>
+      <h3 class="text-2xl font-bold tracking-tight pt-4">Estadísticas de Vuelos</h3>
       <PieCharts
         {flights}
         onOpenChart={(key) => (activeChart = key)}
@@ -302,18 +302,18 @@
       </div>
       {#if selectedYear === 'all'}
         <h3 class="text-2xl font-bold tracking-tight pt-4">
-          Country Statistics
+          Estadísticas de Países
         </h3>
         <div class="grid gap-4 pb-2 md:grid-cols-2 xl:grid-cols-3">
           <div
             class="cursor-pointer"
             onclick={() => (activeChart = 'visited-country-status')}
           >
-            <PieChart title="Visited Country Status" data={countryStatusData} />
+            <PieChart title="Estado de Países Visitados" data={countryStatusData} />
           </div>
         </div>
         <BarChart
-          title="Countries by Continent"
+          title="Países por Continente"
           data={countriesByContinentData}
           onBarClick={(continent) => (activeContinent = continent)}
         />

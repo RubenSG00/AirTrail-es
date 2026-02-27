@@ -120,13 +120,13 @@ export const validateAndSaveAirline = async (
       return {
         success: false,
         type: 'error',
-        message: 'Failed to update airline',
+        message: 'Error al actualizar la aerolínea',
       };
     }
 
     return {
       success: true,
-      message: 'Airline updated',
+      message: 'Aerolínea actualizada',
     };
   } else {
     let newId: number;
@@ -142,13 +142,13 @@ export const validateAndSaveAirline = async (
       return {
         success: false,
         type: 'error',
-        message: 'Failed to create airline',
+        message: 'Error al crear la aerolínea',
       };
     }
 
     return {
       success: true,
-      message: 'Airline created',
+      message: 'Aerolínea creada',
       id: newId,
     };
   }

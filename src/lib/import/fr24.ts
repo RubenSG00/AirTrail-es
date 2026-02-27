@@ -100,7 +100,7 @@ export const processFR24File = async (
 
   const userId = page.data.user?.id;
   if (!userId) {
-    throw new Error('User not found');
+    throw new Error('Usuario no encontrado');
   }
 
   const flights: CreateFlight[] = [];

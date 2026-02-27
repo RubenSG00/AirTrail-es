@@ -121,7 +121,7 @@
 
 <Modal bind:open class="max-w-md" closeOnOutsideClick={false}>
   <ModalHeader class="pb-0">
-    <h2 class="text-lg font-medium">Custom Fields</h2>
+    <h2 class="text-lg font-medium">Campos Personalizados</h2>
   </ModalHeader>
   <ModalBody>
     <div class="grid gap-4">
@@ -138,13 +138,13 @@
         <div class="flex flex-col items-center gap-3 py-4 text-center">
           <SlidersHorizontal size={32} class="text-muted-foreground/50" />
           <div class="space-y-1">
-            <p class="text-sm font-medium">No custom fields yet</p>
+            <p class="text-sm font-medium">Aún no hay campos personalizados</p>
             <p class="text-sm text-muted-foreground">
               {#if onOpenSettings}
                 Track extra details on your flights like ticket price, booking
                 reference, or frequent flyer points.
               {:else}
-                An administrator can configure custom fields in settings.
+                Un administrador puede configurar campos personalizados en la configuración.
               {/if}
             </p>
           </div>
@@ -190,9 +190,9 @@
           open = false;
         }}
       >
-        Cancel
+        Cancelar
       </Button>
-      <Button size="sm" onclick={() => (open = false)}>Save</Button>
+      <Button size="sm" onclick={() => (open = false)}>Guardar</Button>
     </div>
   {/if}
 </Modal>

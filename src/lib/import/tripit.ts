@@ -103,7 +103,7 @@ export const processTripItFile = async (
   options: PlatformOptions,
 ) => {
   const userId = page.data.user?.id;
-  if (!userId) throw new Error('User not found');
+  if (!userId) throw new Error('Usuario no encontrado');
 
   const lines = unfoldIcs(input);
 

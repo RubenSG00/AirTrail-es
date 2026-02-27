@@ -55,13 +55,13 @@ export const AirportTypes = [
 ] as const;
 export const Continents = ['AF', 'AS', 'EU', 'NA', 'OC', 'SA', 'AN'] as const;
 export const ContinentMap = {
-  EU: 'Europe',
-  NA: 'North America',
-  SA: 'South America',
+  EU: 'Europa',
+  NA: 'América del Norte',
+  SA: 'América del Sur',
   AS: 'Asia',
-  AF: 'Africa',
-  OC: 'Oceania',
-  AN: 'Antarctica',
+  AF: 'África',
+  OC: 'Oceanía',
+  AN: 'Antártida',
 };
 
 export const SeatTypes = [

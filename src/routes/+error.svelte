@@ -5,14 +5,14 @@
 
 <div class="flex flex-col h-full items-center justify-center">
   {#if page.status === 404}
-    <p class="text-lg">Page not found</p>
+    <p class="text-lg">Página no encontrada</p>
     <h1 class="text-3xl font-bold">404</h1>
-    <Button href="/" variant="outline">Go back</Button>
+    <Button href="/" variant="outline">Volver</Button>
   {:else}
-    <h1 class="text-4xl font-bold">An unknown error occured</h1>
+    <h1 class="text-4xl font-bold">Ha ocurrido un error desconocido</h1>
     <p class="text-lg">{page.error?.message}</p>
     <p class="italic text-sm">
-      If you are the site owner, please check the logs for more information.
+      Si eres el propietario del sitio, por favor revisa los registros para más información.
     </p>
   {/if}
 </div>

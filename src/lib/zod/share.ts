@@ -21,10 +21,10 @@ export const shareSchema = z
       .string()
       .regex(
         /^[a-zA-Z0-9_-]+$/,
-        'Share URL can only contain letters, numbers, hyphens, and underscores',
+        'La URL del compartido solo puede contener letras, números, guiones y guiones bajos',
       )
-      .min(1, 'Share URL is required')
-      .max(50, 'Share URL must be 50 characters or less'),
+      .min(1, 'La URL del compartido es obligatoria')
+      .max(50, 'La URL del compartido debe tener 50 caracteres o menos'),
     expiresAt: z.string().optional(),
     expiryOption: z
       .enum(['never', '1day', '1week', '1month', '3months', 'custom'])

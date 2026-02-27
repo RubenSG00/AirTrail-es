@@ -13,7 +13,7 @@
 
   let {
     value = $bindable(null),
-    placeholder = 'Search airline by name or code',
+    placeholder = 'Buscar aerolínea por nombre o código',
     disabled = false,
     compact = false,
     onchange,
@@ -202,9 +202,9 @@
               class="relative cursor-default scroll-my-2 rounded-md p-2 bg-popover dark:bg-dark-1 border text-sm text-muted-foreground"
             >
               {#if loading}
-                {compact ? 'Searching...' : 'Searching airlines...'}
+                {compact ? 'Buscando...' : 'Buscando aerolíneas...'}
               {:else}
-                {compact ? 'Type to search' : 'Start typing to search...'}
+                {compact ? 'Escribe para buscar' : 'Escribe para buscar...'}
               {/if}
             </li>
           {:else if onCreateNew}
@@ -215,14 +215,14 @@
               }}
               class="flex flex-col relative cursor-pointer scroll-my-2 rounded-md p-2 bg-popover dark:bg-dark-1 border text-left hover:bg-accent transition-colors"
             >
-              <span class="text-sm">No results found</span>
-              <span class="text-xs opacity-75">Create a new airline?</span>
+              <span class="text-sm">No se encontraron resultados</span>
+              <span class="text-xs opacity-75">¿Crear una nueva aerolínea?</span>
             </button>
           {:else}
             <li
               class="relative cursor-default scroll-my-2 rounded-md p-2 bg-popover dark:bg-dark-1 border text-sm text-muted-foreground"
             >
-              No {compact ? 'results' : 'airlines found'}
+              No se encontraron {compact ? 'resultados' : 'aerolíneas'}
             </li>
           {/if}
         {/each}

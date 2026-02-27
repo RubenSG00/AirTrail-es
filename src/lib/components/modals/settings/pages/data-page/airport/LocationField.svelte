@@ -58,7 +58,7 @@
 <span
   class={cn('text-sm font-medium leading-none', {
     'text-destructive': $errors.lat || $errors.lon,
-  })}>Location *</span
+  })}>Ubicación *</span
 >
 <MapLibre
   bind:map
@@ -86,7 +86,7 @@
 </div>
 {#if $errors.lat || $errors.lon}
   <div class="text-destructive text-sm font-medium">
-    Please select a location on the map.
+    Por favor, selecciona una ubicación en el mapa.
   </div>
 {/if}
 
@@ -94,7 +94,7 @@
   <Form.Field {form} name="country">
     <Form.Control>
       {#snippet children({ props })}
-        <Form.Label>Country *</Form.Label>
+        <Form.Label>País *</Form.Label>
         <Select.Root
           bind:value={$formData.country}
           name={props.name}
@@ -103,7 +103,7 @@
           <Select.Trigger {...props}>
             {$formData.country
               ? countryFromAlpha2($formData.country)?.name
-              : 'Select a country'}
+              : 'Seleccionar un país'}
           </Select.Trigger>
           <Select.Content>
             {#each COUNTRIES as country}
@@ -118,7 +118,7 @@
   <Form.Field {form} name="continent">
     <Form.Control>
       {#snippet children({ props })}
-        <Form.Label>Continent *</Form.Label>
+        <Form.Label>Continente *</Form.Label>
         <Select.Root
           bind:value={$formData.continent}
           name={props.name}
@@ -127,7 +127,7 @@
           <Select.Trigger {...props}>
             {$formData.continent
               ? ContinentMap[$formData.continent]
-              : 'Select a continent'}
+              : 'Seleccionar un continente'}
           </Select.Trigger>
           <Select.Content>
             {#each Continents as continent}

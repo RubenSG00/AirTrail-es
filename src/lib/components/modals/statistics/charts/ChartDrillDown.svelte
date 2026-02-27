@@ -30,8 +30,8 @@
   const totalCount = $derived(Object.values(data).reduce((a, b) => a + b, 0));
   const sortedEntries = $derived(
     Object.entries(data).sort(([keyA, a], [keyB, b]) => {
-      if (keyA === 'No Data') return 1;
-      if (keyB === 'No Data') return -1;
+      if (keyA === 'Sin datos') return 1;
+      if (keyB === 'Sin datos') return -1;
       return b - a;
     }),
   );
@@ -39,7 +39,7 @@
   const noData = $derived(totalCount === 0);
   const chartData = $derived.by(() => {
     if (noData) {
-      return [{ label: 'No data', value: 1 }];
+      return [{ label: 'Sin datos', value: 1 }];
     }
     return sortedEntries.map(([key, value]) => ({
       label: key,
@@ -63,13 +63,13 @@
         onclick={onBack}
         class="text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200 px-0 h-auto w-fit text-left font-normal underline-offset-2"
       >
-        ← Back to Overview
+        ← Volver al resumen
       </Button>
       <h1 class="text-4xl font-bold text-zinc-900 dark:text-zinc-100">
         {chartDef.title}
       </h1>
       <p class="text-lg text-zinc-600 dark:text-zinc-400 mt-1">
-        {totalCount} total entries across {flights.length} flights
+        {totalCount} entradas totales en {flights.length} vuelos
       </p>
     </div>
   </div>
@@ -87,7 +87,7 @@
               <h2
                 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100"
               >
-                Distribution Overview
+                Resumen de distribución
               </h2>
             </div>
             <div class="p-6">
@@ -99,7 +99,7 @@
                   cRange={noData
                     ? ['#3b82f650']
                     : chartData.map((d, i) => {
-                        if (d.label === 'Others' || d.label === 'No Data')
+                        if (d.label === 'Otros' || d.label === 'Sin datos')
                           return '#71717a';
                         return [
                           '#3b82f6',
@@ -128,7 +128,7 @@
                 {sortedEntries.length}
               </div>
               <div class="text-sm text-zinc-600 dark:text-zinc-400">
-                Unique Categories
+                Categorías únicas
               </div>
             </div>
             <div
@@ -138,7 +138,7 @@
                 {totalCount}
               </div>
               <div class="text-sm text-zinc-600 dark:text-zinc-400">
-                Total Count
+                Total
               </div>
             </div>
           </div>
@@ -150,10 +150,10 @@
         >
           <div class="p-6 border-b border-zinc-200 dark:border-zinc-700">
             <h2 class="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-              Detailed Breakdown
+              Desglose detallado
             </h2>
             <p class="text-sm text-zinc-600 dark:text-zinc-400 mt-1">
-              All {sortedEntries.length} categories ranked by frequency
+              Todas las {sortedEntries.length} categorías ordenadas por frecuencia
             </p>
           </div>
           <div class="max-h-[500px] overflow-y-auto">
@@ -162,9 +162,9 @@
                 class="p-8 flex flex-col items-center text-zinc-500 dark:text-zinc-400"
               >
                 <ChartColumn class="mb-2" />
-                <p class="text-lg font-medium">No data available</p>
+                <p class="text-lg font-medium">Sin datos disponibles</p>
                 <p class="text-sm">
-                  This chart will populate as you add more flights
+                  Este gráfico se completará a medida que añadas más vuelos
                 </p>
               </div>
             {:else}
@@ -178,8 +178,8 @@
                         <div class="flex-shrink-0">
                           <div
                             class="w-3 h-3 rounded-full bg-gradient-to-r"
-                            style="background: {key === 'Others' ||
-                            key === 'No Data'
+                            style="background: {key === 'Otros' ||
+                            key === 'Sin datos'
                               ? '#71717a'
                               : `linear-gradient(45deg,
                                  ${
@@ -219,8 +219,8 @@
                             {key}
                           </div>
                           <div class="text-sm text-zinc-600 dark:text-zinc-400">
-                            {#if key !== 'No Data'}
-                              Rank #{index + 1}
+                            {#if key !== 'Sin datos'}
+                              Posición #{index + 1}
                             {/if}
                           </div>
                         </div>
@@ -245,8 +245,8 @@
                           class="h-2 rounded-full bg-gradient-to-r transition-all duration-300"
                           style="width: {getPercentage(
                             value,
-                          )}%; background: {key === 'Others' ||
-                          key === 'No Data'
+                          )}%; background: {key === 'Otros' ||
+                          key === 'Sin datos'
                             ? '#71717a'
                             : `linear-gradient(45deg,
                             ${

@@ -57,17 +57,17 @@
 <Form.Field {form} name="tz" class="flex flex-col">
   <Form.Control>
     {#snippet children({ props })}
-      <Form.Label>Timezone *</Form.Label>
+      <Form.Label>Zona horaria *</Form.Label>
       <Form.Description>
-        The timezone of the airport. <HelpTooltip
-          text="Needed for accurate time normalization. The backend converts all times to UTC for storage, so it needs to know the timezone for conversion."
+        La zona horaria del aeropuerto. <HelpTooltip
+          text="Necesario para una normalización precisa del tiempo. El backend convierte todas las horas a UTC para almacenamiento, por lo que necesita conocer la zona horaria para la conversión."
         />
       </Form.Description>
       <div class="relative">
         <input
           use:melt={$input}
           class="pr-16 border-input bg-background selection:bg-primary dark:bg-input/30 selection:text-primary-foreground ring-offset-background placeholder:text-muted-foreground shadow-xs flex h-9 w-full min-w-0 rounded-md border px-3 py-1 text-base outline-none transition-[color,box-shadow] disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive"
-          placeholder="Select a timezone"
+          placeholder="Seleccionar zona horaria"
         />
         {#if $open && $selected}
           <button
@@ -120,9 +120,9 @@
         bg-popover dark:bg-dark-1 border"
           >
             {#if $inputValue}
-              No timezones found.
+              No se encontraron zonas horarias.
             {:else}
-              Start typing to search...
+              Escribe para buscar...
             {/if}
           </li>
         {/each}

@@ -24,11 +24,11 @@ const AirTrailFile = z.object({
       to: flightAirportSchema.omit({ id: true }),
       departure: z
         .string()
-        .datetime({ offset: true, message: 'Invalid datetime' })
+        .datetime({ offset: true, message: 'Fecha y hora no válida' })
         .nullable(),
       arrival: z
         .string()
-        .datetime({ offset: true, message: 'Invalid datetime' })
+        .datetime({ offset: true, message: 'Fecha y hora no válida' })
         .nullable(),
       departureScheduled: dateTimePrimitive,
       arrivalScheduled: dateTimePrimitive,
@@ -45,22 +45,22 @@ const AirTrailFile = z.object({
     )
     .merge(flightSeatInformationSchema)
     .array()
-    .min(1, 'At least one flight is required'),
+    .min(1, 'Se requiere al menos un vuelo'),
   users: z
     .object({
       id: z.string().min(3),
       username: z
         .string()
-        .min(3, { message: 'Username must be at least 3 characters long' })
-        .max(20, { message: 'Username must be at most 20 characters long' })
+        .min(3, { message: 'El nombre de usuario debe tener al menos 3 caracteres' })
+        .max(20, { message: 'El nombre de usuario debe tener como máximo 20 caracteres' })
         .regex(/^\w+$/, {
           message:
-            'Username can only contain letters, numbers, and underscores',
+            'El nombre de usuario solo puede contener letras, números y guiones bajos',
         }),
       displayName: z.string().min(3),
     })
     .array()
-    .min(1, 'At least one user is required'),
+    .min(1, 'Se requiere al menos un usuario'),
 });
 
 import type { PlatformOptions } from '$lib/components/modals/settings/pages/import-page';
@@ -71,14 +71,14 @@ export const processAirTrailFile = async (
 ) => {
   const user = page.data.user;
   if (!user) {
-    throw new Error('User not found');
+    throw new Error('Usuario no encontrado');
   }
 
   let parsed;
   try {
     parsed = JSON.parse(input);
   } catch (_) {
-    throw new Error('Invalid JSON found in AirTrail file');
+    throw new Error('JSON no válido encontrado en el archivo AirTrail');
   }
 
   const result = AirTrailFile.safeParse(parsed);

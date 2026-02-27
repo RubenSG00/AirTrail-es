@@ -38,7 +38,7 @@
   <Form.Field {form} name="username">
     <Form.Control>
       {#snippet children({ props })}
-        <Form.Label>Username</Form.Label>
+        <Form.Label>Nombre de usuario</Form.Label>
         <Input bind:value={$formData.username} {...props} />
       {/snippet}
     </Form.Control>
@@ -47,7 +47,7 @@
   <Form.Field {form} name="displayName">
     <Form.Control>
       {#snippet children({ props })}
-        <Form.Label>Display Name</Form.Label>
+        <Form.Label>Nombre para mostrar</Form.Label>
         <Input bind:value={$formData.displayName} {...props} />
       {/snippet}
     </Form.Control>
@@ -56,7 +56,7 @@
   <Form.Field {form} name="unit">
     <Form.Control>
       {#snippet children({ props })}
-        <Form.Label>Unit of measurement</Form.Label>
+        <Form.Label>Unidad de medida</Form.Label>
         <Select.Root
           type="single"
           value={$formData.unit}
@@ -65,10 +65,10 @@
           }}
         >
           <Select.Trigger {...props}>
-            {$formData.unit ? toTitleCase($formData.unit) : 'Select a unit'}
+            {$formData.unit ? toTitleCase($formData.unit) : 'Seleccionar unidad'}
           </Select.Trigger>
           <Select.Content>
-            <Select.Item value="metric" label="Metric" />
+            <Select.Item value="metric" label="Métrico" />
             <Select.Item value="imperial" label="Imperial" />
           </Select.Content>
         </Select.Root>
@@ -77,5 +77,5 @@
     </Form.Control>
     <Form.FieldErrors />
   </Form.Field>
-  <Form.Button class="mt-1">Save</Form.Button>
+  <Form.Button class="mt-1">Guardar</Form.Button>
 </form>

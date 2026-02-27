@@ -50,7 +50,7 @@
     compareDateTime = null,
     defaultDate = null,
     defaultTime = null,
-    placeholder = 'Add time',
+    placeholder = 'Añadir hora',
     disabled = false,
   }: {
     form: SuperForm<FlightFormData>;
@@ -333,7 +333,7 @@
               <div class="grid gap-3">
                 <div class="grid gap-1.5">
                   <span class="text-xs font-semibold text-muted-foreground">
-                    {label} date
+                    {label} fecha
                   </span>
                   <DateField.Root
                     bind:value={
@@ -421,7 +421,7 @@
                 </div>
                 <div class="grid gap-1.5">
                   <span class="text-xs font-semibold text-muted-foreground">
-                    {label} time
+                    {label} hora
                   </span>
                   <TimeField.Root
                     bind:value={

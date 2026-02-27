@@ -71,7 +71,7 @@
     <Tooltip.Root x="data" y="data">
       {#snippet children({ data })}
         <Tooltip.Header>{MONTHS[data.month]}</Tooltip.Header>
-        <Tooltip.Item label="Flights" value={data.flights} />
+        <Tooltip.Item label="Vuelos" value={data.flights} />
       {/snippet}
     </Tooltip.Root>
   </Chart>

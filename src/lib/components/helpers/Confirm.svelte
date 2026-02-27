@@ -9,8 +9,8 @@
     title,
     description,
     triggerContent,
-    confirmText = 'Confirm',
-    cancelText = 'Cancel',
+    confirmText = 'Confirmar',
+    cancelText = 'Cancelar',
   }: {
     onConfirm: (() => void) | (() => Promise<void>);
     title: string;

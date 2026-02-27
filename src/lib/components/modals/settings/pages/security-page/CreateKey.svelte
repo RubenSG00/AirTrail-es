@@ -27,7 +27,7 @@
     const result = await api.user.createApiKey.mutate(name);
     if (!result) {
       loading = false;
-      toast.error('Failed to create API key');
+      toast.error('Error al crear la clave API');
       return;
     }
 
@@ -35,7 +35,7 @@
     keys.push({ name, createdAt: new Date(), lastUsed: null, id: 1111 });
     loading = false;
 
-    toast.success('API key created');
+    toast.success('Clave API creada');
   };
 
   $effect(() => {
@@ -46,19 +46,19 @@
   });
 </script>
 
-<Button variant="outline" onclick={() => (open = true)}>Create</Button>
+<Button variant="outline" onclick={() => (open = true)}>Crear</Button>
 
 <Modal bind:open>
   <ModalBreadcrumbHeader
-    section="API Keys"
-    title="Create key"
+    section="Claves API"
+    title="Crear clave"
     icon={KeyRound}
   />
   <ModalBody>
     {#if !key}
       <div class="flex flex-col gap-4">
         <div class="flex flex-col gap-2">
-          <Label for="name">Name</Label>
+          <Label for="name">Nombre</Label>
           <Input bind:value={name} id="name" />
         </div>
         <Button onclick={create} disabled={loading} class="gap-2">
@@ -70,7 +70,7 @@
       </div>
     {:else}
       <div>
-        <h1 class="text-lg font-medium">Your API Key</h1>
+        <h1 class="text-lg font-medium">Tu clave API</h1>
         <p class="text-sm text-muted-foreground">
           Your API key has been created. Please copy it and store it in a safe
           place, as you won't be able to see it again.
@@ -81,7 +81,7 @@
         onclick={() => {
           open = false;
         }}
-        class="mt-1">Got it</Button
+        class="mt-1">Entendido</Button
       >
     {/if}
   </ModalBody>

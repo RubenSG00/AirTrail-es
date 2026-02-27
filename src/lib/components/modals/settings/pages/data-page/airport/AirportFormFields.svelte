@@ -22,7 +22,7 @@
 <Form.Field {form} name="name" class="flex flex-col">
   <Form.Control>
     {#snippet children({ props })}
-      <Form.Label>Name *</Form.Label>
+      <Form.Label>Nombre *</Form.Label>
       <Input bind:value={$formData.name} {...props} />
     {/snippet}
   </Form.Control>
@@ -32,7 +32,7 @@
 <Form.Field {form} name="municipality" class="flex flex-col">
   <Form.Control>
     {#snippet children({ props })}
-      <Form.Label>Municipality</Form.Label>
+      <Form.Label>Municipio</Form.Label>
       <Input
         bind:value={$formData.municipality}
         {...props}
@@ -46,10 +46,10 @@
 <Form.Field {form} name="type">
   <Form.Control>
     {#snippet children({ props })}
-      <Form.Label>Type *</Form.Label>
+      <Form.Label>Tipo *</Form.Label>
       <Select.Root bind:value={$formData.type} name={props.name} type="single">
         <Select.Trigger {...props}>
-          {$formData.type ? snakeToTitleCase($formData.type) : 'Select a type'}
+          {$formData.type ? snakeToTitleCase($formData.type) : 'Seleccionar un tipo'}
         </Select.Trigger>
         <Select.Content>
           {#each AirportTypes as type}
@@ -58,7 +58,7 @@
         </Select.Content>
       </Select.Root>
       <Form.Description
-        >Purely for sorting purposes. <HelpTooltip
+        >Solo para fines de ordenación. <HelpTooltip
           text="For reference, Dubai International Airport is a &quot;large airport&quot;, while Nuuk Airport is a &quot;medium airport&quot;."
         /></Form.Description
       >
@@ -89,7 +89,7 @@
           {/snippet}
         </InputOTP.Root>
         <Form.Description>
-          The ICAO code of the airport.
+          El código ICAO del aeropuerto.
           <HelpTooltip
             text="Technically speaking, the only requirement is that it is a unique four-letter code."
           />
@@ -119,7 +119,7 @@
           {/snippet}
         </InputOTP.Root>
         <Form.Description>
-          The IATA code of the airport. <HelpTooltip
+          El código IATA del aeropuerto. <HelpTooltip
             text="Will only be used for display purposes
           and airport autocomplete."
           />

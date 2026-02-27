@@ -141,7 +141,7 @@ function sortAndLimit(
     .reduce((acc, [, count]) => acc + count, 0);
 
   if (others > 0) {
-    top.push(['Others', others]);
+    top.push(['Otros', others]);
   }
 
   return Object.fromEntries(top);
@@ -173,7 +173,7 @@ export function seatDistribution(
   const totalClassified = Object.values(counts).reduce((a, b) => a + b, 0);
   const noData = flights.length - totalClassified;
   if (noData > 0) {
-    counts['No Data'] = noData;
+    counts['Sin datos'] = noData;
   }
 
   return sortAndLimit(counts, options);
@@ -198,7 +198,7 @@ export function seatClassDistribution(
   const totalClassified = Object.values(counts).reduce((a, b) => a + b, 0);
   const noData = flights.length - totalClassified;
   if (noData > 0) {
-    counts['No Data'] = noData;
+    counts['Sin datos'] = noData;
   }
 
   return sortAndLimit(counts, options);
@@ -220,7 +220,7 @@ export function reasonDistribution(
   const totalClassified = Object.values(counts).reduce((a, b) => a + b, 0);
   const noData = flights.length - totalClassified;
   if (noData > 0) {
-    counts['No Data'] = noData;
+    counts['Sin datos'] = noData;
   }
 
   return sortAndLimit(counts, options);
@@ -245,7 +245,7 @@ export function continentDistribution(
   const totalClassified = Object.values(counts).reduce((a, b) => a + b, 0);
   const noData = flights.length - totalClassified;
   if (noData > 0) {
-    counts['No Data'] = noData;
+    counts['Sin datos'] = noData;
   }
 
   return sortAndLimit(counts, options);
@@ -275,7 +275,7 @@ export function airlineDistribution(
   options?: AggregationOptions,
 ): Record<string, number> {
   const counts = flights.reduce<Record<string, number>>((acc, flight) => {
-    const label = flight.airline?.name ?? 'No Data';
+    const label = flight.airline?.name ?? 'Sin datos';
     acc[label] = (acc[label] || 0) + 1;
     return acc;
   }, {});
@@ -288,7 +288,7 @@ export function aircraftModelDistribution(
   options?: AggregationOptions,
 ): Record<string, number> {
   const counts = flights.reduce<Record<string, number>>((acc, flight) => {
-    const label = flight.aircraft?.name ?? 'No Data';
+    const label = flight.aircraft?.name ?? 'Sin datos';
     acc[label] = (acc[label] || 0) + 1;
     return acc;
   }, {});
@@ -301,7 +301,7 @@ export function aircraftRegDistribution(
   options?: AggregationOptions,
 ): Record<string, number> {
   const counts = flights.reduce<Record<string, number>>((acc, flight) => {
-    const label = flight.aircraftReg ?? 'No Data';
+    const label = flight.aircraftReg ?? 'Sin datos';
     acc[label] = (acc[label] || 0) + 1;
     return acc;
   }, {});
@@ -335,21 +335,21 @@ export const FLIGHT_CHARTS: Record<
     ) => Record<string, number>;
   }
 > = {
-  'seat-class': { title: 'Seat Class', aggregate: seatClassDistribution },
-  seat: { title: 'Seat Preference', aggregate: seatDistribution },
-  reason: { title: 'Flight Reasons', aggregate: reasonDistribution },
-  continents: { title: 'Continents', aggregate: continentDistribution },
-  airlines: { title: 'Airlines', aggregate: airlineDistribution },
+  'seat-class': { title: 'Clase de asiento', aggregate: seatClassDistribution },
+  seat: { title: 'Preferencia de asiento', aggregate: seatDistribution },
+  reason: { title: 'Motivos de vuelo', aggregate: reasonDistribution },
+  continents: { title: 'Continentes', aggregate: continentDistribution },
+  airlines: { title: 'Aerolíneas', aggregate: airlineDistribution },
   'aircraft-models': {
-    title: 'Aircraft Models',
+    title: 'Modelos de aeronaves',
     aggregate: aircraftModelDistribution,
   },
   'aircraft-regs': {
-    title: 'Specific Aircrafts',
+    title: 'Aeronaves específicas',
     aggregate: aircraftRegDistribution,
   },
-  airports: { title: 'Visited Airports', aggregate: airportDistribution },
-  routes: { title: 'Routes', aggregate: routeDistribution },
+  airports: { title: 'Aeropuertos visitados', aggregate: airportDistribution },
+  routes: { title: 'Rutas', aggregate: routeDistribution },
 };
 
 export const COUNTRY_CHARTS: Record<
@@ -362,7 +362,7 @@ export const COUNTRY_CHARTS: Record<
   }
 > = {
   'visited-country-status': {
-    title: 'Visited Country Status',
+    title: 'Estado de países visitados',
     aggregate: visitedCountryStatusDistribution,
   },
 };
@@ -377,7 +377,7 @@ export const COUNTRY_BAR_CHARTS: Record<
   }
 > = {
   'countries-by-continent': {
-    title: 'Countries by Continent',
+    title: 'Países por continente',
     aggregate: countriesByContinentDistribution,
   },
 };

@@ -18,45 +18,45 @@ const AirTrailFile = z.object({
     .object({
       date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
       from: z.object({
-        code: z.string().max(4, 'Airport code is too long'),
+        code: z.string().max(4, 'El código del aeropuerto es demasiado largo'),
       }),
       to: z.object({
-        code: z.string().max(4, 'Airport code is too long'),
+        code: z.string().max(4, 'El código del aeropuerto es demasiado largo'),
       }),
       departure: z
         .string()
-        .datetime({ offset: true, message: 'Invalid datetime' })
+        .datetime({ offset: true, message: 'Fecha y hora no válida' })
         .nullable(),
       arrival: z
         .string()
-        .datetime({ offset: true, message: 'Invalid datetime' })
+        .datetime({ offset: true, message: 'Fecha y hora no válida' })
         .nullable(),
       duration: z.number().int().positive().nullable(),
-      airline: z.string().max(4, 'Airline is too long').nullable(),
-      flightNumber: z.string().max(10, 'Flight number is too long').nullable(), // should cover all cases
-      aircraft: z.string().max(4, 'Aircraft is too long').nullable(),
+      airline: z.string().max(4, 'La aerolínea es demasiado larga').nullable(),
+      flightNumber: z.string().max(10, 'El número de vuelo es demasiado largo').nullable(), // should cover all cases
+      aircraft: z.string().max(4, 'La aeronave es demasiado larga').nullable(),
       aircraftReg: z
         .string()
-        .max(10, 'Aircraft registration is too long')
+        .max(10, 'La matrícula de la aeronave es demasiado larga')
         .nullable(),
       flightReason: z.enum(FlightReasons).nullable(),
-      note: z.string().max(1000, 'Note is too long').nullable(),
+      note: z.string().max(1000, 'La nota es demasiado larga').nullable(),
       seats: z
         .object({
           userId: z.string().nullable(),
-          guestName: z.string().max(50, 'Guest name is too long').nullable(),
+          guestName: z.string().max(50, 'El nombre del invitado es demasiado largo').nullable(),
           seat: z.enum(SeatTypes).nullable(),
-          seatNumber: z.string().max(5, 'Seat number is too long').nullable(), // 12A-1 for example
+          seatNumber: z.string().max(5, 'El número de asiento es demasiado largo').nullable(), // 12A-1 for example
           seatClass: z.enum(SeatClasses).nullable(),
         })
         .refine((data) => data.userId ?? data.guestName, {
-          message: 'Select a user or add a guest name',
+          message: 'Selecciona un usuario o añade un nombre de invitado',
           path: ['userId'],
         })
         .array()
-        .min(1, 'Add at least one seat')
+        .min(1, 'Añade al menos un asiento')
         .refine((data) => data.some((seat) => seat.userId), {
-          message: 'At least one seat must be assigned to a user',
+          message: 'Al menos un asiento debe estar asignado a un usuario',
         })
         .default([
           {
@@ -69,22 +69,22 @@ const AirTrailFile = z.object({
         ]),
     })
     .array()
-    .min(1, 'At least one flight is required'),
+    .min(1, 'Se requiere al menos un vuelo'),
   users: z
     .object({
       id: z.string().min(3),
       username: z
         .string()
-        .min(3, { message: 'Username must be at least 3 characters long' })
-        .max(20, { message: 'Username must be at most 20 characters long' })
+        .min(3, { message: 'El nombre de usuario debe tener al menos 3 caracteres' })
+        .max(20, { message: 'El nombre de usuario debe tener como máximo 20 caracteres' })
         .regex(/^\w+$/, {
           message:
-            'Username can only contain letters, numbers, and underscores',
+            'El nombre de usuario solo puede contener letras, números y guiones bajos',
         }),
       displayName: z.string().min(3),
     })
     .array()
-    .min(1, 'At least one user is required'),
+    .min(1, 'Se requiere al menos un usuario'),
 });
 
 export const processLegacyAirTrailFile = async (
@@ -93,14 +93,14 @@ export const processLegacyAirTrailFile = async (
 ) => {
   const user = page.data.user;
   if (!user) {
-    throw new Error('User not found');
+    throw new Error('Usuario no encontrado');
   }
 
   let parsed;
   try {
     parsed = JSON.parse(input);
   } catch (_) {
-    throw new Error('Invalid JSON found in AirTrail file');
+    throw new Error('JSON no válido encontrado en el archivo AirTrail');
   }
 
   const result = AirTrailFile.safeParse(parsed);

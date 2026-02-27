@@ -49,7 +49,7 @@
       onclick={() => copyToClipboard(value)}
       variant="outline"
       class="h-6 px-2 gap-1  text-xs"
-      title="Copy to clipboard"
+      title="Copiar al portapapeles"
     >
       <Copy size={14} />
       {label}

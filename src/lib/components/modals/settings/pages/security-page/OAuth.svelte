@@ -32,7 +32,7 @@
     try {
       await api.oauth.unlink.mutate();
       await invalidateAll();
-      toast.info('OAuth unlinked successfully.');
+      toast.info('OAuth desvinculado correctamente.');
     } catch (err) {
       toast.error(err.message);
     } finally {
@@ -47,9 +47,9 @@
       <h4 class="font-medium leading-4">OAuth</h4>
       <p class="text-sm text-muted-foreground">
         {#if user.oauthId}
-          You can currently sign in via OAuth.
+          Actualmente puedes iniciar sesión mediante OAuth.
         {:else}
-          Link your account to an OAuth provider.
+          Vincula tu cuenta a un proveedor de OAuth.
         {/if}
       </p>
     </div>
@@ -57,9 +57,9 @@
       {#if user.oauthId}
         <Confirm
           onConfirm={unlink}
-          title="Unlink OAuth"
-          description="Are you sure you want to unlink your OAuth account? If you do not have a password set, you will not be able to sign in."
-          confirmText="Unlink"
+          title="Desvincular OAuth"
+          description="¿Estás seguro de que deseas desvincular tu cuenta OAuth? Si no tienes una contraseña configurada, no podrás iniciar sesión."
+          confirmText="Desvincular"
         >
           {#snippet triggerContent({ props })}
             <Button variant="outline" {...props} disabled={loading}>

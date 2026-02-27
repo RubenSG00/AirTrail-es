@@ -164,10 +164,10 @@
       await trpc.visitedCountries.list.utils.invalidate();
       await fitCountries();
       toast.success(
-        `Marked ${result} ${pluralize(result, 'country', 'countries')} as visited`,
+        `Se marcaron ${result} ${pluralize(result, 'país', 'países')} como visitados`,
       );
     } else {
-      toast.error('No changes found.');
+      toast.error('No se encontraron cambios.');
     }
   };
 </script>
@@ -207,7 +207,7 @@
     <ControlGroup>
       <ControlButton
         onclick={syncFlights}
-        title="Sync from flights (will never overwrite)"
+        title="Sincronizar desde vuelos (nunca sobrescribe)"
       >
         <RefreshCw size={20} />
       </ControlButton>

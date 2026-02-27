@@ -40,12 +40,12 @@
         >
           {#if versionState.newReleases.length === 1}
             <div class="flex items-center gap-2">
-              New version available!
+              ¡Nueva versión disponible!
               <Badge>{versionState.newReleases[0].name}</Badge>
             </div>
           {:else}
             <div>
-              {versionState.newReleases.length} new versions available!
+              ¡{versionState.newReleases.length} nuevas versiones disponibles!
             </div>
             <div class="flex flex-wrap gap-2">
               {#each versionState.newReleases as changelog (changelog.name)}
@@ -76,9 +76,9 @@
           href="https://airtrail.johan.ohly.dk/docs/install/updating"
           target="_blank"
         >
-          How to update
+          Cómo actualizar
         </Button>
-        <Dialog.Action onclick={dismissVersion}>Got it</Dialog.Action>
+        <Dialog.Action onclick={dismissVersion}>Entendido</Dialog.Action>
       </Dialog.Footer>
     </Dialog.Content>
   </Dialog.Root>

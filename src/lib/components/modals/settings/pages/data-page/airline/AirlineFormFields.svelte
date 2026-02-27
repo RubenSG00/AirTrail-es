@@ -20,7 +20,7 @@
 <Form.Field {form} name="name" class="flex flex-col">
   <Form.Control>
     {#snippet children({ props })}
-      <Form.Label>Airline Name *</Form.Label>
+      <Form.Label>Nombre de aerolínea *</Form.Label>
       <Input
         bind:value={$formData.name}
         {...props}
@@ -34,7 +34,7 @@
 <Form.Field {form} name="icao" class="flex flex-col">
   <Form.Control>
     {#snippet children({ props })}
-      <Form.Label>ICAO Code</Form.Label>
+      <Form.Label>Código ICAO</Form.Label>
       <Input
         bind:value={$formData.icao}
         {...props}
@@ -58,7 +58,7 @@
 <Form.Field {form} name="iata" class="flex flex-col">
   <Form.Control>
     {#snippet children({ props })}
-      <Form.Label>IATA Code</Form.Label>
+      <Form.Label>Código IATA</Form.Label>
       <Input
         bind:value={$formData.iata}
         {...props}

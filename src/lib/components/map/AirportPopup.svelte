@@ -10,7 +10,7 @@
 
 <div class="min-w-[18rem]">
   <div class="flex flex-col px-3 pt-3">
-    <h3 class="font-thin text-muted-foreground">Airport</h3>
+    <h3 class="font-thin text-muted-foreground">Aeropuerto</h3>
     <h4 class="flex items-center text-lg">
       <img
         src="https://flagcdn.com/{data.country.toLowerCase()}.svg"
@@ -25,19 +25,19 @@
     <h4 class="font-semibold">
       <NumberFlow value={data.departures} />
       <span class="font-thin text-muted-foreground"
-        >{pluralize(data.departures, 'departure')}</span
+        >{pluralize(data.departures, 'salida')}</span
       >
     </h4>
     <h4 class="font-semibold">
       <NumberFlow value={data.arrivals} />
       <span class="font-thin text-muted-foreground"
-        >{pluralize(data.arrivals, 'arrival')}</span
+        >{pluralize(data.arrivals, 'llegada')}</span
       >
     </h4>
     <h4 class="font-semibold">
       <NumberFlow value={data.airlines.length} />
       <span class="font-thin text-muted-foreground"
-        >{pluralize(data.airlines.length, 'airline')}</span
+        >{pluralize(data.airlines.length, 'aerolínea')}</span
       >
     </h4>
   </div>
@@ -61,12 +61,12 @@
     {/each}
     {#if data.flights.length > 5}
       <h4 class="font-thin text-muted-foreground">
-        +{data.flights.length - 5} more
+        +{data.flights.length - 5} más
       </h4>
     {/if}
   </div>
   <div class="h-px bg-muted my-2" />
   <div class="px-3 pb-2">
-    <p class="text-xs text-muted-foreground text-center">Click to view all</p>
+    <p class="text-xs text-muted-foreground text-center">Clic para ver todos</p>
   </div>
 </div>

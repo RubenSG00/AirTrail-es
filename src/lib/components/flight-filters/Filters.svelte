@@ -157,16 +157,16 @@
 {#if !hasTempFilters}
   <SelectFilter
     bind:filterValues={filters.departureAirports}
-    title="Departure Airport"
-    placeholder="Search departure airports"
+    title="Aeropuerto de salida"
+    placeholder="Buscar aeropuertos de salida"
     triggerIcon="depart"
     disabled={flights.length === 0}
     options={departureAirports}
   />
   <SelectFilter
     bind:filterValues={filters.arrivalAirports}
-    title="Arrival Airport"
-    placeholder="Search arrival airports"
+    title="Aeropuerto de llegada"
+    placeholder="Buscar aeropuertos de llegada"
     triggerIcon="arrive"
     disabled={flights.length === 0}
     options={arrivalAirports}
@@ -174,20 +174,20 @@
 {/if}
 <DateFilter
   bind:date={filters.fromDate}
-  title="From"
+  title="Desde"
   iconDirection="up"
   disabled={flights.length === 0}
 />
 <DateFilter
   bind:date={filters.toDate}
-  title="To"
+  title="Hasta"
   iconDirection="down"
   disabled={flights.length === 0}
 />
 <SelectFilter
   bind:filterValues={filters.airline}
-  title="Airline"
-  placeholder="Search airlines"
+  title="Aerolínea"
+  placeholder="Buscar aerolíneas"
   triggerIcon="airline"
   disabled={!airline.length}
   options={airline}
@@ -198,16 +198,16 @@
 </SelectFilter>
 <SelectFilter
   bind:filterValues={filters.aircraft}
-  title="Aircraft"
-  placeholder="Search aircraft"
+  title="Aeronave"
+  placeholder="Buscar aeronaves"
   triggerIcon="plane"
   disabled={!aircraft.length}
   options={aircraft}
 />
 <SelectFilter
   bind:filterValues={filters.aircraftRegs}
-  title="Tail Number"
-  placeholder="Search tail numbers"
+  title="Matrícula"
+  placeholder="Buscar matrículas"
   triggerIcon="plane"
   disabled={!aircraftRegs.length}
   options={aircraftRegs}

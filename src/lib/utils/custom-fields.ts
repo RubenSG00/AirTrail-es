@@ -10,15 +10,15 @@ export type FieldType =
   | 'aircraft';
 
 export const FIELD_TYPE_LABELS: Record<FieldType, string> = {
-  text: 'Short text',
-  textarea: 'Long text',
-  number: 'Number',
-  boolean: 'Boolean',
-  date: 'Date',
-  select: 'Select',
-  airport: 'Airport',
-  airline: 'Airline',
-  aircraft: 'Aircraft',
+  text: 'Texto corto',
+  textarea: 'Texto largo',
+  number: 'Número',
+  boolean: 'Booleano',
+  date: 'Fecha',
+  select: 'Selector',
+  airport: 'Aeropuerto',
+  airline: 'Aerolínea',
+  aircraft: 'Aeronave',
 };
 
 /** Shape returned by `listDefinitions` query — shared across all custom field UI. */

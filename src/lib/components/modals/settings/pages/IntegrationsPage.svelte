@@ -59,8 +59,8 @@
 </script>
 
 <PageHeader
-  title="Integrations"
-  subtitle="Configure integrations for your AirTrail instance."
+  title="Integraciones"
+  subtitle="Configura las integraciones para tu instancia de AirTrail."
 >
   <form
     method="POST"
@@ -95,20 +95,20 @@
             <Input
               bind:value={$formData.aeroDataBoxKey}
               {...props}
-              placeholder="Enter your AeroDataBox API key"
+              placeholder="Introduce tu clave API de AeroDataBox"
             />
           {/snippet}
         </Form.Control>
         <Form.FieldErrors />
       </Form.Field>
     </Locked>
-    <Form.Button disabled={!changes}>Save</Form.Button>
+    <Form.Button disabled={!changes}>Guardar</Form.Button>
   </form>
 </PageHeader>
 
 {#snippet lockedTooltip()}
   <p>
-    This setting is locked because it is configured via environment variables.
+    Esta configuración está bloqueada porque se configura mediante variables de entorno.
   </p>
   <p>
     To change this setting, update or delete the environment variable and

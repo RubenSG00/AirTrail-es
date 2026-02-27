@@ -29,17 +29,17 @@
 
   const ACCOUNT_SETTINGS = [
     { title: 'General', id: 'general' },
-    { title: 'Security', id: 'security' },
-    { title: 'Appearance', id: 'appearance' },
-    { title: 'Share', id: 'share' },
-    { title: 'Import', id: 'import' },
-    { title: 'Export', id: 'export' },
+    { title: 'Seguridad', id: 'security' },
+    { title: 'Apariencia', id: 'appearance' },
+    { title: 'Compartir', id: 'share' },
+    { title: 'Importar', id: 'import' },
+    { title: 'Exportar', id: 'export' },
   ] as const;
   const ADMIN_SETTINGS = [
-    { title: 'Data', id: 'data' },
-    { title: 'Custom Fields', id: 'custom-fields' },
-    { title: 'Integrations', id: 'integrations' },
-    { title: 'Users', id: 'users' },
+    { title: 'Datos', id: 'data' },
+    { title: 'Campos Personalizados', id: 'custom-fields' },
+    { title: 'Integraciones', id: 'integrations' },
+    { title: 'Usuarios', id: 'users' },
     { title: 'OAuth', id: 'oauth' },
   ] as const;
   type SettingsTabId =
@@ -91,12 +91,12 @@
     class="flex flex-col gap-6 max-md:max-h-[calc(100dvh-200px)] max-md:px-6 max-md:py-3"
   >
     <div class="space-y-0.5">
-      <h2 class="text-2xl font-bold tracking-tight">Settings</h2>
+      <h2 class="text-2xl font-bold tracking-tight">Configuración</h2>
       <p class="text-muted-foreground">
         {#if !user || user.role === 'user'}
-          Manage your account settings and preferences.
+          Administra la configuración y preferencias de tu cuenta.
         {:else}
-          Manage your AirTrail instance and system configuration.
+          Administra tu instancia de AirTrail y la configuración del sistema.
         {/if}
       </p>
     </div>
@@ -194,7 +194,7 @@
     </div>
     <div class="flex items-center justify-center">
       <p class="text-xs text-muted-foreground">
-        Powered by
+        Desarrollado con
         <a
           href="https://github.com/johanohly/AirTrail"
           target="_blank"

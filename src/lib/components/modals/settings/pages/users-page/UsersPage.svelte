@@ -20,10 +20,10 @@
   const deleteUser = async (id: string) => {
     const success = await api.user.delete.mutate(id);
     if (!success) {
-      return void toast.error('Failed to delete user.');
+      return void toast.error('Error al eliminar usuario.');
     }
     await invalidateAll();
-    toast.success('User deleted.');
+    toast.success('Usuario eliminado.');
   };
 
   const canDeleteUser = (current_user: User) => {
@@ -54,7 +54,7 @@
 <UserModal bind:open={addUserModal} mode="add" />
 <UserModal bind:open={editUserModal} mode="edit" user={editingUser} />
 
-<PageHeader title="Users" subtitle="Manage who can access AirTrail.">
+<PageHeader title="Usuarios" subtitle="Gestiona quién puede acceder a AirTrail.">
   {#snippet headerRight()}
     <Button variant="default" onclick={() => (addUserModal = true)}>
       Add User
@@ -62,7 +62,7 @@
   {/snippet}
 
   {#if users.length === 0}
-    <p>No users found.</p>
+    <p>No se encontraron usuarios.</p>
   {:else}
     <div use:autoAnimate class="space-y-2">
       {#each users as current_user}
@@ -97,8 +97,8 @@
             </Button>
             <Confirm
               onConfirm={async () => deleteUser(current_user.id)}
-              title="Remove User"
-              description="Are you sure you want to remove this user?"
+              title="Eliminar usuario"
+              description="¿Estás seguro de que deseas eliminar este usuario?"
             >
               {#snippet triggerContent({ props })}
                 <Button

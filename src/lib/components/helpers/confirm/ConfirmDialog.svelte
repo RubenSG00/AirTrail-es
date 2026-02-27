@@ -7,8 +7,8 @@
     onCancel,
     title,
     description,
-    confirmText = 'Confirm',
-    cancelText = 'Cancel',
+    confirmText = 'Confirmar',
+    cancelText = 'Cancelar',
   }: {
     onConfirm: (() => void) | (() => Promise<void>);
     onCancel?: () => void;

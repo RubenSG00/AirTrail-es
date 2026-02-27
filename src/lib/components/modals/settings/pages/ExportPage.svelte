@@ -14,7 +14,7 @@
     a.href = url;
     a.download = filename;
     a.click();
-    toast.info('Your download should start shortly');
+    toast.info('Tu descarga debería comenzar en breve');
     URL.revokeObjectURL(url);
   };
 
@@ -31,13 +31,13 @@
   };
 </script>
 
-<PageHeader title="Export">
+<PageHeader title="Exportar">
   {#snippet subtitleHtml()}
     <p class="text-muted-foreground text-sm">
-      Export your data. Learn more about the data formats <a
+      Exporta tus datos. Aprende más sobre los formatos de datos <a
         href="https://airtrail.johan.ohly.dk/docs/features/export#export-formats"
         target="_blank"
-        class="text-blue-500 underline">in the documentation</a
+        class="text-blue-500 underline">en la documentación</a
       >.
     </p>
   {/snippet}

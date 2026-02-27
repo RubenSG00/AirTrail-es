@@ -41,37 +41,37 @@
               !table.getIsAllPageRowsSelected(),
             onCheckedChange: (value) =>
               table.toggleAllPageRowsSelected(!!value),
-            'aria-label': 'Select all',
+            'aria-label': 'Seleccionar todo',
           }),
         cell: ({ row }) =>
           renderComponent(Checkbox, {
             checked: row.getIsSelected(),
             onCheckedChange: (value) => row.toggleSelected(!!value),
-            'aria-label': 'Select row',
+            'aria-label': 'Seleccionar fila',
           }),
       },
-      { accessorFn: (row) => row.from.iata ?? row.from.code, header: 'Origin' },
+      { accessorFn: (row) => row.from.iata ?? row.from.code, header: 'Origen' },
       {
         accessorFn: (row) => row.to.iata ?? row.to.code,
-        header: 'Destination',
+        header: 'Destino',
       },
       {
         accessorFn: (row) =>
           row.departure
             ? formatAsDateTime(row.departure)
             : formatAsDate(row.date),
-        header: 'Departure',
+        header: 'Salida',
       },
       {
         accessorFn: (row) => (row.arrival ? formatAsDateTime(row.arrival) : ''),
-        header: 'Arrival',
+        header: 'Llegada',
       },
       {
         id: 'airline',
         accessorFn: (row) => row.airline,
         header: () => {
           const airlineHeaderSnippet = createRawSnippet(() => ({
-            render: () => `<div class="hidden md:block">Airline</div>`,
+            render: () => `<div class="hidden md:block">Aerolínea</div>`,
           }));
           return renderSnippet(airlineHeaderSnippet, '');
         },
@@ -110,15 +110,15 @@
     const flightIds = selectedRows.map((row) => row.original.id);
     await api.flight.deleteMany.mutate(flightIds);
     await invalidateAll();
-    toast.success('Flights deleted.');
+    toast.success('Vuelos eliminados.');
   };
 </script>
 
 <div class="container h-full flex flex-col items-center justify-center gap-2">
-  <h1 class="text-2xl font-medium">Remove Duplicates</h1>
+  <h1 class="text-2xl font-medium">Eliminar Duplicados</h1>
   <p class="text-sm text-muted-foreground pb-8">
-    All of these already exist in the database, with the same origin,
-    destination, and date.
+    Todos estos ya existen en la base de datos, con el mismo origen,
+    destino y fecha.
   </p>
   <div class="rounded-md border">
     <Table.Root>
@@ -153,7 +153,7 @@
         {:else}
           <Table.Row>
             <Table.Cell colspan={6} class="h-12 text-center">
-              No duplicates found.
+              No se encontraron duplicados.
             </Table.Cell>
           </Table.Row>
         {/each}
@@ -163,6 +163,6 @@
   <Button
     onclick={deleteFlights}
     disabled={!table.getRowModel().rows.some((row) => row.getIsSelected())}
-    >Delete Flights
+    >Eliminar vuelos
   </Button>
 </div>

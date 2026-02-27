@@ -101,7 +101,7 @@
 <Modal bind:open>
   <ModalBreadcrumbHeader
     section="Users"
-    title={isEdit ? 'Edit user' : 'Add user'}
+    title={isEdit ? 'Editar usuario' : 'Añadir usuario'}
     icon={User}
   />
   <ModalBody>
@@ -114,7 +114,7 @@
       <Form.Field {form} name="username">
         <Form.Control>
           {#snippet children({ props })}
-            <Form.Label>Username</Form.Label>
+            <Form.Label>Nombre de usuario</Form.Label>
             <Input bind:value={$formData.username} {...props} />
           {/snippet}
         </Form.Control>
@@ -124,7 +124,7 @@
         <Form.Field {form} name="password">
           <Form.Control>
             {#snippet children({ props })}
-              <Form.Label>Password</Form.Label>
+              <Form.Label>Contraseña</Form.Label>
               <Input
                 type="password"
                 bind:value={$formData.password}
@@ -138,7 +138,7 @@
       <Form.Field {form} name="displayName">
         <Form.Control>
           {#snippet children({ props })}
-            <Form.Label>Name</Form.Label>
+            <Form.Label>Nombre</Form.Label>
             <Input bind:value={$formData.displayName} {...props} />
           {/snippet}
         </Form.Control>
@@ -148,7 +148,7 @@
         <Form.Field {form} name="unit">
           <Form.Control>
             {#snippet children({ props })}
-              <Form.Label>Unit of measurement</Form.Label>
+              <Form.Label>Unidad de medida</Form.Label>
               <Select.Root
                 type="single"
                 value={$formData.unit}
@@ -159,10 +159,10 @@
                 <Select.Trigger {...props}>
                   {$formData.unit
                     ? toTitleCase($formData.unit)
-                    : 'Select a unit'}
+                    : 'Seleccionar unidad'}
                 </Select.Trigger>
                 <Select.Content>
-                  <Select.Item value="metric" label="Metric" />
+                  <Select.Item value="metric" label="Métrico" />
                   <Select.Item value="imperial" label="Imperial" />
                 </Select.Content>
               </Select.Root>
@@ -178,7 +178,7 @@
             <Form.Label class="flex gap-1">
               Role
               <HelpTooltip
-                text="Admins can do everything except delete other admins or the owner."
+                text="Los administradores pueden hacer todo excepto eliminar otros administradores o al propietario."
               />
             </Form.Label>
             <RadioGroup.Root
@@ -194,7 +194,7 @@
                 >
                   <div class="flex items-center justify-center gap-1">
                     <User />
-                    <span class="text-2xl font-bold">User</span>
+                    <span class="text-2xl font-bold">Usuario</span>
                   </div>
                 </div>
               </Label>
@@ -207,7 +207,7 @@
                 >
                   <div class="flex items-center justify-center gap-1">
                     <ShieldCheck />
-                    <span class="text-2xl font-bold">Admin</span>
+                    <span class="text-2xl font-bold">Administrador</span>
                   </div>
                 </div>
               </Label>
@@ -218,7 +218,7 @@
         <Form.FieldErrors />
       </Form.Field>
       <Form.Button disabled={$submitting} class="mt-1">
-        {isEdit ? 'Save' : 'Add'}
+        {isEdit ? 'Guardar' : 'Añadir'}
       </Form.Button>
     </form>
   </ModalBody>

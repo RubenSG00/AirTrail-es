@@ -85,14 +85,14 @@
   const { enhance } = form;
 </script>
 
-<TextTooltip content="Edit share">
+<TextTooltip content="Editar compartido">
   <Button variant="outline" size="icon" onclick={() => (open = true)}>
     <SquarePen size={16} />
   </Button>
 </TextTooltip>
 
 <Modal bind:open>
-  <ModalBreadcrumbHeader section="Shares" title="Edit share" icon={SquarePen} />
+  <ModalBreadcrumbHeader section="Compartidos" title="Editar compartido" icon={SquarePen} />
   <ModalBody>
     <form
       method="POST"
@@ -101,7 +101,7 @@
       use:enhance
     >
       <ShareFormFields {form} />
-      <Form.Button>Update</Form.Button>
+      <Form.Button>Actualizar</Form.Button>
     </form>
   </ModalBody>
 </Modal>

@@ -26,14 +26,14 @@ export const POST: RequestHandler = async ({ cookies, request }) => {
     .selectAll()
     .execute();
   if (owners.length > 0) {
-    form.message = { type: 'error', text: 'Owner already exists' };
+    form.message = { type: 'error', text: 'El propietario ya existe' };
     return actionResult('failure', { form });
   }
 
   const { username, password, displayName, unit } = form.data;
   const exists = await usernameExists(username);
   if (exists) {
-    setError(form, 'username', 'Username already exists');
+    setError(form, 'username', 'El nombre de usuario ya existe');
     return actionResult('failure', { form });
   }
 
@@ -51,7 +51,7 @@ export const POST: RequestHandler = async ({ cookies, request }) => {
   );
 
   if (!success) {
-    form.message = { type: 'error', text: 'Failed to create user' };
+    form.message = { type: 'error', text: 'Error al crear usuario' };
     return actionResult('failure', { form });
   }
 

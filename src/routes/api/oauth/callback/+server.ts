@@ -25,7 +25,7 @@ export const POST: RequestHandler = async ({ cookies, request, locals }) => {
   const { url } = parsed.data;
   const config = await appConfig.get();
   if (!config) {
-    return error(500, 'Failed to load config');
+    return error(500, 'Error al cargar la configuración');
   }
 
   let profile: UserInfoResponse;
@@ -33,7 +33,7 @@ export const POST: RequestHandler = async ({ cookies, request, locals }) => {
     profile = await getOAuthProfile(url);
   } catch (e) {
     console.error(e);
-    return error(500, 'Invalid state, please try again');
+    return error(500, 'Estado no válido, por favor inténtalo de nuevo');
   }
 
   const { autoRegister } = config.oauth;
@@ -43,7 +43,7 @@ export const POST: RequestHandler = async ({ cookies, request, locals }) => {
   // Case 1: User is already logged in (user triggered account linking)
   if (user) {
     if (user.oauthId) {
-      return error(500, 'User is already linked to an account');
+      return error(500, 'El usuario ya está vinculado a una cuenta');
     }
 
     const existingUser = await db
@@ -52,7 +52,7 @@ export const POST: RequestHandler = async ({ cookies, request, locals }) => {
       .where('oauthId', '=', profile.sub)
       .executeTakeFirst();
     if (existingUser) {
-      return error(500, 'Account is already linked to another user');
+      return error(500, 'La cuenta ya está vinculada a otro usuario');
     }
 
     user = await db
@@ -82,7 +82,7 @@ export const POST: RequestHandler = async ({ cookies, request, locals }) => {
     if (usernameUser) {
       if (usernameUser.oauthId) {
         throw new Error(
-          'Username already taken, and is linked to another account',
+          'El nombre de usuario ya está en uso y está vinculado a otra cuenta',
         );
       }
       user = await db
@@ -97,11 +97,11 @@ export const POST: RequestHandler = async ({ cookies, request, locals }) => {
   // Case 4: User has not logged in via OAuth before, and does not have an account
   if (!user) {
     if (!autoRegister) {
-      return error(500, 'You do not have an AirTrail account');
+      return error(500, 'No tienes una cuenta de AirTrail');
     }
 
     if (!profile.preferred_username) {
-      return error(500, 'Username not provided');
+      return error(500, 'Nombre de usuario no proporcionado');
     }
 
     const displayName =
@@ -122,7 +122,7 @@ export const POST: RequestHandler = async ({ cookies, request, locals }) => {
   }
 
   if (!user) {
-    return error(500, 'Failed to create user');
+    return error(500, 'Error al crear usuario');
   }
 
   await createSession(lucia, user.id, cookies);

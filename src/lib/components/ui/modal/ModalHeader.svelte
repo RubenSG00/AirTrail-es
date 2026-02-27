@@ -25,6 +25,6 @@
     class="hidden md:block text-muted-foreground hover:bg-hover rounded-full p-2 transition-all duration-75 focus:outline-hidden"
   >
     <X size={20} />
-    <span class="sr-only">Close</span>
+    <span class="sr-only">Cerrar</span>
   </button>
 </div>

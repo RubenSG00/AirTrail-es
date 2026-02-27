@@ -38,7 +38,7 @@
         class="absolute right-4 top-4 text-muted-foreground hover:bg-hover rounded-full p-2 transition-all duration-75 focus:outline-hidden"
       >
         <X size="20" />
-        <span class="sr-only">Close</span>
+        <span class="sr-only">Cerrar</span>
       </DialogPrimitive.Close>
     {/if}
   </DialogPrimitive.Content>

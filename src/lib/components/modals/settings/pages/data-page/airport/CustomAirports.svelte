@@ -23,10 +23,10 @@
   const deleteAirport = async (id: number) => {
     const success = await api.airport.delete.mutate(id);
     if (success) {
-      toast.success('Airport removed');
+      toast.success('Aeropuerto eliminado');
       await fetchAirports();
     } else {
-      toast.error('Failed to remove airport');
+      toast.error('Error al eliminar aeropuerto');
     }
   };
 
@@ -52,7 +52,7 @@
 >
   <div class="flex flex-col gap-4">
     <div class="flex gap-2 justify-between">
-      <Input oninput={handleSearch} class="h-9" placeholder="Search airports" />
+      <Input oninput={handleSearch} class="h-9" placeholder="Buscar aeropuertos" />
       <CreateAirport onAirportCreate={onCreate} />
     </div>
     <div use:autoAnimate class="flex flex-col gap-4">
@@ -73,8 +73,8 @@
             <EditAirport {airport} />
             <Confirm
               onConfirm={async () => deleteAirport(airport.id)}
-              title="Remove Airport"
-              description="Are you sure you want to remove this airport?"
+              title="Eliminar aeropuerto"
+              description="¿Estás seguro de que deseas eliminar este aeropuerto?"
             >
               {#snippet triggerContent({ props })}
                 <Button variant="outline" size="icon" {...props}>
@@ -87,9 +87,9 @@
       {:else}
         <p class="w-full pb-2 text-center text-muted-foreground">
           {#if airports.length}
-            No airports found.
+            No se encontraron aeropuertos.
           {:else}
-            No custom airports added.
+            No se han añadido aeropuertos personalizados.
           {/if}
         </p>
       {/each}

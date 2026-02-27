@@ -20,13 +20,13 @@ const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
 const optionalTimePrimitive = z
   .string()
   .refine((v) => v === '' || /^\d{2}:\d{2}$/.exec(v), {
-    message: 'Invalid time format',
+    message: 'Formato de hora no válido',
   })
   .transform(nullTransformer);
 const optionalDatePrimitive = z
   .string()
   .refine((v) => v === '' || dateRegex.exec(v), {
-    message: 'Invalid date format',
+    message: 'Formato de fecha no válido',
   })
   .transform(nullTransformer);
 
@@ -59,7 +59,7 @@ export const processJetLogFile = async (
 ) => {
   const userId = page.data.user?.id;
   if (!userId) {
-    throw new Error('User not found');
+    throw new Error('Usuario no encontrado');
   }
 
   const [data, error] = parseCsv(input, JetLogFlight);

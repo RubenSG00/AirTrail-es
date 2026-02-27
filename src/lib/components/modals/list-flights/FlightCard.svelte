@@ -32,7 +32,7 @@
   };
 
   const getCityName = (airport: Airport | null) => {
-    if (!airport) return 'Unknown';
+    if (!airport) return 'Desconocido';
     return airport.municipality || airport.name;
   };
 </script>
@@ -65,7 +65,7 @@
         </span>
       </div>
       <span class="text-[15px] text-muted-foreground truncate">
-        {getCityName(flight.from)} to {getCityName(flight.to)}
+        {getCityName(flight.from)} a {getCityName(flight.to)}
       </span>
     </div>
 

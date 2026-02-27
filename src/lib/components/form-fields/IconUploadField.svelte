@@ -55,10 +55,10 @@
 
   function validateFile(file: File): string | null {
     if (!ALLOWED_TYPES.includes(file.type)) {
-      return 'Invalid file type. Use PNG, JPG, SVG, or WebP.';
+      return 'Tipo de archivo inválido. Usa PNG, JPG, SVG o WebP.';
     }
     if (file.size > MAX_FILE_SIZE) {
-      return 'File too large (max 5MB).';
+      return 'Archivo demasiado grande (máx. 5MB).';
     }
     return null;
   }
@@ -91,14 +91,14 @@
 
       const result = await response.json();
       if (result.success) {
-        toast.success('Icon uploaded');
+        toast.success('Icono subido');
         cacheKey = Date.now();
         onUpload?.(result.path);
       } else {
-        toast.error(result.error || 'Failed to upload icon');
+        toast.error(result.error || 'Error al subir el icono');
       }
     } catch {
-      toast.error('Failed to upload icon');
+      toast.error('Error al subir el icono');
     } finally {
       uploading = false;
     }
@@ -150,13 +150,13 @@
 
       const result = await response.json();
       if (result.success) {
-        toast.success('Icon removed');
+        toast.success('Icono eliminado');
         onRemove?.();
       } else {
-        toast.error(result.error || 'Failed to remove icon');
+        toast.error(result.error || 'Error al eliminar el icono');
       }
     } catch {
-      toast.error('Failed to remove icon');
+      toast.error('Error al eliminar el icono');
     } finally {
       removing = false;
     }
@@ -225,10 +225,10 @@
       >
         {#if uploading}
           <LoaderCircle size={14} class="mr-2 animate-spin" />
-          Uploading...
+          Subiendo...
         {:else}
           <ImageUp size={14} class="mr-2" />
-          {iconUrl ? 'Change' : 'Upload'}
+          {iconUrl ? 'Cambiar' : 'Subir'}
         {/if}
       </Button>
       {#if iconUrl}

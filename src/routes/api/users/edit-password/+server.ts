@@ -15,7 +15,7 @@ export const POST: RequestHandler = async ({ locals, request }) => {
   if (!user || !user.password) {
     return actionResult(
       'error',
-      'You must be logged in to edit your password.',
+      'Debes iniciar sesión para cambiar tu contraseña.',
       401,
     );
   }
@@ -23,7 +23,7 @@ export const POST: RequestHandler = async ({ locals, request }) => {
   const { currentPassword, newPassword } = form.data;
   const valid = await verifyArgon2(user.password, currentPassword);
   if (!valid) {
-    setError(form, 'currentPassword', 'Invalid password');
+    setError(form, 'currentPassword', 'Contraseña no válida');
     return actionResult('failure', { form });
   }
 
@@ -38,13 +38,13 @@ export const POST: RequestHandler = async ({ locals, request }) => {
     .executeTakeFirst();
 
   if (!resp.numUpdatedRows) {
-    form.message = { type: 'error', text: 'Failed to update password' };
+    form.message = { type: 'error', text: 'Error al actualizar la contraseña' };
     return actionResult('failure', { form });
   }
 
   form.message = {
     type: 'success',
-    text: 'Password updated. Please log in again',
+    text: 'Contraseña actualizada. Por favor, inicia sesión de nuevo',
   };
   return actionResult('success', { form });
 };

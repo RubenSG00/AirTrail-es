@@ -45,7 +45,7 @@
 </Button>
 
 <Modal bind:open>
-  <ModalBreadcrumbHeader section="Shares" title="Create share" icon={Plus} />
+  <ModalBreadcrumbHeader section="Compartidos" title="Crear compartido" icon={Plus} />
   <ModalBody>
     <form
       method="POST"
@@ -54,7 +54,7 @@
       use:enhance
     >
       <ShareFormFields {form} />
-      <Form.Button>Create</Form.Button>
+      <Form.Button>Crear</Form.Button>
     </form>
   </ModalBody>
 </Modal>

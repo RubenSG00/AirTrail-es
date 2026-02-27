@@ -66,18 +66,18 @@
         orderedIds: list.map((item) => item.id),
       });
       invalidate();
-      toast.success('Custom fields reordered');
+      toast.success('Campos personalizados reordenados');
     } catch (e) {
-      toast.error('Failed to reorder custom fields');
+      toast.error('Error al reordenar campos personalizados');
       console.error(e);
     }
   };
 
   const remove = async (id: number) => {
     const confirmed = await confirmation.show({
-      title: 'Remove custom field',
+      title: 'Eliminar campo personalizado',
       description:
-        'Are you sure you want to remove this custom field? Any existing values will be deleted.',
+        '¿Estás seguro de que deseas eliminar este campo personalizado? Todos los valores existentes serán eliminados.',
     });
     if (!confirmed) return;
 
@@ -87,9 +87,9 @@
         entityType: 'flight',
       });
       invalidate();
-      toast.success('Custom field removed');
+      toast.success('Campo personalizado eliminado');
     } catch (e) {
-      toast.error('Failed to delete custom field');
+      toast.error('Error al eliminar campo personalizado');
       console.error(e);
     }
   };

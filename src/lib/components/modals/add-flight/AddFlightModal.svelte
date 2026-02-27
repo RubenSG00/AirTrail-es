@@ -78,7 +78,7 @@
 </script>
 
 <Modal bind:open closeOnOutsideClick={false} class="max-w-screen-lg">
-  <ModalBreadcrumbHeader section="Flights" title="New flight" icon={Globe} />
+  <ModalBreadcrumbHeader section="Vuelos" title="Nuevo vuelo" icon={Globe} />
   <form method="POST" action="/api/flight/save/form" use:enhance>
     <FlightForm {form} />
     <ModalFooter>
@@ -107,7 +107,7 @@
               : undefined}
           />
         </div>
-        <Form.Button size="sm" loading={$submitting}>Add Flight</Form.Button>
+        <Form.Button size="sm" loading={$submitting}>Añadir Vuelo</Form.Button>
       </div>
     </ModalFooter>
   </form>

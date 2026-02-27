@@ -18,7 +18,7 @@
 
   let { flights }: { flights: FlightData[] } = $props();
 
-  const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const WEEKDAYS = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
 
   const flightsPerWeekday = $derived.by(() => {
     const data = flights;
@@ -76,7 +76,7 @@
     <Tooltip.Root x="data" y="data">
       {#snippet children({ data })}
         <Tooltip.Header>{WEEKDAYS[data.weekday]}</Tooltip.Header>
-        <Tooltip.Item label="Flights" value={data.flights} />
+        <Tooltip.Item label="Vuelos" value={data.flights} />
       {/snippet}
     </Tooltip.Root>
   </Chart>

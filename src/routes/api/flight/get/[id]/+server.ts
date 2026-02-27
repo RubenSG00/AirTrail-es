@@ -13,13 +13,13 @@ export const GET: RequestHandler = async ({ request, params }) => {
 
   const id = +params.id;
   if (isNaN(id)) {
-    return apiError('Flight id is not a number', 400);
+    return apiError('El id del vuelo no es un número', 400);
   }
 
   const flight = await getFlight(id);
   if (!flight?.seats.some((seat) => seat.userId === user.id)) {
     return apiError(
-      'Flight not found or you do not have a seat on this flight',
+      'Vuelo no encontrado o no tienes un asiento en este vuelo',
       403,
     );
   }

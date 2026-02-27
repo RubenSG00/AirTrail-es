@@ -32,9 +32,9 @@
 
 <Card>
   <CardHeader>
-    <CardTitle>Airport Source</CardTitle>
+    <CardTitle>Fuente de aeropuertos</CardTitle>
     <CardDescription>
-      By default, AirTrail uses <a
+      Por defecto, AirTrail utiliza <a
         href="https://ourairports.com/"
         target="_blank"
         class="underline text-blue-500">OurAirports</a
@@ -45,13 +45,13 @@
   <CardContent>
     {#if !checkingForUpdates && !result}
       <Button onclick={checkForUpdates} variant="outline">
-        Check for updates
+        Buscar actualizaciones
       </Button>
     {:else}
       <div class="flex flex-col gap-5">
         <div class="flex gap-5">
           <dl class="flex flex-col text-sm">
-            <dt class="text-muted-foreground mb-2">Status</dt>
+            <dt class="text-muted-foreground mb-2">Estado</dt>
             <dd class="flex items-center gap-2">
               <span
                 class={cn('size-[10px] rounded-full', {
@@ -60,13 +60,13 @@
                 })}
               />
               <span class="font-medium">
-                {checkingForUpdates ? 'Updating' : 'Success'}
+                {checkingForUpdates ? 'Actualizando' : 'Correcto'}
               </span>
             </dd>
           </dl>
           {#if result}
             <dl in:fly={{ x: -10 }} class="flex flex-col text-sm">
-              <dt class="text-muted-foreground mb-2">Took</dt>
+              <dt class="text-muted-foreground mb-2">Tardó</dt>
               <dd class="flex gap-2">
                 <span class="font-medium">
                   {Duration.fromSeconds(result.time / 1000).toHuman()}
@@ -78,19 +78,19 @@
         {#if result}
           <div class="flex gap-5">
             <dl class="flex flex-col text-sm">
-              <dt class="text-muted-foreground mb-2">Added</dt>
+              <dt class="text-muted-foreground mb-2">Añadidos</dt>
               <dd class="flex gap-2">
                 <span class="font-medium font-mono">{result.created}</span>
               </dd>
             </dl>
             <dl class="flex flex-col text-sm">
-              <dt class="text-muted-foreground mb-2">Updated</dt>
+              <dt class="text-muted-foreground mb-2">Actualizados</dt>
               <dd class="flex gap-2">
                 <span class="font-medium font-mono">{result.updated}</span>
               </dd>
             </dl>
             <dl class="flex flex-col text-sm">
-              <dt class="text-muted-foreground mb-2">Deleted</dt>
+              <dt class="text-muted-foreground mb-2">Eliminados</dt>
               <dd class="flex gap-2">
                 <span class="font-medium font-mono">{result.removed}</span>
               </dd>

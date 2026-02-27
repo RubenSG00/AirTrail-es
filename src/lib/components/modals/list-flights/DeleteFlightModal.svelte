@@ -56,9 +56,9 @@
 <Modal bind:open preset="alert">
   <div class="flex flex-col gap-4 min-w-0">
     <div class="flex flex-col gap-1">
-      <h2 class="text-lg font-semibold">Delete flight</h2>
+      <h2 class="text-lg font-semibold">Eliminar vuelo</h2>
       <p class="text-sm text-muted-foreground">
-        Are you sure you want to delete this flight?
+        ¿Estás seguro de que quieres eliminar este vuelo?
       </p>
       <p class="text-sm text-muted-foreground">
         This action cannot be undone. All associated data will be permanently
@@ -76,7 +76,7 @@
     <!-- Confirmation input -->
     <div class="flex flex-col gap-2">
       <label for="confirmation" class="text-sm">
-        To verify, type <span class="font-semibold">{confirmationCode}</span> below
+        Para verificar, escribe <span class="font-semibold">{confirmationCode}</span> abajo
       </label>
       <Input
         id="confirmation"
@@ -88,13 +88,13 @@
 
     <!-- Actions -->
     <div class="flex justify-end gap-2 pt-2">
-      <Button variant="outline" onclick={() => (open = false)}>Cancel</Button>
+      <Button variant="outline" onclick={() => (open = false)}>Cancelar</Button>
       <Button
         variant="destructive"
         disabled={!isConfirmed || isDeleting}
         onclick={handleDelete}
       >
-        {isDeleting ? 'Deleting...' : 'Delete flight'}
+        {isDeleting ? 'Eliminando...' : 'Eliminar vuelo'}
       </Button>
     </div>
   </div>

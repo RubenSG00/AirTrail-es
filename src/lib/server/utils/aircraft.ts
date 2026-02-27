@@ -80,13 +80,13 @@ export const validateAndSaveAircraft = async (
       return {
         success: false,
         type: 'error',
-        message: 'Failed to update aircraft',
+        message: 'Error al actualizar la aeronave',
       };
     }
 
     return {
       success: true,
-      message: 'Aircraft updated',
+      message: 'Aeronave actualizada',
     };
   } else {
     try {
@@ -98,13 +98,13 @@ export const validateAndSaveAircraft = async (
       return {
         success: false,
         type: 'error',
-        message: 'Failed to create aircraft',
+        message: 'Error al crear la aeronave',
       };
     }
 
     return {
       success: true,
-      message: 'Aircraft created',
+      message: 'Aeronave creada',
     };
   }
 };

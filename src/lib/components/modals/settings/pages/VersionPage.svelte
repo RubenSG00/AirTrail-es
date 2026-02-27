@@ -13,12 +13,12 @@
 </script>
 
 <PageHeader
-  title="Version"
-  subtitle="View version information and check for updates."
+  title="Versión"
+  subtitle="Ver información de versión y buscar actualizaciones."
 >
   <div class="space-y-4">
     <div class="space-y-2">
-      <h3 class="text-sm font-medium">Current Version</h3>
+      <h3 class="text-sm font-medium">Versión Actual</h3>
       <p class="text-muted-foreground text-sm">
         <a
           href="https://github.com/johanohly/AirTrail/releases/tag/v{version}"
@@ -32,10 +32,10 @@
     </div>
 
     <div class="space-y-2">
-      <h3 class="text-sm font-medium">Latest Version</h3>
+      <h3 class="text-sm font-medium">Última Versión</h3>
       <p class="text-muted-foreground text-sm">
         {#if versionState.isChecking}
-          <span class="font-mono font-semibold">Checking...</span>
+          <span class="font-mono font-semibold">Comprobando...</span>
         {:else if versionState.latestVersion}
           <a
             href="https://github.com/johanohly/AirTrail/releases/tag/v{versionState.latestVersion}"
@@ -47,21 +47,21 @@
           </a>
         {:else}
           <span class="font-mono font-semibold"
-            >Unable to get latest version.</span
+            >No se pudo obtener la última versión.</span
           >
         {/if}
       </p>
     </div>
 
     <div class="space-y-2">
-      <h3 class="text-sm font-medium">Updating</h3>
+      <h3 class="text-sm font-medium">Actualización</h3>
       <a
         href="https://airtrail.johan.ohly.dk/docs/install/updating"
         target="_blank"
         rel="noopener noreferrer"
         class="text-sm text-primary hover:underline"
       >
-        How to update
+        Cómo actualizar
       </a>
     </div>
   </div>

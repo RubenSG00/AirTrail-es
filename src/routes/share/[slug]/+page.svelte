@@ -26,8 +26,8 @@
 </script>
 
 <svelte:head>
-  <title>Shared Flight Map - AirTrail</title>
-  <meta name="description" content="View shared flight data on AirTrail" />
+  <title>Mapa de Vuelos Compartido - AirTrail</title>
+  <meta name="description" content="Ver datos de vuelos compartidos en AirTrail" />
 </svelte:head>
 
 {#if shareSettings && flights.length > 0}
@@ -40,9 +40,9 @@
         class="container mx-auto px-4 py-3 flex items-center justify-between"
       >
         <div class="flex items-center space-x-2">
-          <div class="text-lg font-semibold">Shared Flights</div>
+          <div class="text-lg font-semibold">Vuelos Compartidos</div>
           <div class="text-sm text-muted-foreground">
-            ({flights.length} flights)
+            ({flights.length} vuelos)
           </div>
         </div>
         <div class="flex items-center space-x-2">
@@ -51,7 +51,7 @@
               onclick={() => (showFlightList = true)}
               class="px-3 py-1.5 text-sm bg-secondary hover:bg-secondary/80 rounded-md transition-colors"
             >
-              Flight List
+              Lista de Vuelos
             </button>
           {/if}
           {#if shareSettings.showStats}
@@ -59,7 +59,7 @@
               onclick={() => (showStatistics = true)}
               class="px-3 py-1.5 text-sm bg-secondary hover:bg-secondary/80 rounded-md transition-colors"
             >
-              Statistics
+              Estadísticas
             </button>
           {/if}
         </div>
@@ -79,13 +79,13 @@
     <div class="min-h-screen flex items-center justify-center">
       <div class="text-center flex flex-col items-center space-y-4 max-w-md">
         <ChartPie size={64} class="text-primary" />
-        <h1 class="text-2xl font-bold">Shared Flight Data</h1>
+        <h1 class="text-2xl font-bold">Datos de Vuelo Compartidos</h1>
         <p class="text-muted-foreground">
-          This share includes {flights.length} flights.
+          Este enlace compartido incluye {flights.length} vuelos.
           {#if shareSettings.showFlightList || shareSettings.showStats}
-            Use the buttons above to explore the data.
+            Usa los botones de arriba para explorar los datos.
           {:else}
-            The map view is not available for this share.
+            La vista de mapa no está disponible para este enlace compartido.
           {/if}
         </p>
       </div>
@@ -112,10 +112,10 @@
   <div class="flex items-center justify-center min-h-screen">
     <div class="flex flex-col items-center text-center space-y-4 max-w-md">
       <AirplanemodeInactive size={64} class="text-primary" />
-      <h1 class="text-2xl font-bold">No Flights to Display</h1>
+      <h1 class="text-2xl font-bold">No Hay Vuelos para Mostrar</h1>
       <p class="text-muted-foreground">
-        This share doesn't contain any flight data, or the filters applied
-        result in no visible flights.
+        Este compartido no contiene datos de vuelo, o los filtros aplicados
+        no muestran ningún vuelo.
       </p>
     </div>
   </div>

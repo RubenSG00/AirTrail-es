@@ -16,7 +16,7 @@ export const POST: RequestHandler = async ({ locals, request }) => {
 
   const user = locals.user;
   if (!user) {
-    form.message = { type: 'error', text: 'Not logged in' };
+    form.message = { type: 'error', text: 'No has iniciado sesión' };
     return actionResult('failure', { form });
   }
 

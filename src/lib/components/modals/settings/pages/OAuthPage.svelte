@@ -51,7 +51,7 @@
 
 <PageHeader
   title="OAuth"
-  subtitle="Configure OAuth for your AirTrail instance."
+  subtitle="Configura OAuth para tu instancia de AirTrail."
 >
   <form
     method="POST"
@@ -72,9 +72,9 @@
         <Form.Control>
           {#snippet children({ props })}
             <div class="grid gap-1">
-              <Form.Label>Enable OAuth</Form.Label>
+              <Form.Label>Habilitar OAuth</Form.Label>
               <Form.Description>
-                Enable OAuth for your AirTrail instance.
+                Habilita OAuth para tu instancia de AirTrail.
               </Form.Description>
             </div>
             <Switch bind:checked={$formData.enabled} {...props} />
@@ -90,8 +90,8 @@
         <Form.Control>
           {#snippet children({ props })}
             <div class="grid gap-1">
-              <Form.Label>Issuer URL</Form.Label>
-              <Form.Description>The URL of the OAuth provider.</Form.Description
+              <Form.Label>URL del Emisor</Form.Label>
+              <Form.Description>La URL del proveedor OAuth.</Form.Description
               >
             </div>
             <Input
@@ -112,9 +112,9 @@
         <Form.Control>
           {#snippet children({ props })}
             <div class="grid gap-1">
-              <Form.Label>Client ID</Form.Label>
+              <Form.Label>ID de Cliente</Form.Label>
               <Form.Description>
-                The client ID provided by the OAuth provider.
+                El ID de cliente proporcionado por el proveedor OAuth.
               </Form.Description>
             </div>
             <Input bind:value={$formData.clientId} {...props} />
@@ -131,9 +131,9 @@
         <Form.Control>
           {#snippet children({ props })}
             <div class="grid gap-1">
-              <Form.Label>Client Secret</Form.Label>
+              <Form.Label>Secreto de Cliente</Form.Label>
               <Form.Description>
-                The client secret provided by the OAuth provider.
+                El secreto de cliente proporcionado por el proveedor OAuth.
               </Form.Description>
             </div>
             <Input
@@ -154,9 +154,9 @@
         <Form.Control>
           {#snippet children({ props })}
             <div class="grid gap-1">
-              <Form.Label>Scope</Form.Label>
+              <Form.Label>Alcance</Form.Label>
               <Form.Description>
-                The scope of the OAuth provider (space-separated).
+                El alcance del proveedor OAuth (separado por espacios).
               </Form.Description>
             </div>
             <Input
@@ -177,9 +177,9 @@
         <Form.Control>
           {#snippet children({ props })}
             <div class="grid gap-1">
-              <Form.Label>Button Text</Form.Label>
+              <Form.Label>Texto del Botón</Form.Label>
               <Form.Description>
-                The text to display on the OAuth login button.
+                El texto a mostrar en el botón de inicio de sesión OAuth.
               </Form.Description>
             </div>
             <Input bind:value={$formData.buttonText} {...props} />
@@ -200,9 +200,9 @@
         <Form.Control>
           {#snippet children({ props })}
             <div class="grid gap-1">
-              <Form.Label>Auto Register</Form.Label>
+              <Form.Label>Registro Automático</Form.Label>
               <Form.Description>
-                Automatically register new users when they sign in with OAuth.
+                Registrar automáticamente nuevos usuarios cuando inicien sesión con OAuth.
               </Form.Description>
             </div>
             <Switch bind:checked={$formData.autoRegister} {...props} />
@@ -222,10 +222,10 @@
         <Form.Control>
           {#snippet children({ props })}
             <div class="grid gap-1">
-              <Form.Label>Auto Login</Form.Label>
+              <Form.Label>Inicio de Sesión Automático</Form.Label>
               <Form.Description>
-                Automatically redirect users to the OAuth provider when they
-                visit the login page.
+                Redirigir automáticamente a los usuarios al proveedor OAuth cuando
+                visiten la página de inicio de sesión.
               </Form.Description>
             </div>
             <Switch bind:checked={$formData.autoLogin} {...props} />
@@ -245,9 +245,9 @@
         <Form.Control>
           {#snippet children({ props })}
             <div class="grid gap-1">
-              <Form.Label>Hide Password Form</Form.Label>
+              <Form.Label>Ocultar Formulario de Contraseña</Form.Label>
               <Form.Description>
-                Hide password form when OAuth is enabled.
+                Ocultar formulario de contraseña cuando OAuth está habilitado.
               </Form.Description>
             </div>
             <Switch bind:checked={$formData.hidePasswordForm} {...props} />
@@ -255,13 +255,13 @@
         </Form.Control>
       </Form.Field>
     </Locked>
-    <Form.Button disabled={!changes}>Save</Form.Button>
+    <Form.Button disabled={!changes}>Guardar</Form.Button>
   </form>
 </PageHeader>
 
 {#snippet lockedTooltip()}
   <p>
-    This setting is locked because it is configured via environment variables.
+    Esta configuración está bloqueada porque se configura mediante variables de entorno.
   </p>
   <p>
     To change this setting, update or delete the environment variable and

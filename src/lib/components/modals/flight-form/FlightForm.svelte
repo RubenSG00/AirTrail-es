@@ -77,7 +77,7 @@
       const duration = differenceInSeconds(arr, dep);
 
       if (duration > MAX_DURATION_SECONDS) {
-        return 'Flight duration exceeds 24 hours';
+        return 'La duración del vuelo excede las 24 horas';
       }
     } catch {
       return null;
@@ -106,7 +106,7 @@
             class="text-xs text-muted-foreground transition hover:text-foreground text-left"
             onclick={() => (showTimetable = false)}
           >
-            Use simple departure/arrival inputs
+            Usar entradas simples de salida/llegada
           </button>
         {:else}
           <DateTimeField field="departure" {form} />
@@ -116,7 +116,7 @@
             class="text-xs text-muted-foreground transition hover:text-foreground text-left"
             onclick={() => (showTimetable = true)}
           >
-            Add detailed timetable (taxi, takeoff, landing times...)
+            Añadir horario detallado (taxi, despegue, aterrizaje...)
           </button>
         {/if}
         {#if durationWarning}

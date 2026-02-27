@@ -37,20 +37,20 @@ async function fetchJsonData<T>(
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      logError(errors, `Failed to fetch ${url}: ${response.status}`);
+      logError(errors, `Error al obtener ${url}: ${response.status}`);
       return null;
     }
 
     const json = await response.json();
     const parsed = schema.safeParse(json);
     if (!parsed.success) {
-      logError(errors, `Invalid JSON format from ${url}: ${parsed.error}`);
+      logError(errors, `Formato JSON no válido de ${url}: ${parsed.error}`);
       return null;
     }
 
     return parsed.data;
   } catch (err) {
-    logError(errors, `Failed to fetch ${url}: ${formatError(err)}`);
+    logError(errors, `Error al obtener ${url}: ${formatError(err)}`);
     return null;
   }
 }
@@ -130,7 +130,7 @@ export const syncAirlines = async (options?: {
     } catch (err) {
       logError(
         result.errors,
-        `Failed to sync airline ${airline.id}: ${formatError(err)}`,
+        `Error al sincronizar aerolínea ${airline.id}: ${formatError(err)}`,
       );
     }
   }
@@ -194,7 +194,7 @@ export const syncAircraft = async (options?: {
     } catch (err) {
       logError(
         result.errors,
-        `Failed to sync aircraft ${ac.id}: ${formatError(err)}`,
+        `Error al sincronizar aeronave ${ac.id}: ${formatError(err)}`,
       );
     }
   }
@@ -220,7 +220,7 @@ async function fetchAirlineIconsFromGitHub(): Promise<Map<string, IconData>> {
   });
 
   if (!response.ok) {
-    throw new Error(`Failed to fetch tarball: ${response.status}`);
+    throw new Error(`Error al obtener tarball: ${response.status}`);
   }
 
   const buffer = Buffer.from(await response.arrayBuffer());
@@ -319,7 +319,7 @@ export const syncAirlineIcons = async (options?: {
   const result: IconSyncResult = { synced: 0, errors: [] };
 
   if (!uploadManager.isReady) {
-    logError(result.errors, 'Upload manager is not ready. Cannot sync icons.');
+    logError(result.errors, 'El gestor de subidas no está listo. No se pueden sincronizar iconos.');
     return result;
   }
 
@@ -338,7 +338,7 @@ export const syncAirlineIcons = async (options?: {
   } catch (err) {
     logError(
       result.errors,
-      `Failed to fetch icons from GitHub: ${formatError(err)}`,
+      `Error al obtener iconos de GitHub: ${formatError(err)}`,
     );
     return result;
   }
@@ -360,13 +360,13 @@ export const syncAirlineIcons = async (options?: {
       } else {
         logError(
           result.errors,
-          `Failed to save icon for airline ${airline.sourceId}`,
+          `Error al guardar icono de aerolínea ${airline.sourceId}`,
         );
       }
     } catch (err) {
       logError(
         result.errors,
-        `Failed to sync icon for ${airline.sourceId}: ${formatError(err)}`,
+        `Error al sincronizar icono de ${airline.sourceId}: ${formatError(err)}`,
       );
     }
   }

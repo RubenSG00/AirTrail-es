@@ -52,8 +52,8 @@
 
 <Modal bind:open closeOnOutsideClick={false} class="max-w-lg">
   <ModalBreadcrumbHeader
-    section="Aircraft"
-    title="Edit aircraft"
+    section="Aeronaves"
+    title="Editar aeronave"
     icon={SquarePen}
   />
   <ModalBody>
@@ -64,7 +64,7 @@
       class="grid gap-4"
     >
       <AircraftFormFields {form} />
-      <Form.Button>Save</Form.Button>
+      <Form.Button>Guardar</Form.Button>
     </form>
   </ModalBody>
 </Modal>

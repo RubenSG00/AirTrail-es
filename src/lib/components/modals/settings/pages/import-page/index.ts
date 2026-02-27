@@ -12,7 +12,7 @@ export const platforms = [
   {
     name: 'FlightRadar24',
     value: 'fr24',
-    description: 'CSV export from MyFlightRadar24 settings.',
+    description: 'Exportación CSV desde la configuración de MyFlightRadar24.',
     extensions: ['.csv'],
     options: {
       filterOwner: false,
@@ -22,7 +22,7 @@ export const platforms = [
   {
     name: 'App in the Air',
     value: 'aita',
-    description: 'Text export from App in the Air (via email).',
+    description: 'Exportación de texto desde App in the Air (por correo).',
     extensions: ['.txt'],
     options: {
       filterOwner: true,
@@ -32,7 +32,7 @@ export const platforms = [
   {
     name: 'JetLog',
     value: 'jetlog',
-    description: 'CSV export from JetLog settings.',
+    description: 'Exportación CSV desde la configuración de JetLog.',
     extensions: ['.csv'],
     options: {
       filterOwner: false,
@@ -42,7 +42,7 @@ export const platforms = [
   {
     name: 'TripIt (ICS)',
     value: 'tripit',
-    description: 'Trip export from TripIt as an ICS file.',
+    description: 'Exportación de viaje desde TripIt como archivo ICS.',
     extensions: ['.ics'],
     options: {
       filterOwner: false,
@@ -52,7 +52,7 @@ export const platforms = [
   {
     name: 'Flighty',
     value: 'flighty',
-    description: 'CSV export from Flighty flight tracker app.',
+    description: 'Exportación CSV desde la app Flighty.',
     extensions: ['.csv'],
     options: {
       filterOwner: false,
@@ -62,7 +62,7 @@ export const platforms = [
   {
     name: 'byAir',
     value: 'byair',
-    description: 'CSV export from byAir flight tracker.',
+    description: 'Exportación CSV desde el rastreador de vuelos byAir.',
     extensions: ['.csv'],
     options: {
       filterOwner: true,
@@ -72,7 +72,7 @@ export const platforms = [
   {
     name: 'AirTrail',
     value: 'airtrail',
-    description: 'JSON export from AirTrail (re-import your data).',
+    description: 'Exportación JSON desde AirTrail (reimportar datos).',
     extensions: ['.json'],
     options: {
       filterOwner: false,

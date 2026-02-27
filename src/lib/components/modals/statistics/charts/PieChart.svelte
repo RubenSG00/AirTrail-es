@@ -16,12 +16,12 @@
   );
   const placeholderOrData = $derived.by(() => {
     if (noData) {
-      return { 'No data': 1 };
+      return { 'Sin datos': 1 };
     }
     return Object.fromEntries(
       Object.entries(data)
         .filter(([, value]) => value > 0)
-        .filter(([key]) => key !== 'No Data')
+        .filter(([key]) => key !== 'Sin datos')
         .sort(([, a], [, b]) => b - a),
     );
   });
@@ -53,7 +53,7 @@
         cRange={noData
           ? ['#3b82f650']
           : Object.keys(placeholderOrData).map((key) => {
-              if (key === 'Others' || key === 'No Data') return '#71717a'; // zinc-500
+              if (key === 'Otros' || key === 'Sin datos') return '#71717a'; // zinc-500
               return ['#3b82f6', '#6366f1', '#8b5cf6', '#a855f7', '#d946ef'][
                 Object.keys(placeholderOrData).indexOf(key) % 5
               ] as string;
@@ -68,7 +68,7 @@
       {/if}
       {#each Object.entries(data)
         .filter(([, value]) => value > 0)
-        .filter(([key]) => key !== 'No Data') as [key, value] (key)}
+        .filter(([key]) => key !== 'Sin datos') as [key, value] (key)}
         <p><span class="font-bold">{value}</span> {key}</p>
       {/each}
     </div>

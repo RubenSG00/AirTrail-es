@@ -2,13 +2,13 @@ import { z } from 'zod';
 
 export const aircraftSchema = z.object({
   id: z.number().nullable(),
-  name: z.string().min(1, 'Aircraft name is required'),
+  name: z.string().min(1, 'El nombre de la aeronave es obligatorio'),
   icao: z
-    .string({ message: 'Set an ICAO code' })
-    .max(4, 'ICAO code must be 4 characters or less')
+    .string({ message: 'Establece un código ICAO' })
+    .max(4, 'El código ICAO debe tener 4 caracteres o menos')
     .regex(
       /^[A-Z0-9]+$/,
-      'ICAO code must contain only uppercase letters and numbers',
+      'El código ICAO solo puede contener letras mayúsculas y números',
     )
     .nullable(),
 });

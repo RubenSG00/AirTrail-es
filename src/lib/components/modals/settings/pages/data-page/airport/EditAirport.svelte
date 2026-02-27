@@ -59,8 +59,8 @@
 
 <Modal bind:open closeOnOutsideClick={false} class="max-w-lg">
   <ModalBreadcrumbHeader
-    section="Airports"
-    title="Edit airport"
+    section="Aeropuertos"
+    title="Editar aeropuerto"
     icon={SquarePen}
   />
   <form method="POST" action="/api/airport/save/form" use:enhance>
@@ -70,7 +70,7 @@
       </div>
     </ModalBody>
     <ModalFooter>
-      <Form.Button>Save</Form.Button>
+      <Form.Button>Guardar</Form.Button>
     </ModalFooter>
   </form>
 </Modal>

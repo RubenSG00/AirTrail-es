@@ -1,6 +1,7 @@
 <script lang="ts">
   import { tz, TZDate } from '@date-fns/tz';
   import { format, isToday, parseJSON } from 'date-fns';
+  import { es } from 'date-fns/locale';
   import { toast } from 'svelte-sonner';
   import type { SuperForm } from 'sveltekit-superforms';
   import { z } from 'zod';
@@ -60,7 +61,7 @@
     if (
       ($formData.from || $formData.to) &&
       !confirm(
-        'Are you sure you want to overwrite the current flight information?',
+        '¿Estás seguro de que quieres sobrescribir la información del vuelo actual?',
       )
     ) {
       return;
@@ -122,7 +123,7 @@
     $formData.arrivalGate = result.arrivalGate ?? null;
 
     clearResults();
-    toast.success('Flight found');
+    toast.success('Vuelo encontrado');
   }
 
   function getPrimaryDate(item: LookupResult): Date | null {
@@ -164,7 +165,7 @@
       }));
     } catch (e: unknown) {
       const message =
-        e instanceof Error ? e.message : 'Error looking up flight';
+        e instanceof Error ? e.message : 'Error al buscar vuelo';
       toast.error(message);
       isSearching = false;
       return;
@@ -173,7 +174,7 @@
     isSearching = false;
 
     if (!Array.isArray(results) || results.length === 0) {
-      toast.error('Flight not found');
+      toast.error('Vuelo no encontrado');
       return;
     }
 
@@ -195,7 +196,7 @@
     });
 
     lookupResults = sorted;
-    toast.info('Multiple flights found. Please choose one.');
+    toast.info('Se encontraron varios vuelos. Por favor, elige uno.');
   };
 </script>
 
@@ -206,14 +207,14 @@
         Flight Number
         {#if appConfig.configured?.integrations.aeroDataBoxKey}
           <HelpTooltip
-            text="If you set the departure date before searching, it will be considered when searching for flights."
+            text="Si estableces la fecha de salida antes de buscar, se tendrá en cuenta al buscar vuelos."
           />
         {:else}
           <HelpTooltip>
             {#snippet content()}
-              For more detailed results, configure the <a
+              Para resultados más detallados, configura la <a
                 href="https://airtrail.johan.ohly.dk/docs/integrations/aerodatabox"
-                target="_blank">AeroDataBox integration.</a
+                target="_blank">integración de AeroDataBox.</a
               >
             {/snippet}
           </HelpTooltip>
@@ -235,7 +236,7 @@
           disabled={!$formData.flightNumber || isSearching}
           variant="secondary"
           class="h-full"
-          >{isSearching ? 'Searching...' : 'Search'}
+          >{isSearching ? 'Buscando...' : 'Buscar'}
         </Button>
       </div>
     {/snippet}
@@ -248,8 +249,8 @@
     <div
       class="flex items-center justify-between text-sm text-muted-foreground"
     >
-      <span>Select your flight</span>
-      <Button variant="ghost" size="sm" onclick={clearResults}>Clear</Button>
+      <span>Selecciona tu vuelo</span>
+      <Button variant="ghost" size="sm" onclick={clearResults}>Limpiar</Button>
     </div>
 
     <div class="space-y-1.5">
@@ -275,7 +276,7 @@
                 <div
                   class="text-[10px] font-medium uppercase leading-none mt-0.5 opacity-80"
                 >
-                  {format(primaryDate, 'MMM')}
+                  {format(primaryDate, 'MMM', { locale: es })}
                 </div>
               {:else}
                 <div class="text-xs">?</div>
@@ -288,7 +289,7 @@
                   <span
                     class="rounded-sm bg-primary px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-primary-foreground"
                   >
-                    Today
+                    Hoy
                   </span>
                 {:else if primaryDate}
                   <span class="text-xs font-medium text-muted-foreground">
@@ -312,7 +313,7 @@
               {/if}
 
               <div class="text-xs text-muted-foreground truncate">
-                {r.airline?.name ?? r.airline?.icao ?? 'Unknown'}
+                {r.airline?.name ?? r.airline?.icao ?? 'Desconocido'}
               </div>
             </div>
           </div>

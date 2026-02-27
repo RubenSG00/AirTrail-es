@@ -90,28 +90,28 @@ type Definition = {
 
 const checkValueType = (def: Definition, value: unknown): string | null => {
   if (TEXT_LIKE_TYPES.has(def.fieldType) && typeof value !== 'string') {
-    return 'must be text';
+    return 'debe ser texto';
   }
   if (def.fieldType === 'number') {
     if (typeof value !== 'number' || !Number.isFinite(value)) {
-      return 'must be a number';
+      return 'debe ser un número';
     }
   }
   if (def.fieldType === 'boolean' && typeof value !== 'boolean') {
-    return 'must be true or false';
+    return 'debe ser verdadero o falso';
   }
   if (def.fieldType === 'date' && typeof value !== 'string') {
-    return 'must be a date string';
+    return 'debe ser una cadena de fecha';
   }
   if (def.fieldType === 'select') {
-    if (typeof value !== 'string') return 'must be one of its options';
+    if (typeof value !== 'string') return 'debe ser una de sus opciones';
     const options = Array.isArray(def.options)
       ? def.options.filter((x): x is string => typeof x === 'string')
       : [];
-    if (!options.includes(value)) return 'must be one of its options';
+    if (!options.includes(value)) return 'debe ser una de sus opciones';
   }
   if (ENTITY_TYPES.has(def.fieldType) && typeof value !== 'number') {
-    return 'must use a numeric ID';
+    return 'debe usar un ID numérico';
   }
   return null;
 };
@@ -123,22 +123,22 @@ const checkTextValidation = (
   if (validation.regex) {
     try {
       const re = new RegExp(validation.regex);
-      if (!re.test(value)) return 'does not match its pattern';
+      if (!re.test(value)) return 'no coincide con su patrón';
     } catch {
-      return 'has an invalid regex pattern';
+      return 'tiene un patrón regex inválido';
     }
   }
   if (
     typeof validation.minLength === 'number' &&
     value.length < validation.minLength
   ) {
-    return 'is shorter than minimum length';
+    return 'es más corto que la longitud mínima';
   }
   if (
     typeof validation.maxLength === 'number' &&
     value.length > validation.maxLength
   ) {
-    return 'is longer than maximum length';
+    return 'es más largo que la longitud máxima';
   }
   return null;
 };
@@ -148,10 +148,10 @@ const checkNumberValidation = (
   validation: Validation,
 ): string | null => {
   if (typeof validation.min === 'number' && value < validation.min) {
-    return 'is lower than minimum value';
+    return 'es menor que el valor mínimo';
   }
   if (typeof validation.max === 'number' && value > validation.max) {
-    return 'is higher than maximum value';
+    return 'es mayor que el valor máximo';
   }
   return null;
 };
@@ -172,7 +172,7 @@ const checkValidation = (def: Definition, value: unknown): string | null => {
 const validateValue = (def: Definition, value: unknown): string | null => {
   const isEmpty = value === undefined || value === null || value === '';
 
-  if (def.required && isEmpty) return `Custom field "${def.label}" is required`;
+  if (def.required && isEmpty) return `El campo personalizado "${def.label}" es obligatorio`;
   if (value == null) return null;
 
   const typeError = checkValueType(def, value);

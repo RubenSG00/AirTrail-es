@@ -138,17 +138,17 @@
       class="grid grid-cols-[1.2fr_1fr_1fr] gap-3 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground"
     >
       <div></div>
-      <div>Scheduled</div>
-      <div>Actual</div>
+      <div>Programado</div>
+      <div>Real</div>
     </div>
     <div class="space-y-1">
       <div class="grid grid-cols-[1.2fr_1fr_1fr] items-start gap-3">
         <div class="flex h-8 items-center">
-          <Label>Gate departure</Label>
+          <Label>Salida de puerta</Label>
         </div>
         <TimetableDateTimeCell
           {form}
-          label="Gate departure"
+          label="Salida de puerta"
           dateField="departureScheduled"
           timeField="departureScheduledTime"
           timezone={$formData.from?.tz}
@@ -158,7 +158,7 @@
         />
         <TimetableDateTimeCell
           {form}
-          label="Gate departure"
+          label="Salida de puerta"
           dateField="departure"
           timeField="departureTime"
           timezone={$formData.from?.tz}
@@ -171,7 +171,7 @@
       </div>
       <div class="grid grid-cols-[1.2fr_1fr_1fr] items-start gap-3">
         <div class="flex h-8 items-center">
-          <Label class="text-muted-foreground">Taxi out</Label>
+          <Label class="text-muted-foreground">Taxi de salida</Label>
         </div>
         <div class="flex h-8 items-center px-2 text-sm text-muted-foreground">
           {formatDuration(taxiOutScheduled)}
@@ -182,11 +182,11 @@
       </div>
       <div class="grid grid-cols-[1.2fr_1fr_1fr] items-start gap-3">
         <div class="flex h-8 items-center">
-          <Label>Takeoff</Label>
+          <Label>Despegue</Label>
         </div>
         <TimetableDateTimeCell
           {form}
-          label="Takeoff"
+          label="Despegue"
           dateField="takeoffScheduled"
           timeField="takeoffScheduledTime"
           timezone={$formData.from?.tz}
@@ -196,7 +196,7 @@
         />
         <TimetableDateTimeCell
           {form}
-          label="Takeoff"
+          label="Despegue"
           dateField="takeoffActual"
           timeField="takeoffActualTime"
           timezone={$formData.from?.tz}
@@ -210,11 +210,11 @@
         class="grid grid-cols-[1.2fr_1fr_1fr] items-start gap-3 pt-3 mt-3 border-t border-border/60"
       >
         <div class="flex h-8 items-center">
-          <Label>Landing</Label>
+          <Label>Aterrizaje</Label>
         </div>
         <TimetableDateTimeCell
           {form}
-          label="Landing"
+          label="Aterrizaje"
           dateField="landingScheduled"
           timeField="landingScheduledTime"
           timezone={$formData.to?.tz}
@@ -224,7 +224,7 @@
         />
         <TimetableDateTimeCell
           {form}
-          label="Landing"
+          label="Aterrizaje"
           dateField="landingActual"
           timeField="landingActualTime"
           timezone={$formData.to?.tz}
@@ -236,7 +236,7 @@
       </div>
       <div class="grid grid-cols-[1.2fr_1fr_1fr] items-start gap-3">
         <div class="flex h-8 items-center">
-          <Label class="text-muted-foreground">Taxi in</Label>
+          <Label class="text-muted-foreground">Taxi de llegada</Label>
         </div>
         <div class="flex h-8 items-center px-2 text-sm text-muted-foreground">
           {formatDuration(taxiInScheduled)}
@@ -247,11 +247,11 @@
       </div>
       <div class="grid grid-cols-[1.2fr_1fr_1fr] items-start gap-3">
         <div class="flex h-8 items-center">
-          <Label>Gate arrival</Label>
+          <Label>Llegada a puerta</Label>
         </div>
         <TimetableDateTimeCell
           {form}
-          label="Gate arrival"
+          label="Llegada a puerta"
           dateField="arrivalScheduled"
           timeField="arrivalScheduledTime"
           timezone={$formData.to?.tz}
@@ -261,7 +261,7 @@
         />
         <TimetableDateTimeCell
           {form}
-          label="Gate arrival"
+          label="Llegada a puerta"
           dateField="arrival"
           timeField="arrivalTime"
           timezone={$formData.to?.tz}
@@ -275,7 +275,7 @@
         class="grid grid-cols-[1.2fr_1fr_1fr] items-center gap-3 mt-3 pt-3 border-t border-border/60"
       >
         <div class="flex h-8 items-center">
-          <Label class="text-muted-foreground">Air time</Label>
+          <Label class="text-muted-foreground">Tiempo en el aire</Label>
         </div>
         <div class="flex h-8 items-center px-2 text-sm text-muted-foreground">
           {formatDuration(airTimeScheduled)}
@@ -286,7 +286,7 @@
       </div>
       <div class="grid grid-cols-[1.2fr_1fr_1fr] items-center gap-3">
         <div class="flex h-8 items-center">
-          <Label class="text-muted-foreground">Total time</Label>
+          <Label class="text-muted-foreground">Tiempo total</Label>
         </div>
         <div class="flex h-8 items-center px-2 text-sm text-muted-foreground">
           {formatDuration(totalTimeScheduled)}
@@ -304,8 +304,8 @@
   <!-- Tab switcher -->
   <Tabs.Root bind:value={mobileTab} class="w-full mb-3">
     <Tabs.List class="w-full">
-      <Tabs.Trigger value="scheduled">Scheduled</Tabs.Trigger>
-      <Tabs.Trigger value="actual">Actual</Tabs.Trigger>
+      <Tabs.Trigger value="scheduled">Programado</Tabs.Trigger>
+      <Tabs.Trigger value="actual">Real</Tabs.Trigger>
     </Tabs.List>
   </Tabs.Root>
 
@@ -313,12 +313,12 @@
     <!-- Gate departure -->
     <div class="grid grid-cols-[1fr_1fr] items-start gap-3">
       <div class="flex h-8 items-center">
-        <Label>Gate departure</Label>
+        <Label>Salida de puerta</Label>
       </div>
       {#if mobileTab === 'scheduled'}
         <TimetableDateTimeCell
           {form}
-          label="Gate departure"
+          label="Salida de puerta"
           dateField="departureScheduled"
           timeField="departureScheduledTime"
           timezone={$formData.from?.tz}
@@ -329,7 +329,7 @@
       {:else}
         <TimetableDateTimeCell
           {form}
-          label="Gate departure"
+          label="Salida de puerta"
           dateField="departure"
           timeField="departureTime"
           timezone={$formData.from?.tz}
@@ -345,7 +345,7 @@
     <!-- Taxi out -->
     <div class="grid grid-cols-[1fr_1fr] items-start gap-3">
       <div class="flex h-8 items-center">
-        <Label class="text-muted-foreground">Taxi out</Label>
+        <Label class="text-muted-foreground">Taxi de salida</Label>
       </div>
       <div class="flex h-8 items-center px-2 text-sm text-muted-foreground">
         {formatDuration(
@@ -357,12 +357,12 @@
     <!-- Takeoff -->
     <div class="grid grid-cols-[1fr_1fr] items-start gap-3">
       <div class="flex h-8 items-center">
-        <Label>Takeoff</Label>
+        <Label>Despegue</Label>
       </div>
       {#if mobileTab === 'scheduled'}
         <TimetableDateTimeCell
           {form}
-          label="Takeoff"
+          label="Despegue"
           dateField="takeoffScheduled"
           timeField="takeoffScheduledTime"
           timezone={$formData.from?.tz}
@@ -373,7 +373,7 @@
       {:else}
         <TimetableDateTimeCell
           {form}
-          label="Takeoff"
+          label="Despegue"
           dateField="takeoffActual"
           timeField="takeoffActualTime"
           timezone={$formData.from?.tz}
@@ -390,12 +390,12 @@
       class="grid grid-cols-[1fr_1fr] items-start gap-3 pt-3 mt-3 border-t border-border/60"
     >
       <div class="flex h-8 items-center">
-        <Label>Landing</Label>
+        <Label>Aterrizaje</Label>
       </div>
       {#if mobileTab === 'scheduled'}
         <TimetableDateTimeCell
           {form}
-          label="Landing"
+          label="Aterrizaje"
           dateField="landingScheduled"
           timeField="landingScheduledTime"
           timezone={$formData.to?.tz}
@@ -406,7 +406,7 @@
       {:else}
         <TimetableDateTimeCell
           {form}
-          label="Landing"
+          label="Aterrizaje"
           dateField="landingActual"
           timeField="landingActualTime"
           timezone={$formData.to?.tz}
@@ -421,7 +421,7 @@
     <!-- Taxi in -->
     <div class="grid grid-cols-[1fr_1fr] items-start gap-3">
       <div class="flex h-8 items-center">
-        <Label class="text-muted-foreground">Taxi in</Label>
+        <Label class="text-muted-foreground">Taxi de llegada</Label>
       </div>
       <div class="flex h-8 items-center px-2 text-sm text-muted-foreground">
         {formatDuration(
@@ -433,12 +433,12 @@
     <!-- Gate arrival -->
     <div class="grid grid-cols-[1fr_1fr] items-start gap-3">
       <div class="flex h-8 items-center">
-        <Label>Gate arrival</Label>
+        <Label>Llegada a puerta</Label>
       </div>
       {#if mobileTab === 'scheduled'}
         <TimetableDateTimeCell
           {form}
-          label="Gate arrival"
+          label="Llegada a puerta"
           dateField="arrivalScheduled"
           timeField="arrivalScheduledTime"
           timezone={$formData.to?.tz}
@@ -449,7 +449,7 @@
       {:else}
         <TimetableDateTimeCell
           {form}
-          label="Gate arrival"
+          label="Llegada a puerta"
           dateField="arrival"
           timeField="arrivalTime"
           timezone={$formData.to?.tz}
@@ -466,7 +466,7 @@
       class="grid grid-cols-[1fr_1fr] items-center gap-3 mt-3 pt-3 border-t border-border/60"
     >
       <div class="flex h-8 items-center">
-        <Label class="text-muted-foreground">Air time</Label>
+        <Label class="text-muted-foreground">Tiempo en el aire</Label>
       </div>
       <div class="flex h-8 items-center px-2 text-sm text-muted-foreground">
         {formatDuration(
@@ -478,7 +478,7 @@
     <!-- Total time -->
     <div class="grid grid-cols-[1fr_1fr] items-center gap-3">
       <div class="flex h-8 items-center">
-        <Label class="text-muted-foreground">Total time</Label>
+        <Label class="text-muted-foreground">Tiempo total</Label>
       </div>
       <div class="flex h-8 items-center px-2 text-sm text-muted-foreground">
         {formatDuration(

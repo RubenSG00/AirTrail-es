@@ -30,7 +30,7 @@ export const processAITAFile = async (
 
   const userId = page.data.user?.id;
   if (!userId) {
-    throw new Error('User not found');
+    throw new Error('Usuario no encontrado');
   }
 
   for (const match of input.matchAll(tripPattern)) {

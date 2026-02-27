@@ -111,7 +111,7 @@ export async function createShare(userId: string, input: ShareCreateInput) {
   if (existing) {
     throw new TRPCError({
       code: 'CONFLICT',
-      message: 'Share URL already exists. Please choose a different one.',
+      message: 'La URL del compartido ya existe. Por favor, elige otra.',
     });
   }
 
@@ -156,7 +156,7 @@ export async function updateShare(userId: string, input: ShareUpdateInput) {
     if (existing) {
       throw new TRPCError({
         code: 'CONFLICT',
-        message: 'Share URL already exists. Please choose a different one.',
+        message: 'La URL del compartido ya existe. Por favor, elige otra.',
       });
     }
   }
@@ -199,7 +199,7 @@ export async function getPublicShareData(slug: string) {
   if (!share) {
     throw new TRPCError({
       code: 'NOT_FOUND',
-      message: 'Share not found or expired',
+      message: 'Compartido no encontrado o expirado',
     });
   }
 
@@ -352,7 +352,7 @@ export async function validateAndSaveShare(
         return {
           success: false,
           type: 'error',
-          message: 'Share URL already exists. Please choose a different one.',
+          message: 'La URL del compartido ya existe. Por favor, elige otra.',
         };
       }
 
@@ -381,14 +381,14 @@ export async function validateAndSaveShare(
 
       return {
         success: true,
-        message: 'Share updated successfully',
+        message: 'Compartido actualizado correctamente',
       };
     } catch (error) {
       console.error('Error updating share:', error);
       return {
         success: false,
         type: 'error',
-        message: 'Failed to update share',
+        message: 'Error al actualizar el compartido',
       };
     }
   } else {
@@ -404,7 +404,7 @@ export async function validateAndSaveShare(
         return {
           success: false,
           type: 'error',
-          message: 'Share URL already exists. Please choose a different one.',
+          message: 'La URL del compartido ya existe. Por favor, elige otra.',
         };
       }
 
@@ -432,14 +432,14 @@ export async function validateAndSaveShare(
 
       return {
         success: true,
-        message: 'Share created successfully',
+        message: 'Compartido creado correctamente',
       };
     } catch (error) {
       console.error('Error creating share:', error);
       return {
         success: false,
         type: 'error',
-        message: 'Failed to create share',
+        message: 'Error al crear el compartido',
       };
     }
   }

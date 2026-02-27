@@ -103,13 +103,13 @@ export const flightRouter = router({
         .execute();
 
       if (!seats.some((seat) => seat.userId === user.id)) {
-        throw new Error('You do not have a seat on this flight');
+        throw new Error('No tienes un asiento en este vuelo');
       }
 
       const resp = await deleteFlight(input);
 
       if (!resp.numDeletedRows) {
-        throw new Error('Flight not found');
+        throw new Error('Vuelo no encontrado');
       }
     }),
   deleteMany: authedProcedure
@@ -125,7 +125,7 @@ export const flightRouter = router({
       const flightIds = result.map((r) => r.flightId);
 
       if (flightIds.length !== input.length) {
-        throw new Error('You do not have a seat on all flights');
+        throw new Error('No tienes un asiento en todos los vuelos');
       }
 
       await db.deleteFrom('flight').where('id', 'in', input).execute();

@@ -18,13 +18,13 @@ export const POST: RequestHandler = async ({ cookies, request }) => {
 
   const user = await getUser(username);
   if (!user || !user.password) {
-    form.message = { type: 'error', text: 'Invalid username or password' };
+    form.message = { type: 'error', text: 'Usuario o contraseña no válidos' };
     return actionResult('failure', { form });
   }
 
   const validPassword = await verifyArgon2(user.password, password);
   if (!validPassword) {
-    form.message = { type: 'error', text: 'Invalid username or password' };
+    form.message = { type: 'error', text: 'Usuario o contraseña no válidos' };
     return actionResult('failure', { form });
   }
 

@@ -13,7 +13,7 @@ export const POST: RequestHandler = async ({ locals, request }) => {
 
   const user = locals.user;
   if (!user || user.role === 'user') {
-    return actionResult('error', 'Unauthorized', 401);
+    return actionResult('error', 'No autorizado', 401);
   }
 
   const currentConfig = (await appConfig.get())?.oauth;
@@ -35,7 +35,7 @@ export const POST: RequestHandler = async ({ locals, request }) => {
         continue;
       return error(500, {
         message:
-          'This config field is controlled by the .env file and cannot be changed here.',
+          'Este campo de configuración está controlado por el archivo .env y no se puede cambiar aquí.',
       });
     }
   }
@@ -43,11 +43,11 @@ export const POST: RequestHandler = async ({ locals, request }) => {
   const success = await appConfig.set({ oauth: form.data });
 
   if (!success) {
-    form.message = { type: 'error', text: 'Failed to edit oauth config' };
+    form.message = { type: 'error', text: 'Error al editar la configuración OAuth' };
     return actionResult('failure', { form });
   }
 
-  form.message = { type: 'success', text: 'OAuth config updated' };
+  form.message = { type: 'success', text: 'Configuración OAuth actualizada' };
 
   return actionResult('success', { form });
 };

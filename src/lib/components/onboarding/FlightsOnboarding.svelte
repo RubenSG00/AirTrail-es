@@ -64,13 +64,13 @@
       <p
         class="text-xs font-semibold tracking-[0.2em] text-muted-foreground uppercase"
       >
-        First flight
+        Primer vuelo
       </p>
       <h2 class="text-2xl font-bold tracking-tight">
-        Bring your flights into AirTrail
+        Importa tus vuelos a AirTrail
       </h2>
       <p class="text-muted-foreground text-sm">
-        Import your history or add a single flight to begin your personal map.
+        Importa tu historial o añade un vuelo para comenzar tu mapa personal.
       </p>
     </div>
     <div class="grid gap-4 md:grid-cols-2">
@@ -82,14 +82,14 @@
             <Upload size={18} />
           </div>
           <div>
-            <p class="font-semibold">Import flights</p>
+            <p class="font-semibold">Importar vuelos</p>
             <p class="text-xs text-muted-foreground">
               {importSources}.
             </p>
           </div>
         </div>
         <Button onclick={startImport} class="w-full mt-auto"
-          >Start import</Button
+          >Iniciar importación</Button
         >
       </Card>
       <Card class="p-4 flex flex-col gap-4">
@@ -100,9 +100,9 @@
             <PlaneTakeoff size={18} />
           </div>
           <div>
-            <p class="font-semibold">Add your first flight</p>
+            <p class="font-semibold">Añade tu primer vuelo</p>
             <p class="text-xs text-muted-foreground">
-              Quick manual entry for one flight.
+              Entrada manual rápida para un vuelo.
             </p>
           </div>
         </div>
@@ -118,8 +118,8 @@
     <div
       class="flex items-center justify-between text-xs text-muted-foreground"
     >
-      <span>Tip: you can always import later in Settings > Import.</span>
-      <Button variant="ghost" size="sm" onclick={skip}>Not now</Button>
+      <span>Consejo: siempre puedes importar más tarde en Configuración > Importar.</span>
+      <Button variant="ghost" size="sm" onclick={skip}>Ahora no</Button>
     </div>
   </div>
 </Modal>

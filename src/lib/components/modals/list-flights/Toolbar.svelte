@@ -62,14 +62,14 @@
   let open = $state(false);
 
   const deleteSelectedFlights = async () => {
-    const toastId = toast.loading('Deleting flights');
+    const toastId = toast.loading('Eliminando vuelos');
     try {
       await api.flight.deleteMany.mutate(selectedFlights);
       await trpc.flight.list.utils.invalidate();
-      toast.success('Flights deleted', { id: toastId });
+      toast.success('Vuelos eliminados', { id: toastId });
     } catch (err) {
       console.error(err);
-      toast.error('Failed to delete flights', { id: toastId });
+      toast.error('Error al eliminar vuelos', { id: toastId });
     }
     selectedFlights = [];
     selecting = false;
@@ -89,7 +89,7 @@
           }
         }}
       >
-        Show All Flights
+        Mostrar todos los vuelos
       </Button>
     {/if}
     <div class="flex gap-2 max-xl:hidden">
@@ -106,7 +106,7 @@
             disabled={flights.length === 0}
           >
             <Funnel size={16} />
-            <span class="max-sm:hidden">Filters</span>
+            <span class="max-sm:hidden">Filtros</span>
           </Button>
         {/snippet}
       </Popover.Trigger>
@@ -163,9 +163,9 @@
     {#if selecting}
       <Confirm
         onConfirm={deleteSelectedFlights}
-        title="Delete selected flights"
-        description="Are you sure you want to delete the selected flights? This will permanently delete the flights as well as their seats."
-        confirmText="Delete"
+        title="Eliminar vuelos seleccionados"
+        description="¿Estás seguro de que quieres eliminar los vuelos seleccionados? Esto eliminará permanentemente los vuelos así como sus asientos."
+        confirmText="Eliminar"
       >
         {#snippet triggerContent({ props })}
           <Button
@@ -176,7 +176,7 @@
             disabled={selectedFlights.length === 0}
           >
             <X size={16} />
-            <span class="max-sm:hidden">Delete</span>
+            <span class="max-sm:hidden">Eliminar</span>
           </Button>
         {/snippet}
       </Confirm>

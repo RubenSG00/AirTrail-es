@@ -70,7 +70,7 @@
 </script>
 
 <div class="space-y-4">
-  <h3 class="text-sm font-medium">Import Status</h3>
+  <h3 class="text-sm font-medium">Estado de la importación</h3>
 
   <Card class="p-4">
     <div class="flex items-start gap-3">
@@ -79,9 +79,9 @@
         size={20}
       />
       <div class="flex-1">
-        <p class="font-medium text-sm">Import Complete</p>
+        <p class="font-medium text-sm">Importación completada</p>
         <p class="text-sm text-muted-foreground mt-0.5">
-          Successfully imported {importedCount}
+          Se importaron correctamente {importedCount}
           {pluralize(importedCount, 'flight')}
         </p>
       </div>
@@ -100,11 +100,11 @@
             {unknownAirportCodes.length + unknownAirlineCodes.length} Unknown
             {pluralize(
               unknownAirportCodes.length + unknownAirlineCodes.length,
-              'Code',
+              'código',
             )}
           </p>
           <p class="text-sm text-muted-foreground mt-0.5">
-            Match unknown airports and airlines, then re-import.
+            Asocia aeropuertos y aerolíneas desconocidos, luego reimporta.
           </p>
         </div>
       </div>
@@ -125,7 +125,7 @@
                   </div>
                   <div class="flex-1">
                     <AirportPicker
-                      placeholder="Search for airport..."
+                      placeholder="Buscar aeropuerto..."
                       onchange={(airport) => setAirportMapping(code, airport)}
                       onCreateNew={() => (createAirport = true)}
                       disabled={busy}
@@ -151,7 +151,7 @@
                   </div>
                   <div class="flex-1">
                     <AirlinePicker
-                      placeholder="Search for airline..."
+                      placeholder="Buscar aerolínea..."
                       onchange={(airline) => setAirlineMapping(code, airline)}
                       onCreateNew={() => (createAirline = true)}
                       disabled={busy}
@@ -170,14 +170,14 @@
           <p class="text-xs text-muted-foreground">
             {#if mappedAirportCount > 0}
               {mappedAirportCount} of {unknownAirportCodes.length}
-              {pluralize(unknownAirportCodes.length, 'airport')} mapped
+              {pluralize(unknownAirportCodes.length, 'aeropuerto')} mapeados
             {/if}
             {#if mappedAirportCount > 0 && mappedAirlineCount > 0}
               <span class="mx-1">•</span>
             {/if}
             {#if mappedAirlineCount > 0}
               {mappedAirlineCount} of {unknownAirlineCodes.length}
-              {pluralize(unknownAirlineCodes.length, 'airline')} mapped
+              {pluralize(unknownAirlineCodes.length, 'aerolínea')} mapeados
             {/if}
           </p>
         </div>
@@ -189,7 +189,7 @@
           disabled={!canReprocess}
           class="flex-1 sm:flex-none"
         >
-          Apply Mapping & Re-import
+          Aplicar mapeo y reimportar
         </Button>
         <Button
           href="https://ourairports.com/"
@@ -197,7 +197,7 @@
           variant="outline"
           class="gap-1"
         >
-          Search OurAirports
+          Buscar en OurAirports
           <ExternalLink size={14} />
         </Button>
         <Button variant="ghost" onclick={() => onclose?.()} class="ml-auto">
@@ -206,7 +206,7 @@
       </div>
     {:else}
       <div class="mt-4 flex justify-end">
-        <Button onclick={() => onclose?.()}>Done</Button>
+        <Button onclick={() => onclose?.()}>Hecho</Button>
       </div>
     {/if}
   </Card>

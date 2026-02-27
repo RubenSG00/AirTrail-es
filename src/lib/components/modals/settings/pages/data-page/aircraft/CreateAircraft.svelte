@@ -52,7 +52,7 @@
 {/if}
 
 <Modal bind:open>
-  <ModalBreadcrumbHeader section="Aircraft" title="Add aircraft" icon={Plus} />
+  <ModalBreadcrumbHeader section="Aeronaves" title="Añadir aeronave" icon={Plus} />
   <ModalBody>
     <form
       method="POST"
@@ -61,7 +61,7 @@
       use:enhance
     >
       <AircraftFormFields {form} />
-      <Form.Button>Create</Form.Button>
+      <Form.Button>Crear</Form.Button>
     </form>
   </ModalBody>
 </Modal>

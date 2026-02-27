@@ -51,8 +51,8 @@
 
   const steps = $derived(
     platform.value === 'airtrail'
-      ? (['Source', 'File', 'Options', 'Users', 'Status'] as const)
-      : (['Source', 'File', 'Options', 'Status'] as const),
+      ? (['Fuente', 'Archivo', 'Opciones', 'Usuarios', 'Estado'] as const)
+      : (['Fuente', 'Archivo', 'Opciones', 'Estado'] as const),
   );
   const displayStep = $derived(
     platform.value === 'airtrail' ? step : step === 5 ? 4 : step,
@@ -101,7 +101,7 @@
 
     const { flights } = result;
     if (!flights.length) {
-      toast.info('No new flights to import');
+      toast.info('No hay nuevos vuelos para importar');
       unknownAirports = result.unknownAirports;
       unknownAirlines = result.unknownAirlines;
       unknownUsers = result.unknownUsers;
@@ -122,9 +122,9 @@
     const inserted = stats?.insertedFlights ?? 0;
     importedCount = mapping ? importedCount + inserted : inserted;
     if (inserted > 0) {
-      toast.success(`Imported ${inserted} ${pluralize(inserted, 'flight')}`);
+      toast.success(`Se importaron ${inserted} ${pluralize(inserted, 'vuelo')}`);
     } else {
-      toast.info('No new flights to import');
+      toast.info('No hay nuevos vuelos para importar');
     }
   };
 
@@ -142,7 +142,7 @@
       });
 
       if (!result.flights.length) {
-        toast.error('No flights found in the file');
+        toast.error('No se encontraron vuelos en el archivo');
         files = null;
         importing = false;
         return;
@@ -168,7 +168,7 @@
       importing = false;
       step = 4;
     } catch (error) {
-      toast.error('Failed to import file');
+      toast.error('Error al importar el archivo');
       console.error(error);
       importing = false;
     }
@@ -181,7 +181,7 @@
       await executeImport({ userMapping: mapping });
       step = 5;
     } catch (error) {
-      toast.error('Failed to import file');
+      toast.error('Error al importar el archivo');
       console.error(error);
     } finally {
       importing = false;
@@ -197,7 +197,7 @@
     try {
       await executeImport({ airportMapping, airlineMapping, userMapping });
     } catch (error) {
-      toast.error('Failed to reprocess file');
+      toast.error('Error al reprocesar el archivo');
       console.error(error);
     } finally {
       importing = false;
@@ -224,13 +224,13 @@
   };
 </script>
 
-<PageHeader title="Import">
+<PageHeader title="Importar">
   {#snippet subtitleHtml()}
     <p class="text-muted-foreground text-sm">
       Import your data from another platform. Learn more about the platforms <a
         href="https://airtrail.johan.ohly.dk/docs/features/import"
         target="_blank"
-        class="text-blue-500 underline">in the documentation</a
+        class="text-blue-500 underline">en la documentación</a
       >.
     </p>
   {/snippet}
@@ -268,7 +268,7 @@
   {#if step === 1}
     <!-- Step 1: Choose source/platform -->
     <div class="space-y-2">
-      <h3 class="text-sm font-medium">Choose a source</h3>
+      <h3 class="text-sm font-medium">Elegir una fuente</h3>
       <Card class="p-3">
         <PlatformTabs bind:platform />
       </Card>
@@ -283,7 +283,7 @@
       </Alert.Root>
     {/if}
     <div class="mt-4 flex justify-end">
-      <Button onclick={() => (step = 2)}>Next</Button>
+      <Button onclick={() => (step = 2)}>Siguiente</Button>
     </div>
   {:else if step === 2}
     <FileStep

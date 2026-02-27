@@ -14,16 +14,16 @@ export interface Aircraft {
 }
 
 export const airlineDataSchema = z.object({
-  id: z.string().min(1, 'Airline ID is required'),
-  name: z.string().min(1, 'Airline name is required'),
+  id: z.string().min(1, 'El ID de la aerolínea es obligatorio'),
+  name: z.string().min(1, 'El nombre de la aerolínea es obligatorio'),
   icao: z.string().nullable(),
   iata: z.string().nullable(),
   defunct: z.boolean().optional(),
 });
 
 export const aircraftDataSchema = z.object({
-  id: z.string().min(1, 'Aircraft ID is required'),
-  name: z.string().min(1, 'Aircraft name is required'),
+  id: z.string().min(1, 'El ID de la aeronave es obligatorio'),
+  name: z.string().min(1, 'El nombre de la aeronave es obligatorio'),
   icao: z.string().nullable(),
 });
 

@@ -41,15 +41,15 @@
 </script>
 
 <div class="space-y-4">
-  <h3 class="text-sm font-medium">Map exported users</h3>
+  <h3 class="text-sm font-medium">Mapear usuarios exportados</h3>
 
   <Card class="p-4 space-y-4">
     <div class="flex items-start gap-3">
       <Users class="text-muted-foreground mt-0.5 shrink-0" size={20} />
       <div>
-        <p class="text-sm">Review and adjust user mapping before import.</p>
+        <p class="text-sm">Revisa y ajusta el mapeo de usuarios antes de importar.</p>
         <p class="text-xs text-muted-foreground mt-1">
-          Username matches are pre-selected when possible.
+          Las coincidencias de nombre de usuario se preseleccionan cuando es posible.
         </p>
       </div>
     </div>
@@ -79,14 +79,14 @@
                     {#if selectedUser}
                       {selectedUser.displayName} (@{selectedUser.username})
                     {:else}
-                      Select local user...
+                      Seleccionar usuario local...
                     {/if}
                   {:else}
-                    No mapping (import as guest)
+                    Sin mapeo (importar como invitado)
                   {/if}
                 </Select.Trigger>
                 <Select.Content>
-                  <Select.Item value="" label="No mapping (import as guest)" />
+                  <Select.Item value="" label="Sin mapeo (importar como invitado)" />
                   {#each users as user (user.id)}
                     <Select.Item
                       value={user.id}
@@ -102,17 +102,17 @@
 
       <div class="mt-4 p-3 bg-muted/30 rounded-md border border-muted">
         <p class="text-xs text-muted-foreground">
-          {mappedCount} of {exportedUsers.length} users mapped
+          {mappedCount} of {exportedUsers.length} usuarios mapeados
         </p>
       </div>
     {/await}
 
     <div class="mt-4 flex justify-between">
       <Button variant="outline" onclick={() => onback?.()} disabled={busy}
-        >Back</Button
+        >Atrás</Button
       >
       <Button onclick={() => onnext?.(localMapping)} disabled={busy}
-        >Continue Import</Button
+        >Continuar importación</Button
       >
     </div>
   </Card>

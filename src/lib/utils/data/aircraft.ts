@@ -9,7 +9,7 @@ export const formatAircraft = (flight: FlightData) => {
   const aircraft = flight.aircraft?.name;
   return aircraft && flight.aircraftReg
     ? `${aircraft} (${flight.aircraftReg})`
-    : aircraft || flight.aircraftReg || 'Unknown';
+    : aircraft || flight.aircraftReg || 'Desconocido';
 };
 
 const cacheOptions = {

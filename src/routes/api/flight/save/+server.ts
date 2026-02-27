@@ -110,19 +110,19 @@ export const POST: RequestHandler = async ({ request }) => {
 
   const from = await getAirportByCode(parsed.data.from);
   if (!from) {
-    return apiError('Invalid departure airport');
+    return apiError('Aeropuerto de salida no válido');
   }
 
   const to = await getAirportByCode(parsed.data.to);
   if (!to) {
-    return apiError('Invalid arrival airport');
+    return apiError('Aeropuerto de llegada no válido');
   }
 
   let aircraft;
   if (parsed.data.aircraft) {
     aircraft = await getAircraftByIcao(parsed.data.aircraft);
     if (!aircraft) {
-      return apiError('Invalid aircraft');
+      return apiError('Aeronave no válida');
     }
   }
 
@@ -130,7 +130,7 @@ export const POST: RequestHandler = async ({ request }) => {
   if (parsed.data.airline) {
     airline = await getAirlineByIcao(parsed.data.airline);
     if (!airline) {
-      return apiError('Invalid airline');
+      return apiError('Aerolínea no válida');
     }
   }
 

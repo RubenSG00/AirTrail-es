@@ -53,7 +53,7 @@
       await trpc.visitedCountries.list.utils.invalidate();
       open = false;
     } else {
-      toast.error('Failed to save');
+      toast.error('Error al guardar');
     }
     loading = false;
   };
@@ -62,14 +62,14 @@
 <Modal bind:open>
   <h2 class="text-lg font-bold max-md:mb-2">{countryData?.name}</h2>
   <div class="grid grid-cols-2 gap-2">
-    {@render statusRadioItem('visited', 'Visited')}
-    {@render statusRadioItem('lived', 'Lived')}
-    {@render statusRadioItem('wishlist', 'Wishlist')}
-    {@render statusRadioItem('layover', 'Layover')}
+    {@render statusRadioItem('visited', 'Visitado')}
+    {@render statusRadioItem('lived', 'Vivido')}
+    {@render statusRadioItem('wishlist', 'Deseo')}
+    {@render statusRadioItem('layover', 'Escala')}
   </div>
   <Textarea
     bind:value={note}
-    placeholder="Note"
+    placeholder="Nota"
     class="resize-y h-20 min-h-10 max-h-64 w-full mt-2"
   />
   <Button
@@ -81,7 +81,7 @@
     {#if loading}
       <LoaderCircle size={16} class="animate-spin mr-2" />
     {/if}
-    Save
+    Guardar
   </Button>
 </Modal>
 

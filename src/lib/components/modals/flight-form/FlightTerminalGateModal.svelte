@@ -37,17 +37,17 @@
 >
   <ArrowUpRight size={20} />
   {#if $isSmallScreen}
-    Terminal & Gate
+    Terminal y Puerta
   {/if}
 </Button>
 
 <Modal bind:open class="max-w-md" closeOnOutsideClick={false}>
   <ModalHeader class="pb-0">
-    <h2 class="text-lg font-medium">Terminal & Gate</h2>
+    <h2 class="text-lg font-medium">Terminal y Puerta</h2>
   </ModalHeader>
   <ModalBody>
     <div class="grid gap-3">
-      {#each [{ label: 'Departure', terminal: 'departureTerminal', gate: 'departureGate', termPlaceholder: 'e.g. 2E', gatePlaceholder: 'e.g. A12' }, { label: 'Arrival', terminal: 'arrivalTerminal', gate: 'arrivalGate', termPlaceholder: 'e.g. 1', gatePlaceholder: 'e.g. B7' }] as section (section.label)}
+      {#each [{ label: 'Salida', terminal: 'departureTerminal', gate: 'departureGate', termPlaceholder: 'e.g. 2E', gatePlaceholder: 'e.g. A12' }, { label: 'Llegada', terminal: 'arrivalTerminal', gate: 'arrivalGate', termPlaceholder: 'e.g. 1', gatePlaceholder: 'e.g. B7' }] as section (section.label)}
         <fieldset class="rounded-lg border px-3 pb-3 pt-2">
           <legend
             class="px-1.5 text-xs font-semibold uppercase tracking-wide text-muted-foreground"
@@ -71,7 +71,7 @@
             <Form.Field {form} name={section.gate} class="flex flex-col">
               <Form.Control>
                 {#snippet children({ props })}
-                  <Form.Label>Gate</Form.Label>
+                  <Form.Label>Puerta</Form.Label>
                   <Input
                     bind:value={$formData[section.gate]}
                     placeholder={section.gatePlaceholder}
@@ -87,6 +87,6 @@
     </div>
   </ModalBody>
   <div class="flex justify-end gap-2 px-6 pb-4">
-    <Button size="sm" onclick={() => (open = false)}>Done</Button>
+    <Button size="sm" onclick={() => (open = false)}>Hecho</Button>
   </div>
 </Modal>

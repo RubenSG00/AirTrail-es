@@ -112,7 +112,7 @@
           <div class="hidden space-x-1 lg:flex">
             {#if filterValues.length > 2}
               <Badge variant="secondary" class="rounded-sm px-1 font-normal">
-                {filterValues.length} Selected
+                {filterValues.length} Seleccionados
               </Badge>
             {:else}
               {#each filterValues as value}
@@ -131,7 +131,7 @@
       <Command.Input {placeholder} />
       <Command.List>
         <Command.Viewport>
-          <Command.Empty>No results found.</Command.Empty>
+          <Command.Empty>No se encontraron resultados.</Command.Empty>
           <Command.Group>
             {#each options as option}
               <Command.Item

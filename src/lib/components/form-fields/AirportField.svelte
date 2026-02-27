@@ -27,7 +27,7 @@
       <Form.Label>{toTitleCase(field)} *</Form.Label>
       <AirportPicker
         bind:value={$formData[field]}
-        placeholder="Choose an airport"
+        placeholder="Elegir un aeropuerto"
         onCreateNew={() => (createAirport = true)}
       />
       <input hidden bind:value={$formData[field]} name={props.name} />

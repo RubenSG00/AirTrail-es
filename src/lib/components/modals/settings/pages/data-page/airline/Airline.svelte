@@ -29,8 +29,8 @@
 
   const deleteAirline = async (airline: Airline) => {
     const confirmed = await confirmation.show({
-      title: 'Remove Airline',
-      description: `Are you sure you want to remove ${airline.name}?`,
+      title: 'Eliminar aerolínea',
+      description: `¿Estás seguro de que deseas eliminar ${airline.name}?`,
     });
     if (!confirmed) return;
 
@@ -38,9 +38,9 @@
     if (success) {
       await trpc.airline.list.utils.invalidate();
       await trpc.flight.list.utils.invalidate();
-      toast.success('Airline removed');
+      toast.success('Aerolínea eliminada');
     } else {
-      toast.error('Failed to remove airline');
+      toast.error('Error al eliminar aerolínea');
     }
   };
 
@@ -68,15 +68,15 @@
         includeDefunct,
       });
       await trpc.airline.list.utils.invalidate();
-      let message = `Added ${result.added}, Updated ${result.updated}`;
+      let message = `Añadidas ${result.added}, Actualizadas ${result.updated}`;
       if (result.errors.length > 0) {
-        message += ` (${result.errors.length} errors)`;
+        message += ` (${result.errors.length} errores)`;
         toast.warning(message);
       } else {
         toast.success(message);
       }
     } catch {
-      toast.error('Failed to sync airlines');
+      toast.error('Error al sincronizar aerolíneas');
     } finally {
       syncing = false;
     }
@@ -87,27 +87,27 @@
     try {
       const result = await api.airline.syncIcons.mutate({ overwrite });
       await trpc.airline.list.utils.invalidate();
-      let message = `Synced ${result.synced} icons`;
+      let message = `Sincronizados ${result.synced} iconos`;
       if (result.errors.length > 0) {
-        message += ` (${result.errors.length} errors)`;
+        message += ` (${result.errors.length} errores)`;
         toast.warning(message);
       } else if (result.synced === 0) {
-        toast.info('No icons to sync');
+        toast.info('No hay iconos para sincronizar');
       } else {
         toast.success(message);
       }
     } catch {
-      toast.error('Failed to sync icons');
+      toast.error('Error al sincronizar iconos');
     } finally {
       syncingIcons = false;
     }
   };
 </script>
 
-<Collapsible title="Airlines" subtitle="Manage airlines in your database.">
+<Collapsible title="Aerolíneas" subtitle="Gestiona las aerolíneas en tu base de datos.">
   <div class="flex flex-col gap-4">
     <div class="flex gap-2 justify-between">
-      <Input oninput={handleSearch} class="h-9" placeholder="Search airlines" />
+      <Input oninput={handleSearch} class="h-9" placeholder="Buscar aerolíneas" />
       <div class="flex gap-2">
         <Button
           variant="outline"
@@ -116,7 +116,7 @@
           onclick={() => (syncDialogOpen = true)}
         >
           <RefreshCw size={16} class="shrink-0" />
-          Sync
+          Sincronizar
         </Button>
         <CreateAirline withoutTrigger={false} />
       </div>
@@ -169,20 +169,20 @@
 
 <Modal bind:open={syncDialogOpen} class="max-w-md">
   <div class="flex flex-col gap-1.5">
-    <h2 class="text-lg font-semibold">Sync Airlines</h2>
+    <h2 class="text-lg font-semibold">Sincronizar aerolíneas</h2>
     <p class="text-sm text-muted-foreground">
-      Download airline data and icons from the AirTrail repository.
+      Descargar datos e iconos de aerolíneas del repositorio de AirTrail.
     </p>
   </div>
 
   <div class="flex flex-col gap-3 py-2">
     <label class="flex items-center gap-2 text-sm">
       <Checkbox bind:checked={overwrite} />
-      Overwrite existing entries
+      Sobrescribir entradas existentes
     </label>
     <label class="flex items-center gap-2 text-sm">
       <Checkbox bind:checked={includeDefunct} />
-      Include defunct airlines
+      Incluir aerolíneas extintas
     </label>
   </div>
 
@@ -195,7 +195,7 @@
       {#if syncing}
         <LoaderCircle size={16} class="mr-2 animate-spin" />
       {/if}
-      Sync Airlines
+      Sincronizar aerolíneas
     </Button>
     <Button
       variant="outline"
@@ -205,7 +205,7 @@
       {#if syncingIcons}
         <LoaderCircle size={16} class="mr-2 animate-spin" />
       {/if}
-      Sync Icons
+      Sincronizar iconos
     </Button>
   </div>
 </Modal>

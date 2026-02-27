@@ -8,13 +8,13 @@
 </script>
 
 <PageHeader
-  title="Appearance"
-  subtitle="Customize the appearance of the application."
+  title="Apariencia"
+  subtitle="Personaliza la apariencia de la aplicación."
 >
   <div class="space-y-2">
-    <h3 class="text-sm font-medium">Color Theme</h3>
+    <h3 class="text-sm font-medium">Tema de Color</h3>
     <p class="text-muted-foreground text-[0.8rem]">
-      By default, the application will use the system's theme.
+      Por defecto, la aplicación usará el tema del sistema.
     </p>
     <RadioGroup.Root
       value={mode.current}
@@ -47,7 +47,7 @@
             </div>
           </div>
         </div>
-        <span class="block w-full p-2 text-center font-normal"> Dark </span>
+        <span class="block w-full p-2 text-center font-normal"> Oscuro </span>
       </Label>
       <Label
         class="w-full cursor-pointer [&:has([data-state=checked])>div]:border-primary"
@@ -75,7 +75,7 @@
             </div>
           </div>
         </div>
-        <span class="block w-full p-2 text-center font-normal"> Light </span>
+        <span class="block w-full p-2 text-center font-normal"> Claro </span>
       </Label>
     </RadioGroup.Root>
   </div>

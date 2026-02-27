@@ -40,29 +40,29 @@
 </script>
 
 <PageHeader
-  title="Data"
-  subtitle="Manage custom airports, airlines and aircraft."
+  title="Datos"
+  subtitle="Gestiona aeropuertos, aerolíneas y aeronaves personalizados."
 >
   <div class="flex flex-col gap-4">
     <Card>
       <CardContent>
         <div class="flex flex-col">
-          <StatCard title="Airports" value={numAirports}>
+          <StatCard title="Aeropuertos" value={numAirports}>
             {#snippet icon()}
               <FlightTakeoff class="text-primary" />
             {/snippet}
           </StatCard>
-          <StatCard title="Custom Airports" value={customAirports.length}>
+          <StatCard title="Aeropuertos personalizados" value={customAirports.length}>
             {#snippet icon()}
               <LocationOn class="text-primary" />
             {/snippet}
           </StatCard>
-          <StatCard title="Aircraft" value={aircraft.length}>
+          <StatCard title="Aeronaves" value={aircraft.length}>
             {#snippet icon()}
               <Flight class="text-primary" />
             {/snippet}
           </StatCard>
-          <StatCard title="Airlines" value={airlines.length}>
+          <StatCard title="Aerolíneas" value={airlines.length}>
             {#snippet icon()}
               <Airlines class="text-primary" />
             {/snippet}

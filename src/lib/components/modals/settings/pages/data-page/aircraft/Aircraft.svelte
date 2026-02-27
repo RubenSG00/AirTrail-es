@@ -23,9 +23,9 @@
     if (success) {
       await trpc.aircraft.list.utils.invalidate();
       await trpc.flight.list.utils.invalidate();
-      toast.success('Aircraft removed');
+      toast.success('Aeronave eliminada');
     } else {
-      toast.error('Failed to remove aircraft');
+      toast.error('Error al eliminar aeronave');
     }
   };
 
@@ -48,15 +48,15 @@
     try {
       const result = await api.aircraft.sync.mutate({ overwrite });
       await trpc.aircraft.list.utils.invalidate();
-      let message = `Added ${result.added}, Updated ${result.updated}`;
+      let message = `Añadidas ${result.added}, Actualizadas ${result.updated}`;
       if (result.errors.length > 0) {
-        message += ` (${result.errors.length} errors)`;
+        message += ` (${result.errors.length} errores)`;
         toast.warning(message);
       } else {
         toast.success(message);
       }
     } catch {
-      toast.error('Failed to sync aircraft');
+      toast.error('Error al sincronizar aeronaves');
     } finally {
       syncing = false;
     }
@@ -64,12 +64,12 @@
 </script>
 
 <Collapsible
-  title="Aircraft"
-  subtitle="Manage aircraft types in your database."
+  title="Aeronaves"
+  subtitle="Gestiona los tipos de aeronaves en tu base de datos."
 >
   <div class="flex flex-col gap-4">
     <div class="flex gap-2 justify-between">
-      <Input oninput={handleSearch} class="h-9" placeholder="Search aircraft" />
+      <Input oninput={handleSearch} class="h-9" placeholder="Buscar aeronaves" />
       <div class="flex gap-2">
         <Button
           variant="outline"
@@ -78,7 +78,7 @@
           onclick={() => (syncDialogOpen = true)}
         >
           <RefreshCw size={16} class="shrink-0" />
-          Sync
+          Sincronizar
         </Button>
         <CreateAircraft />
       </div>
@@ -101,8 +101,8 @@
               {/key}
               <Confirm
                 onConfirm={async () => deleteAircraft(aircraftItem.id)}
-                title="Remove Aircraft"
-                description="Are you sure you want to remove this aircraft? This may affect existing flight records."
+                title="Eliminar aeronave"
+                description="¿Estás seguro de que deseas eliminar esta aeronave? Esto puede afectar a los registros de vuelos existentes."
               >
                 {#snippet triggerContent({ props })}
                   <Button variant="outline" size="icon" {...props}>
@@ -120,16 +120,16 @@
 
 <Modal bind:open={syncDialogOpen} class="max-w-md">
   <div class="flex flex-col gap-1.5">
-    <h2 class="text-lg font-semibold">Sync Aircraft</h2>
+    <h2 class="text-lg font-semibold">Sincronizar aeronaves</h2>
     <p class="text-sm text-muted-foreground">
-      Download aircraft data from the AirTrail repository.
+      Descargar datos de aeronaves del repositorio de AirTrail.
     </p>
   </div>
 
   <div class="flex flex-col gap-3 py-2">
     <label class="flex items-center gap-2 text-sm">
       <Checkbox bind:checked={overwrite} />
-      Overwrite existing entries
+      Sobrescribir entradas existentes
     </label>
   </div>
 
@@ -138,7 +138,7 @@
       {#if syncing}
         <LoaderCircle size={16} class="mr-2 animate-spin" />
       {/if}
-      Sync Aircraft
+      Sincronizar aeronaves
     </Button>
   </div>
 </Modal>

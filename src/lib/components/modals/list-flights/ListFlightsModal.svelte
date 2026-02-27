@@ -284,7 +284,7 @@
           {/if}
         </div>
       {:else}
-        <h2 class="text-3xl font-bold tracking-tight">All Flights</h2>
+        <h2 class="text-3xl font-bold tracking-tight">Todos los Vuelos</h2>
       {/if}
 
       {#if filters && !readonly}
@@ -545,7 +545,7 @@
       {airport?.iata || airport?.icao || 'N/A'}
     </span>
     <Tooltip.AutoTooltip
-      text={airport?.name || 'Deleted Airport'}
+      text={airport?.name || 'Aeropuerto eliminado'}
       class="text-center w-32 text-xs text-muted-foreground truncate"
     />
   </div>

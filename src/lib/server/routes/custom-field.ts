@@ -88,14 +88,14 @@ const ensureDefaultValueIsValid = (input: DefinitionInput) => {
   const expected = EXPECTED_DEFAULT_TYPES[input.fieldType];
   if (expected && typeof input.defaultValue !== expected) {
     badRequest(
-      `Default value must be a ${expected} for ${input.fieldType} fields`,
+      `El valor predeterminado debe ser un ${expected} para campos de tipo ${input.fieldType}`,
     );
   }
 
   if (input.fieldType === 'select') {
     const options = input.options ?? [];
     if (!options.includes(input.defaultValue as string)) {
-      badRequest('Default value must be one of the select options');
+      badRequest('El valor predeterminado debe ser una de las opciones del selector');
     }
   }
 };
@@ -109,7 +109,7 @@ const ensureValidationRulesAreValid = (input: DefinitionInput) => {
       // Validate regex at definition-save time to avoid blocking future flight saves.
       new RegExp(validation.regex);
     } catch {
-      badRequest('Regex pattern is invalid');
+      badRequest('El patrón regex no es válido');
     }
   }
 
@@ -118,7 +118,7 @@ const ensureValidationRulesAreValid = (input: DefinitionInput) => {
     typeof validation.maxLength === 'number' &&
     validation.minLength > validation.maxLength
   ) {
-    badRequest('Min length cannot be greater than max length');
+    badRequest('La longitud mínima no puede ser mayor que la máxima');
   }
 
   if (
@@ -126,13 +126,13 @@ const ensureValidationRulesAreValid = (input: DefinitionInput) => {
     typeof validation.max === 'number' &&
     validation.min > validation.max
   ) {
-    badRequest('Min value cannot be greater than max value');
+    badRequest('El valor mínimo no puede ser mayor que el máximo');
   }
 };
 
 const ensureDefinitionIsValid = (input: DefinitionInput) => {
   if (input.fieldType === 'select' && (input.options ?? []).length === 0) {
-    badRequest('Select fields require at least one option');
+    badRequest('Los campos de selección requieren al menos una opción');
   }
   ensureDefaultValueIsValid(input);
   ensureValidationRulesAreValid(input);

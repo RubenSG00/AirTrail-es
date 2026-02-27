@@ -10,7 +10,7 @@ export const oauthRouter = router({
   authorize: publicProcedure.input(z.string()).query(async ({ input }) => {
     const config = await appConfig.get();
     if (!config?.oauth?.enabled) {
-      throw new Error('OAuth is not enabled');
+      throw new Error('OAuth no está habilitado');
     }
 
     const url = await getAuthorizeUrl(input);

@@ -5,27 +5,27 @@ import { AirportTypes, Continents } from '$lib/db/types';
 export const airportSchema = z.object({
   id: z.number().nullable(),
   icao: z
-    .string({ message: 'Set a code' })
-    .regex(/^[A-Z]{4}$/, 'Code must be 4 uppercase letters'),
+    .string({ message: 'Establece un código' })
+    .regex(/^[A-Z]{4}$/, 'El código debe ser 4 letras mayúsculas'),
   type: z
-    .enum(AirportTypes, { message: 'Select an airport type' })
+    .enum(AirportTypes, { message: 'Selecciona un tipo de aeropuerto' })
     // @ts-expect-error - z.enum always defaults to the first enum value, but we dont want a default
     .default(''),
-  name: z.string().min(1, 'Set a name'),
+  name: z.string().min(1, 'Establece un nombre'),
   municipality: z.string(),
   // @ts-expect-error - z.number always defaults to 0, but we dont want a default
-  lat: z.number({ message: 'Set the latitude' }).default(null),
+  lat: z.number({ message: 'Establece la latitud' }).default(null),
   // @ts-expect-error - z.number always defaults to 0, but we dont want a default
-  lon: z.number({ message: 'Set the longitude' }).default(null),
+  lon: z.number({ message: 'Establece la longitud' }).default(null),
   continent: z
-    .enum(Continents, { message: 'Select a continent' })
+    .enum(Continents, { message: 'Selecciona un continente' })
     // @ts-expect-error - z.enum always defaults to the first enum value, but we dont want a default
     .default(''),
-  country: z.string().min(1, 'Select a country'),
+  country: z.string().min(1, 'Selecciona un país'),
   iata: z.string(),
   tz: z
-    .string({ message: 'Select a timezone' })
-    .regex(/^[a-zA-Z]+\/[a-zA-Z_]+$/, 'Must be a valid timezone ID'),
+    .string({ message: 'Selecciona una zona horaria' })
+    .regex(/^[a-zA-Z]+\/[a-zA-Z_]+$/, 'Debe ser un ID de zona horaria válido'),
 });
 
 /*

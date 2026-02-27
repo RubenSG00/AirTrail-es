@@ -124,7 +124,7 @@
       id={fieldId}
       value={(value as string) ?? ''}
       oninput={(e) => set(e.currentTarget.value || null)}
-      placeholder="Enter value..."
+      placeholder="Introducir valor..."
     />
   {:else if fieldType === 'textarea'}
     <textarea
@@ -143,7 +143,7 @@
         const parsed = Number(raw);
         set(raw === '' || Number.isNaN(parsed) ? null : parsed);
       }}
-      placeholder="Enter value..."
+      placeholder="Introducir valor..."
     />
   {:else if fieldType === 'boolean'}
     <Switch
@@ -165,7 +165,7 @@
       onValueChange={(v) => set(v || null)}
     >
       <Select.Trigger id={fieldId}>
-        {(value as string) || 'Select option'}
+        {(value as string) || 'Seleccionar opción'}
       </Select.Trigger>
       <Select.Content>
         {#each resolvedOptions as option (option)}

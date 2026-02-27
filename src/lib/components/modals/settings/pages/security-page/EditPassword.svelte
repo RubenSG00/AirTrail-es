@@ -36,12 +36,12 @@
   const { form: formData, enhance } = form;
 </script>
 
-<Button variant="outline" onclick={() => (open = true)}>Edit password</Button>
+<Button variant="outline" onclick={() => (open = true)}>Editar contraseña</Button>
 
 <Modal bind:open>
   <ModalBreadcrumbHeader
-    section="Security"
-    title="Edit password"
+    section="Seguridad"
+    title="Editar contraseña"
     icon={KeyRound}
   />
   <ModalBody>
@@ -54,7 +54,7 @@
       <Form.Field {form} name="currentPassword">
         <Form.Control>
           {#snippet children({ props })}
-            <Form.Label>Current Password</Form.Label>
+            <Form.Label>Contraseña actual</Form.Label>
             <PasswordInput bind:value={$formData.currentPassword} {...props} />
           {/snippet}
         </Form.Control>
@@ -64,7 +64,7 @@
         <Form.Field {form} name="newPassword">
           <Form.Control>
             {#snippet children({ props })}
-              <Form.Label>New Password</Form.Label>
+              <Form.Label>Nueva contraseña</Form.Label>
               <PasswordInput bind:value={$formData.newPassword} {...props} />
             {/snippet}
           </Form.Control>
@@ -73,7 +73,7 @@
         <Form.Field {form} name="confirmPassword">
           <Form.Control>
             {#snippet children({ props })}
-              <Form.Label>Confirm Password</Form.Label>
+              <Form.Label>Confirmar contraseña</Form.Label>
               <PasswordInput
                 bind:value={$formData.confirmPassword}
                 {...props}
@@ -83,7 +83,7 @@
           <Form.FieldErrors />
         </Form.Field>
       </div>
-      <Form.Button class="mt-1">Save</Form.Button>
+      <Form.Button class="mt-1">Guardar</Form.Button>
     </form>
   </ModalBody>
 </Modal>

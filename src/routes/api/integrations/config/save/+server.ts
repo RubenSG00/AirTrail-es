@@ -13,7 +13,7 @@ export const POST: RequestHandler = async ({ locals, request }) => {
 
   const user = locals.user;
   if (!user || user.role === 'user') {
-    return actionResult('error', 'Unauthorized', 401);
+    return actionResult('error', 'No autorizado', 401);
   }
 
   const currentConfig = (await appConfig.get())?.integrations;
@@ -29,7 +29,7 @@ export const POST: RequestHandler = async ({ locals, request }) => {
   ) {
     return error(500, {
       message:
-        'This config field is controlled by the .env file and cannot be changed here.',
+        'Este campo de configuración está controlado por el archivo .env y no se puede cambiar aquí.',
     });
   }
 
@@ -38,11 +38,11 @@ export const POST: RequestHandler = async ({ locals, request }) => {
   if (!success) {
     form.message = {
       type: 'error',
-      text: 'Failed to update integrations config',
+      text: 'Error al actualizar la configuración de integraciones',
     };
     return actionResult('failure', { form });
   }
 
-  form.message = { type: 'success', text: 'Integrations config updated' };
+  form.message = { type: 'success', text: 'Configuración de integraciones actualizada' };
   return actionResult('success', { form });
 };

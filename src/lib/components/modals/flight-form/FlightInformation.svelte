@@ -27,7 +27,7 @@
       <Form.Field {form} name="aircraftReg" class="flex flex-col">
         <Form.Control>
           {#snippet children({ props })}
-            <Form.Label>Registration</Form.Label>
+            <Form.Label>Matrícula</Form.Label>
             <Input bind:value={$formData.aircraftReg} {...props} />
           {/snippet}
         </Form.Control>
@@ -38,7 +38,7 @@
     <Form.Field {form} name="flightReason">
       <Form.Control>
         {#snippet children({ props })}
-          <Form.Label>Flight Reason</Form.Label>
+          <Form.Label>Motivo del Vuelo</Form.Label>
           <Select.Root
             type="single"
             value={$formData.flightReason ?? undefined}
@@ -53,13 +53,13 @@
             <Select.Trigger {...props}>
               {$formData.flightReason
                 ? toTitleCase($formData.flightReason)
-                : 'Select flight reason'}
+                : 'Seleccionar motivo del vuelo'}
             </Select.Trigger>
             <Select.Content>
-              <Select.Item value="leisure" label="Leisure" />
-              <Select.Item value="business" label="Business" />
-              <Select.Item value="crew" label="Crew" />
-              <Select.Item value="other" label="Other" />
+              <Select.Item value="leisure" label="Ocio" />
+              <Select.Item value="business" label="Negocios" />
+              <Select.Item value="crew" label="Tripulación" />
+              <Select.Item value="other" label="Otro" />
             </Select.Content>
           </Select.Root>
           <input
@@ -74,7 +74,7 @@
     <Form.Field {form} name="note">
       <Form.Control>
         {#snippet children({ props })}
-          <Form.Label>Notes</Form.Label>
+          <Form.Label>Notas</Form.Label>
           <Textarea
             bind:value={$formData.note}
             class="resize-y h-20 min-h-10 max-h-32"

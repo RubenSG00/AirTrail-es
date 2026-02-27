@@ -16,7 +16,7 @@
 </script>
 
 <Popover.Root>
-  <Popover.Trigger title="Click to view tooltip" class="text-muted-foreground">
+  <Popover.Trigger title="Clic para ver información" class="text-muted-foreground">
     {#if children}
       {@render children()}
     {:else}

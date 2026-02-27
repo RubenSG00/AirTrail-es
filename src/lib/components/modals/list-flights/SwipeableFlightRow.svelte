@@ -349,7 +349,7 @@
       onclick={handleEditClick}
     >
       <SquarePen size={22} />
-      <span class="text-xs font-medium">Edit</span>
+      <span class="text-xs font-medium">Editar</span>
     </button>
     <div class="w-px bg-border"></div>
     <button
@@ -358,7 +358,7 @@
       onclick={handleDeleteClick}
     >
       <Trash2 size={22} />
-      <span class="text-xs font-medium">Delete</span>
+      <span class="text-xs font-medium">Eliminar</span>
     </button>
   </div>
 

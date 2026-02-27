@@ -14,16 +14,16 @@ const checkAdminPermissions = (
   targetUser: { role: string },
 ): PermissionError | null => {
   if (!user) {
-    return { message: 'You must be logged in to edit users.', status: 401 };
+    return { message: 'Debes iniciar sesión para editar usuarios.', status: 401 };
   }
   if (user.role === 'user') {
-    return { message: 'You must be an admin to edit users.', status: 403 };
+    return { message: 'Debes ser administrador para editar usuarios.', status: 403 };
   }
   if (targetUser.role === 'owner') {
-    return { message: 'Cannot edit the owner.', status: 403 };
+    return { message: 'No se puede editar al propietario.', status: 403 };
   }
   if (targetUser.role === 'admin' && user.role === 'admin') {
-    return { message: 'Admins cannot edit other admins.', status: 403 };
+    return { message: 'Los administradores no pueden editar a otros administradores.', status: 403 };
   }
   return null;
 };
@@ -54,7 +54,7 @@ export const POST: RequestHandler = async ({ locals, request }) => {
     .executeTakeFirst();
 
   if (!targetUser) {
-    return actionResult('error', 'User not found.', 404);
+    return actionResult('error', 'Usuario no encontrado.', 404);
   }
 
   const permissionError = checkAdminPermissions(locals.user, targetUser);
@@ -72,14 +72,14 @@ export const POST: RequestHandler = async ({ locals, request }) => {
   );
 
   if (Object.keys(updatedFields).length === 0) {
-    form.message = { type: 'error', text: 'No changes made' };
+    form.message = { type: 'error', text: 'No se realizaron cambios' };
     return actionResult('success', { form });
   }
 
   if (updatedFields.username) {
     const exists = await usernameExists(updatedFields.username);
     if (exists) {
-      setError(form, 'username', 'Username already exists');
+      setError(form, 'username', 'El nombre de usuario ya existe');
       return actionResult('failure', { form });
     }
   }
@@ -91,10 +91,10 @@ export const POST: RequestHandler = async ({ locals, request }) => {
     .executeTakeFirst();
 
   if (!resp.numUpdatedRows) {
-    form.message = { type: 'error', text: 'Failed to edit user' };
+    form.message = { type: 'error', text: 'Error al editar usuario' };
     return actionResult('failure', { form });
   }
 
-  form.message = { type: 'success', text: 'User updated' };
+  form.message = { type: 'success', text: 'Usuario actualizado' };
   return actionResult('success', { form });
 };

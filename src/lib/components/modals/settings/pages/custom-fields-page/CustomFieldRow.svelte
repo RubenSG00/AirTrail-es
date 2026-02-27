@@ -39,7 +39,7 @@
   <button
     type="button"
     class="text-muted-foreground hover:text-foreground cursor-grab active:cursor-grabbing"
-    aria-label="Drag to reorder"
+    aria-label="Arrastrar para reordenar"
     {@attach sortable.handleRef}
   >
     <GripVertical size={16} />
@@ -53,7 +53,7 @@
       {/if}
     </div>
     <p class="text-sm text-muted-foreground">
-      {FIELD_TYPE_LABELS[item.fieldType]}{item.required ? ' • Required' : ''}
+      {FIELD_TYPE_LABELS[item.fieldType]}{item.required ? ' • Obligatorio' : ''}
     </p>
   </div>
   <Button variant="outline" size="icon" onclick={() => onEdit(item)}>

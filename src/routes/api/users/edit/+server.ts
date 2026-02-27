@@ -13,7 +13,7 @@ export const POST: RequestHandler = async ({ locals, request }) => {
 
   const user = locals.user;
   if (!user) {
-    return actionResult('error', 'You must be logged in to create users.', 401);
+    return actionResult('error', 'Debes iniciar sesión para editar usuarios.', 401);
   }
 
   const { username, displayName, unit } = form.data;
@@ -31,14 +31,14 @@ export const POST: RequestHandler = async ({ locals, request }) => {
   }
 
   if (Object.keys(updatedFields).length === 0) {
-    form.message = { type: 'error', text: 'No changes made' };
+    form.message = { type: 'error', text: 'No se realizaron cambios' };
     return actionResult('success', { form });
   }
 
   if (updatedFields.username) {
     const exists = await usernameExists(updatedFields.username);
     if (exists) {
-      setError(form, 'username', 'Username already exists');
+      setError(form, 'username', 'El nombre de usuario ya existe');
       return actionResult('failure', { form });
     }
   }
@@ -49,11 +49,11 @@ export const POST: RequestHandler = async ({ locals, request }) => {
     .where('id', '=', user.id)
     .executeTakeFirst();
   if (!resp.numUpdatedRows) {
-    form.message = { type: 'error', text: 'Failed to edit your information' };
+    form.message = { type: 'error', text: 'Error al editar tu información' };
     return actionResult('failure', { form });
   }
 
-  form.message = { type: 'success', text: 'Information updated' };
+  form.message = { type: 'success', text: 'Información actualizada' };
 
   return actionResult('success', { form });
 };

@@ -85,7 +85,7 @@ export class AppConfig {
           autoRegister: true,
           autoLogin: false,
           hidePasswordForm: false,
-          buttonText: 'Log in with SSO',
+          buttonText: 'Iniciar sesión con SSO',
         },
         integrations: {
           aeroDataBoxKey: null,

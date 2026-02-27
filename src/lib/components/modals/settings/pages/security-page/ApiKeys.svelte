@@ -2,6 +2,7 @@
   import autoAnimate from '@formkit/auto-animate';
   import { X } from '@o7/icon/lucide';
   import { formatRelative } from 'date-fns';
+  import { es } from 'date-fns/locale';
   import { toast } from 'svelte-sonner';
 
   import { Confirm } from '$lib/components/helpers';
@@ -27,13 +28,13 @@
   const deleteKey = async (key: ApiKey) => {
     await api.user.deleteApiKey.mutate(key.id);
     await fetchKeys();
-    toast.success('API key deleted');
+    toast.success('Clave API eliminada');
   };
 </script>
 
 <Collapsible
-  title="API Keys"
-  subtitle="Manage your API keys"
+  title="Claves API"
+  subtitle="Gestiona tus claves API"
   disabled={!loaded}
   class={{ 'opacity-80': !loaded }}
 >
@@ -45,16 +46,16 @@
             {key.name}
           </h4>
           <p class="text-muted-foreground text-sm">
-            Created {formatRelative(key.createdAt, new Date())}
+            Creado {formatRelative(key.createdAt, new Date(), { locale: es })}
             {#if key.lastUsed}
-              ∙ Last used {formatRelative(key.lastUsed, new Date())}
+              ∙ Último uso {formatRelative(key.lastUsed, new Date(), { locale: es })}
             {/if}
           </p>
         </div>
         <div class="flex items-center pr-1">
           <Confirm
-            title="Delete API Key"
-            description="Are you sure you want to delete this API key? This action cannot be undone."
+            title="Eliminar clave API"
+            description="¿Estás seguro de que deseas eliminar esta clave API? Esta acción no se puede deshacer."
             onConfirm={async () => deleteKey(key)}
           >
             {#snippet triggerContent({ props })}
@@ -66,7 +67,7 @@
         </div>
       </Card>
     {:else}
-      <p class="pb-2 text-center text-muted-foreground">No API keys found</p>
+      <p class="pb-2 text-center text-muted-foreground">No se encontraron claves API</p>
     {/each}
   </div>
   <CreateKey bind:keys />

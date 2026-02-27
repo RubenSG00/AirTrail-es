@@ -54,30 +54,30 @@
 
 <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
   <div class="cursor-pointer" onclick={() => onOpenChart?.('seat-class')}>
-    <PieChart data={seatClassDistribution} title="Seat Class" />
+    <PieChart data={seatClassDistribution} title="Clase de asiento" />
   </div>
   <div class="cursor-pointer" onclick={() => onOpenChart?.('seat')}>
-    <PieChart data={seatDistribution} title="Seat Preference" />
+    <PieChart data={seatDistribution} title="Preferencia de asiento" />
   </div>
   <div class="cursor-pointer" onclick={() => onOpenChart?.('reason')}>
-    <PieChart data={reasonDistribution} title="Flight Reasons" />
+    <PieChart data={reasonDistribution} title="Motivos de vuelo" />
   </div>
   <div class="cursor-pointer" onclick={() => onOpenChart?.('continents')}>
-    <PieChart data={continentDistribution} title="Continents" />
+    <PieChart data={continentDistribution} title="Continentes" />
   </div>
   <div class="cursor-pointer" onclick={() => onOpenChart?.('airlines')}>
-    <PieChart data={topAirlineDistribution} title="Top Airlines" />
+    <PieChart data={topAirlineDistribution} title="Top aerolíneas" />
   </div>
   <div class="cursor-pointer" onclick={() => onOpenChart?.('aircraft-models')}>
-    <PieChart data={topAircraftDistribution} title="Top Aircraft Models" />
+    <PieChart data={topAircraftDistribution} title="Top modelos de aeronaves" />
   </div>
   <div class="cursor-pointer" onclick={() => onOpenChart?.('aircraft-regs')}>
-    <PieChart data={topAircraftRegDistribution} title="Top Specific Aircraft" />
+    <PieChart data={topAircraftRegDistribution} title="Top aeronaves específicas" />
   </div>
   <div class="cursor-pointer" onclick={() => onOpenChart?.('airports')}>
-    <PieChart data={topAirportDistribution} title="Top Visited Airports" />
+    <PieChart data={topAirportDistribution} title="Top aeropuertos visitados" />
   </div>
   <div class="cursor-pointer" onclick={() => onOpenChart?.('routes')}>
-    <PieChart data={topRouteDistribution} title="Top Routes" />
+    <PieChart data={topRouteDistribution} title="Top rutas" />
   </div>
 </div>

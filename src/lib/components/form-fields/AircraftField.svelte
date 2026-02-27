@@ -24,7 +24,7 @@
   const selected = writable(
     $formData.aircraft
       ? {
-          label: $formData.aircraft?.name || 'Unknown Aircraft',
+          label: $formData.aircraft?.name || 'Aeronave desconocida',
           value: $formData.aircraft.id,
         }
       : undefined,
@@ -58,7 +58,7 @@
     selected.set(
       $formData.aircraft
         ? {
-            label: $formData.aircraft?.name || 'Unknown Aircraft',
+            label: $formData.aircraft?.name || 'Aeronave desconocida',
             value: $formData.aircraft.id,
           }
         : undefined,
@@ -134,7 +134,7 @@
         <input
           use:melt={$input}
           class="pr-16 border-input bg-background selection:bg-primary dark:bg-input/30 selection:text-primary-foreground ring-offset-background placeholder:text-muted-foreground shadow-xs flex h-9 w-full min-w-0 rounded-md border px-3 py-1 text-base outline-none transition-[color,box-shadow] disabled:cursor-not-allowed disabled:opacity-50 md:text-sm focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive"
-          placeholder="Select aircraft"
+          placeholder="Seleccionar aeronave"
         />
         {#if $open && $selected}
           <button
@@ -182,7 +182,7 @@
           >
             <div class="flex flex-col">
               <span class="truncate">{entry.name}</span>
-              <span class="text-sm opacity-75">{entry.icao || 'No ICAO'}</span>
+              <span class="text-sm opacity-75">{entry.icao || 'Sin ICAO'}</span>
             </div>
           </li>
         {:else}
@@ -192,9 +192,9 @@
         bg-popover dark:bg-dark-1 border"
             >
               {#if loading}
-                Loading aircraft...
+                Cargando aeronaves...
               {:else}
-                Start typing to search...
+                Escribe para buscar...
               {/if}
             </li>
           {:else}
@@ -206,8 +206,8 @@
               class="flex flex-col relative cursor-pointer scroll-my-2 rounded-md p-2
         bg-popover dark:bg-dark-1 border text-left"
             >
-              <span>No results found</span>
-              <span class="text-sm opacity-75">Create a new aircraft?</span>
+              <span>No se encontraron resultados</span>
+              <span class="text-sm opacity-75">¿Crear una nueva aeronave?</span>
             </button>
           {/if}
         {/each}

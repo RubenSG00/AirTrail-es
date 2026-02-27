@@ -44,7 +44,7 @@
         toast.error(result.error || 'Failed to upload icon');
       }
     } catch {
-      toast.error('Failed to upload icon');
+      toast.error('Error al subir el icono');
     }
   }
 
@@ -83,7 +83,7 @@
 {/if}
 
 <Modal bind:open>
-  <ModalBreadcrumbHeader section="Airlines" title="Add airline" icon={Plus} />
+  <ModalBreadcrumbHeader section="Aerolíneas" title="Añadir aerolínea" icon={Plus} />
   <ModalBody>
     <form
       method="POST"
@@ -93,7 +93,7 @@
     >
       <AirlineFormFields {form} />
       <div class="space-y-2">
-        <Label>Icon</Label>
+        <Label>Icono</Label>
         <IconUploadField
           currentIconPath={null}
           airlineId={null}
@@ -101,7 +101,7 @@
           bind:pendingFile={pendingIconFile}
         />
       </div>
-      <Form.Button>Create</Form.Button>
+      <Form.Button>Crear</Form.Button>
     </form>
   </ModalBody>
 </Modal>

@@ -20,7 +20,7 @@
   import { flyAndScale } from '$lib/utils';
 
   const addFlightItem = {
-    label: 'Add flight',
+    label: 'Añadir vuelo',
     icon: GitBranchPlus,
     testId: 'add-flight-button',
     onClick: () => {
@@ -28,7 +28,7 @@
     },
   };
   const listFlightsItem = {
-    label: 'List flights',
+    label: 'Lista de vuelos',
     icon: LayoutList,
     testId: 'list-flights-button',
     onClick: () => {
@@ -36,7 +36,7 @@
     },
   };
   const flightsStatisticsItem = {
-    label: 'Statistics',
+    label: 'Estadísticas',
     icon: ChartColumn,
     testId: 'statistics-button',
     onClick: () => {
@@ -44,7 +44,7 @@
     },
   };
   const settingsItem = {
-    label: 'Settings',
+    label: 'Configuración',
     icon: Settings,
     id: 'settings-button',
     onClick: () => {
@@ -55,11 +55,11 @@
 
   const OTHER = [
     {
-      label: 'Tools',
+      label: 'Herramientas',
       href: '/tools',
     },
     {
-      label: 'Visited countries',
+      label: 'Países visitados',
       href: '/visited-countries',
     },
   ];
@@ -69,7 +69,7 @@
   <div class="flex gap-4">
     {#if page.url.pathname !== '/'}
       <div transition:flyAndScale>
-        <DockFloatingItem href="/" label="Home">
+        <DockFloatingItem href="/" label="Inicio">
           <Map />
         </DockFloatingItem>
       </div>
@@ -80,7 +80,7 @@
         <DockTooltipItem item={listFlightsItem} />
         <DockTooltipItem item={flightsStatisticsItem} />
       {/if}
-      <DockDropdownItem items={OTHER} label="More">
+      <DockDropdownItem items={OTHER} label="Más">
         <Grip />
       </DockDropdownItem>
       <Separator orientation="vertical" class="h-full w-px" />

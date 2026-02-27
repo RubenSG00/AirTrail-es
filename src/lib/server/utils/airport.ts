@@ -81,13 +81,13 @@ export const validateAndSaveAirport = async (
       return {
         success: false,
         type: 'error',
-        message: 'Failed to update airport',
+        message: 'Error al actualizar el aeropuerto',
       };
     }
 
     return {
       success: true,
-      message: 'Airport updated',
+      message: 'Aeropuerto actualizado',
     };
   } else {
     try {
@@ -97,13 +97,13 @@ export const validateAndSaveAirport = async (
       return {
         success: false,
         type: 'error',
-        message: 'Failed to create airport',
+        message: 'Error al crear el aeropuerto',
       };
     }
 
     return {
       success: true,
-      message: 'Airport created',
+      message: 'Aeropuerto creado',
     };
   }
 };
