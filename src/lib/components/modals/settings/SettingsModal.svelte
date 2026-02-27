@@ -196,7 +196,7 @@
       <p class="text-xs text-muted-foreground">
         Desarrollado con
         <a
-          href="https://github.com/johanohly/AirTrail"
+          href="https://github.com/RubenSG00/AirTrail-es"
           target="_blank"
           rel="noopener noreferrer"
           class="font-medium text-foreground hover:underline">AirTrail</a

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import {
   type ComponentProps,
@@ -254,7 +254,7 @@ function CopyButton({
 
 // Install command with typewriter on first view, then static + copy button
 const INSTALL_CMD =
-  'bash <(curl -o- https://raw.githubusercontent.com/JohanOhly/AirTrail/main/scripts/install.sh)';
+  'bash <(curl -o- https://raw.githubusercontent.com/RubenSG00/AirTrail-es/main/scripts/install.sh)';
 
 export function InstallCommand() {
   const ref = useRef<HTMLDivElement>(null);

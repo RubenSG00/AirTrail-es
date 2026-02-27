@@ -1,9 +1,9 @@
-import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
+﻿import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
 import { GithubStars } from '@/components/GithubStars';
 
 async function getStarCount(): Promise<number | undefined> {
   try {
-    const res = await fetch('https://api.github.com/repos/johanohly/AirTrail', {
+    const res = await fetch('https://api.github.com/repos/RubenSG00/AirTrail-es', {
       next: { revalidate: 3600 },
     });
     const data = await res.json();

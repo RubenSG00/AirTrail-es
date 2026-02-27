@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { Card, Cards } from 'fumadocs-ui/components/card';
 import {
@@ -195,7 +195,7 @@ export default function HomePage() {
               </Link>
               <Link
                 className="inline-flex h-10 items-center justify-center rounded-full border bg-fd-secondary px-5 font-medium text-fd-secondary-foreground text-sm tracking-tight transition-colors hover:bg-fd-accent"
-                href="https://github.com/JohanOhly/AirTrail"
+                href="https://github.com/RubenSG00/AirTrail-es"
                 target="_blank"
                 rel="noopener noreferrer"
               >

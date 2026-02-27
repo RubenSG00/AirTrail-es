@@ -9,9 +9,9 @@ import { appConfig } from '$lib/server/utils/config';
 import { uploadManager } from '$lib/server/utils/uploads';
 
 const GITHUB_RAW_BASE_URL =
-  'https://raw.githubusercontent.com/johanohly/AirTrail/main';
+  'https://raw.githubusercontent.com/RubenSG00/AirTrail-es/main';
 const GITHUB_TARBALL_URL =
-  'https://api.github.com/repos/johanohly/AirTrail/tarball/main';
+  'https://api.github.com/repos/RubenSG00/AirTrail-es/tarball/main';
 
 interface SyncResult {
   added: number;

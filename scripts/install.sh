@@ -19,10 +19,10 @@ download_files() {
   fi
 
   echo "Downloading docker-compose.yml..."
-  curl -fsSL https://raw.githubusercontent.com/JohanOhly/AirTrail/main/docker/production/compose.yml -o ./docker-compose.yml
+  curl -fsSL https://raw.githubusercontent.com/RubenSG00/AirTrail-es/main/docker/production/compose.yml -o ./docker-compose.yml
 
   echo "Downloading .env file..."
-  curl -fsSL https://raw.githubusercontent.com/JohanOhly/AirTrail/main/.env.example -o ./.env
+  curl -fsSL https://raw.githubusercontent.com/RubenSG00/AirTrail-es/main/.env.example -o ./.env
 }
 
 generate_random_password() {

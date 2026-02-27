@@ -1,4 +1,4 @@
-name: Tests
+﻿name: Tests
 
 on:
   push:
@@ -46,7 +46,7 @@ jobs:
   e2e:
     name: 'E2E Tests'
     timeout-minutes: 30
-    runs-on: ${{ github.repository == 'johanohly/AirTrail' && 'ubicloud-standard-4' || 'ubuntu-latest' }}
+    runs-on: ${{ github.repository == 'RubenSG00/AirTrail-es' && 'ubicloud-standard-4' || 'ubuntu-latest' }}
 
     steps:
       - name: Harden Runner

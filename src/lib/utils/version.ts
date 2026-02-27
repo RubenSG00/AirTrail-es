@@ -20,7 +20,7 @@ export async function checkForNewVersions(): Promise<void> {
 
   try {
     const response = await fetch(
-      'https://api.github.com/repos/johanohly/AirTrail/releases',
+      'https://api.github.com/repos/RubenSG00/AirTrail-es/releases',
     );
 
     if (!response.ok) {

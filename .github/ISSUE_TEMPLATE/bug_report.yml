@@ -1,4 +1,4 @@
-name: Report an issue with AirTrail
+﻿name: Report an issue with AirTrail
 description: Report an issue with AirTrail
 body:
   - type: markdown
@@ -8,7 +8,7 @@ body:
 
         If you have a feature or enhancement request, please use the [feature request][fr] section of our [GitHub Discussions][fr].
 
-        [fr]: https://github.com/JohanOhly/AirTrail/discussions/new?category=feature-request
+        [fr]: https://github.com/RubenSG00/AirTrail-es/discussions/new?category=feature-request
 
   - type: textarea
     validations:

@@ -1,13 +1,13 @@
-<div align="center">
+﻿<div align="center">
   <br/>
-  <a href="https://hub.docker.com/r/johly/airtrail/">
-    <img src="https://img.shields.io/docker/pulls/johly/airtrail?style=for-the-badge" alt="Docker pulls">
+  <a href="https://github.com/RubenSG00/AirTrail-es/pkgs/container/airtrail-es">
+    <img src="https://img.shields.io/github/v/release/RubenSG00/AirTrail-es?style=for-the-badge" alt="Docker pulls">
   </a>
-  <a href="https://github.com/johanohly/AirTrail/releases/latest">
-    <img src="https://img.shields.io/github/v/release/johanohly/AirTrail?style=for-the-badge" alt="Latest version">
+  <a href="https://github.com/RubenSG00/AirTrail-es/releases/latest">
+    <img src="https://img.shields.io/github/v/release/RubenSG00/AirTrail-es?style=for-the-badge" alt="Latest version">
   </a>
-  <a href="https://github.com/johanohly/AirTrail/stargazers">
-    <img src="https://img.shields.io/github/stars/johanohly/AirTrail?style=for-the-badge" alt="Stars">
+  <a href="https://github.com/RubenSG00/AirTrail-es/stargazers">
+    <img src="https://img.shields.io/github/stars/RubenSG00/AirTrail-es?style=for-the-badge" alt="Stars">
   </a>
   <br/>
   <br/>
@@ -50,20 +50,20 @@
 
 Want to contribute to AirTrail? Awesome! Check out the [contributing documentation](CONTRIBUTING.md) to get started.
 
-If you find an issue, please report it on the [issue tracker](https://github.com/johanohly/AirTrail/issues/new/choose).
+If you find an issue, please report it on the [issue tracker](https://github.com/RubenSG00/AirTrail-es/issues/new/choose).
 
 ## Build Status
 
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/JohanOhly/AirTrail/build.yml?logo=github&style=for-the-badge)](https://github.com/JohanOhly/AirTrail/releases/latest)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/RubenSG00/AirTrail-es/build.yml?logo=github&style=for-the-badge)](https://github.com/RubenSG00/AirTrail-es/releases/latest)
 
 #### Sonarcloud Quality metrics
 
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=johanohly_AirTrail&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=johanohly_AirTrail)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=johanohly_AirTrail&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=johanohly_AirTrail)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=johanohly_AirTrail&metric=bugs)](https://sonarcloud.io/summary/new_code?id=johanohly_AirTrail)
-[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=johanohly_AirTrail&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=johanohly_AirTrail)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=johanohly_AirTrail&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=johanohly_AirTrail)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=johanohly_AirTrail&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=johanohly_AirTrail)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=RubenSG00_AirTrail-es&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=RubenSG00_AirTrail-es)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=RubenSG00_AirTrail-es&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=RubenSG00_AirTrail-es)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=RubenSG00_AirTrail-es&metric=bugs)](https://sonarcloud.io/summary/new_code?id=RubenSG00_AirTrail-es)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=RubenSG00_AirTrail-es&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=RubenSG00_AirTrail-es)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=RubenSG00_AirTrail-es&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=RubenSG00_AirTrail-es)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=RubenSG00_AirTrail-es&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=RubenSG00_AirTrail-es)
 
 #### FOSSA license and security scans
 
@@ -74,15 +74,15 @@ If you find an issue, please report it on the [issue tracker](https://github.com
 #### OpenSSF best practices
 
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/9689/badge)](https://bestpractices.coreinfrastructure.org/projects/9689)
-[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/johanohly/AirTrail/badge)](https://scorecard.dev/viewer/?uri=github.com/johanohly/AirTrail)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/RubenSG00/AirTrail-es/badge)](https://scorecard.dev/viewer/?uri=github.com/RubenSG00/AirTrail-es)
 
 ## Star History
 
-<a href="https://star-history.com/#johanohly/AirTrail&Date">
+<a href="https://star-history.com/#RubenSG00/AirTrail-es&Date">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=johanohly/AirTrail&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=johanohly/AirTrail&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=johanohly/AirTrail&type=Date" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=RubenSG00/AirTrail-es&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=RubenSG00/AirTrail-es&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=RubenSG00/AirTrail-es&type=Date" />
  </picture>
 </a>
 

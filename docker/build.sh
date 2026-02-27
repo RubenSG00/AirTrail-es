@@ -16,5 +16,5 @@ echo "App version: $APP_VERSION"
 echo "Git SHA: $GIT_SHA"
 
 docker build -f "$DOCKER_DIR/Dockerfile" \
-    -t "johly/airtrail:latest" \
+    -t "ghcr.io/rubensg00/airtrail-es:latest" \
     "$PWD"

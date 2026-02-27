@@ -1,4 +1,4 @@
-# Contributing to AirTrail
+﻿# Contributing to AirTrail
 
 We would love your help! We want to make contributing to this project as easy and transparent as possible.
 
@@ -78,9 +78,9 @@ We use GitHub to host code, to track issues and feature requests, as well as acc
 
 ## Issues
 
-[Open an issue](https://github.com/JohanOhly/AirTrail/issues/new/choose) **only** if you want to report a bug or a feature.
+[Open an issue](https://github.com/RubenSG00/AirTrail-es/issues/new/choose) **only** if you want to report a bug or a feature.
 Don't open issues for questions or support, instead join
-our [GitHub discussions](https://github.com/JohanOhly/AirTrail/discussions) and ask there.
+our [GitHub discussions](https://github.com/RubenSG00/AirTrail-es/discussions) and ask there.
 
 ## Bug Reports and Feature Requests
 

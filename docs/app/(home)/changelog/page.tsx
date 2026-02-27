@@ -1,4 +1,4 @@
-import defaultMdxComponents from 'fumadocs-ui/mdx';
+﻿import defaultMdxComponents from 'fumadocs-ui/mdx';
 import { type Jsx, toJsxRuntime } from 'hast-util-to-jsx-runtime';
 import { ExternalLink, Tag } from 'lucide-react';
 import type { JSX } from 'react';
@@ -7,7 +7,7 @@ import { remark } from 'remark';
 import remarkRehype from 'remark-rehype';
 import { z } from 'zod';
 
-const REPO = 'johanohly/AirTrail';
+const REPO = 'RubenSG00/AirTrail-es';
 
 /**
  * Post-process GitHub release markdown to turn bare URLs into proper links:

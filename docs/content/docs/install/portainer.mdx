@@ -1,4 +1,4 @@
----
+﻿---
 title: Portainer
 ---
 
@@ -16,10 +16,10 @@ To install Portainer, you can follow the [Official documentation](https://docs.p
     Fill in the following details:
 
     - **Name**: Give your stack a name, for example `AirTrail`.
-    - **Web editor**: Copy and paste the content from the [docker-compose.yml](https://raw.githubusercontent.com/JohanOhly/AirTrail/main/docker/production/compose.yml) file.
+    - **Web editor**: Copy and paste the content from the [docker-compose.yml](https://raw.githubusercontent.com/RubenSG00/AirTrail-es/main/docker/production/compose.yml) file.
       - Replace all instances of `.env` with `stack.env`
         ![Replace .env with stack.env](./img/portainer-stack-env.png)
-    - **Environment variables**: Go into "Advanced mode" and copy-paste the contents of [.env](https://raw.githubusercontent.com/JohanOhly/AirTrail/main/.env.example) into the text area.
+    - **Environment variables**: Go into "Advanced mode" and copy-paste the contents of [.env](https://raw.githubusercontent.com/RubenSG00/AirTrail-es/main/.env.example) into the text area.
       - Change the `ORIGIN` to the URL that you will be accessing your AirTrail instance from. You can pass multiple URLs in a comma-separated list.
       - Change the `DB_PASSWORD` to a secure password. Optionally, change other database settings.
 

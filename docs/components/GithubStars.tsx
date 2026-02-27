@@ -1,9 +1,9 @@
-'use client';
+﻿'use client';
 
 import { Star } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
-const GITHUB_URL = 'https://github.com/JohanOhly/AirTrail';
+const GITHUB_URL = 'https://github.com/RubenSG00/AirTrail-es';
 
 function formatStars(count: number): string {
   return count >= 1000 ? `${(count / 1000).toFixed(1)}k` : `${count}`;
@@ -30,7 +30,7 @@ export function GithubStars({
   );
 
   useEffect(() => {
-    fetch('https://api.github.com/repos/johanohly/AirTrail')
+    fetch('https://api.github.com/repos/RubenSG00/AirTrail-es')
       .then((res) => res.json())
       .then((data) => {
         const count = data?.stargazers_count;
