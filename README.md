@@ -1,13 +1,13 @@
-﻿<div align="center">
+<div align="center">
   <br/>
   <a href="https://github.com/RubenSG00/AirTrail-es/pkgs/container/airtrail-es">
-    <img src="https://img.shields.io/github/v/release/RubenSG00/AirTrail-es?style=for-the-badge" alt="Docker pulls">
+    <img src="https://img.shields.io/github/v/release/RubenSG00/AirTrail-es?style=for-the-badge" alt="Descargas de Docker">
   </a>
   <a href="https://github.com/RubenSG00/AirTrail-es/releases/latest">
-    <img src="https://img.shields.io/github/v/release/RubenSG00/AirTrail-es?style=for-the-badge" alt="Latest version">
+    <img src="https://img.shields.io/github/v/release/RubenSG00/AirTrail-es?style=for-the-badge" alt="Última versión">
   </a>
   <a href="https://github.com/RubenSG00/AirTrail-es/stargazers">
-    <img src="https://img.shields.io/github/stars/RubenSG00/AirTrail-es?style=for-the-badge" alt="Stars">
+    <img src="https://img.shields.io/github/stars/RubenSG00/AirTrail-es?style=for-the-badge" alt="Estrellas">
   </a>
   <br/>
   <br/>
@@ -15,94 +15,92 @@
 
 <div align="center">
   <a href="https://airtrail.johan.ohly.dk/">
-    <img src="static/favicon.png" alt="AirTrail logo" width="80" height="80">
+    <img src="static/favicon.png" alt="Logo de AirTrail" width="80" height="80">
   </a>
 
 <h3 align="center">AirTrail</h3>
 
   <p align="center">
-    A web application that allows users to track their flights and view their flight history.
+    Una aplicación web que permite a los usuarios registrar sus vuelos y consultar su historial de viajes.
   </p>
 </div>
 
-<img src="static/showcase/toggle.png" alt="AirTrail Preview">
+<img src="static/showcase/toggle.png" alt="Vista previa de AirTrail">
 
-## ✨ Features
+## ✨ Características
 
-- **World Map**: View all your flights on an interactive world map.
-- **Flight History**: Keep track of all your flights in one place.
-- **Statistics**: Get insights into your flight history with statistics.
-- **Multiple Users**: Manage multiple users, share flights among them, secure your data with user authentication and
-  integrate with your OAuth provider.
-- **Responsive Design**: Use the application on any device with a responsive design.
-- **Dark Mode**: Switch between light and dark mode.
-- **Import Flights**: Import flights from various sources including MyFlightRadar24, App in the Air, JetLog, TripIt, Flighty and byAir.
+- **Mapa Mundial**: Visualiza todos tus vuelos en un mapa interactivo.
+- **Historial de Vuelos**: Lleva un registro de todos tus vuelos en un solo lugar.
+- **Estadísticas**: Obtén información detallada sobre tu historial de vuelos con estadísticas.
+- **Múltiples Usuarios**: Gestiona varios usuarios, comparte vuelos entre ellos, protege tus datos con autenticación de usuarios e intégralo con tu proveedor OAuth.
+- **Diseño Responsive**: Usa la aplicación en cualquier dispositivo gracias a su diseño adaptable.
+- **Modo Oscuro**: Alterna entre el modo claro y el modo oscuro.
+- **Importar Vuelos**: Importa vuelos desde diversas fuentes, incluyendo MyFlightRadar24, App in the Air, JetLog, TripIt, Flighty y byAir.
 
-## 🚀 Getting Started
+## 🚀 Primeros Pasos
 
-- [Documentation](https://airtrail.johan.ohly.dk/docs/overview/introduction)
-- [Installation](https://airtrail.johan.ohly.dk/docs/overview/quick-start)
-- [About](https://airtrail.johan.ohly.dk/docs/overview/introduction)
+- [Documentación](https://airtrail.johan.ohly.dk/docs/overview/introduction)
+- [Instalación](https://airtrail.johan.ohly.dk/docs/overview/quick-start)
+- [Acerca de](https://airtrail.johan.ohly.dk/docs/overview/introduction)
 - [Demo](https://demo.airtrail.johan.ohly.dk)
-- [Contributing](https://airtrail.johan.ohly.dk/docs/overview/contributing)
+- [Contribuir](https://airtrail.johan.ohly.dk/docs/overview/contributing)
 
-## 🤝 Contributing
+## 🤝 Contribuciones
 
-Want to contribute to AirTrail? Awesome! Check out the [contributing documentation](CONTRIBUTING.md) to get started.
+¿Quieres contribuir a AirTrail? ¡Genial! Consulta la [documentación de contribución](CONTRIBUTING.md) para empezar.
 
-If you find an issue, please report it on the [issue tracker](https://github.com/RubenSG00/AirTrail-es/issues/new/choose).
+Si encuentras algún problema, por favor repórtalo en el [gestor de incidencias](https://github.com/RubenSG00/AirTrail-es/issues/new/choose).
 
-## Build Status
+## Estado de la Compilación
 
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/RubenSG00/AirTrail-es/build.yml?logo=github&style=for-the-badge)](https://github.com/RubenSG00/AirTrail-es/releases/latest)
 
-#### Sonarcloud Quality metrics
+#### Métricas de Calidad de Sonarcloud
 
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=RubenSG00_AirTrail-es&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=RubenSG00_AirTrail-es)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=RubenSG00_AirTrail-es&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=RubenSG00_AirTrail-es)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=RubenSG00_AirTrail-es&metric=bugs)](https://sonarcloud.io/summary/new_code?id=RubenSG00_AirTrail-es)
-[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=RubenSG00_AirTrail-es&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=RubenSG00_AirTrail-es)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=RubenSG00_AirTrail-es&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=RubenSG00_AirTrail-es)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=RubenSG00_AirTrail-es&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=RubenSG00_AirTrail-es)
+[![Código con Olores](https://sonarcloud.io/api/project_badges/measure?project=RubenSG00_AirTrail-es&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=RubenSG00_AirTrail-es)
+[![Calificación de Fiabilidad](https://sonarcloud.io/api/project_badges/measure?project=RubenSG00_AirTrail-es&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=RubenSG00_AirTrail-es)
+[![Errores](https://sonarcloud.io/api/project_badges/measure?project=RubenSG00_AirTrail-es&metric=bugs)](https://sonarcloud.io/summary/new_code?id=RubenSG00_AirTrail-es)
+[![Deuda Técnica](https://sonarcloud.io/api/project_badges/measure?project=RubenSG00_AirTrail-es&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=RubenSG00_AirTrail-es)
+[![Calificación de Seguridad](https://sonarcloud.io/api/project_badges/measure?project=RubenSG00_AirTrail-es&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=RubenSG00_AirTrail-es)
+[![Calificación de Mantenibilidad](https://sonarcloud.io/api/project_badges/measure?project=RubenSG00_AirTrail-es&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=RubenSG00_AirTrail-es)
 
-#### FOSSA license and security scans
+#### Análisis de Licencias y Seguridad de FOSSA
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fjohanohly%2FAirTrail.svg?type=shield&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2Fjohanohly%2FAirTrail?ref=badge_shield&issueType=license)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fjohanohly%2FAirTrail.svg?type=shield&issueType=security)](https://app.fossa.com/projects/git%2Bgithub.com%2Fjohanohly%2FAirTrail?ref=badge_shield&issueType=security)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fjohanohly%2FAirTrail.svg?type=small)](https://app.fossa.com/projects/git%2Bgithub.com%2Fjohanohly%2FAirTrail?ref=badge_small)
+[![Estado FOSSA](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fjohanohly%2FAirTrail.svg?type=shield&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2Fjohanohly%2FAirTrail?ref=badge_shield&issueType=license)
+[![Estado FOSSA](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fjohanohly%2FAirTrail.svg?type=shield&issueType=security)](https://app.fossa.com/projects/git%2Bgithub.com%2Fjohanohly%2FAirTrail?ref=badge_shield&issueType=security)
+[![Estado FOSSA](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fjohanohly%2FAirTrail.svg?type=small)](https://app.fossa.com/projects/git%2Bgithub.com%2Fjohanohly%2FAirTrail?ref=badge_small)
 
-#### OpenSSF best practices
+#### Buenas Prácticas de OpenSSF
 
-[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/9689/badge)](https://bestpractices.coreinfrastructure.org/projects/9689)
+[![Mejores Prácticas CII](https://bestpractices.coreinfrastructure.org/projects/9689/badge)](https://bestpractices.coreinfrastructure.org/projects/9689)
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/RubenSG00/AirTrail-es/badge)](https://scorecard.dev/viewer/?uri=github.com/RubenSG00/AirTrail-es)
 
-## Star History
+## Historial de Estrellas
 
 <a href="https://star-history.com/#RubenSG00/AirTrail-es&Date">
  <picture>
    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=RubenSG00/AirTrail-es&type=Date&theme=dark" />
    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=RubenSG00/AirTrail-es&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=RubenSG00/AirTrail-es&type=Date" />
+   <img alt="Gráfico del Historial de Estrellas" src="https://api.star-history.com/svg?repos=RubenSG00/AirTrail-es&type=Date" />
  </picture>
 </a>
 
-## Acknowledgements
+## Reconocimientos
 
-### Data Sources
+### Fuentes de Datos
 
-> [Airport Data](https://ourairports.com)
+> [Datos de Aeropuertos](https://ourairports.com)
 
-> [Country Borders](https://gisco-services.ec.europa.eu/distribution/v2/countries/geojson/CNTR_RG_01M_2024_4326.geojson)
+> [Fronteras de Países](https://gisco-services.ec.europa.eu/distribution/v2/countries/geojson/CNTR_RG_01M_2024_4326.geojson)
 
-> [Country Flags](https://flagpedia.net)
+> [Banderas de Países](https://flagpedia.net)
 
-### Airline Icons
+### Iconos de Aerolíneas
 
-The airline icon list ([`static/airlines`](static/airlines)) is based on [Soaring Symbols](https://github.com/anhthang/soaring-symbols) by Anh Thang, licensed under the MIT License.
+La lista de iconos de aerolíneas ([`static/airlines`](static/airlines)) está basada en [Soaring Symbols](https://github.com/anhthang/soaring-symbols) de Anh Thang, bajo licencia MIT.
 
 ### Logo
 
-The logo is from Lucide, which is a free icon pack that can be found [here](https://www.lucide.dev/).
+El logo proviene de Lucide, un paquete de iconos gratuito disponible [aquí](https://www.lucide.dev/).
 
-> Copyright (c) for portions of Lucide are held by Cole Bemis 2013-2022 as part of Feather (MIT). All other copyright (
-> c) for Lucide are held by Lucide Contributors 2022.
+> Los derechos de autor de partes de Lucide pertenecen a Cole Bemis 2013-2022 como parte de Feather (MIT). El resto de los derechos de autor de Lucide pertenecen a los Colaboradores de Lucide 2022.
